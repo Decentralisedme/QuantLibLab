@@ -1,0 +1,45 @@
+# Market conventions per currency
+# Used by curve builders and instrument definitions
+
+USD:
+  day_count: "ACT/360"
+  ois_index: SOFR
+  business_day: MODIFIED_FOLLOWING
+  calendar: NEW_YORK
+  settlement_days: 2
+
+GBP:
+  day_count: "ACT/365"
+  ois_index: SONIA
+  business_day: MODIFIED_FOLLOWING
+  calendar: LONDON
+  settlement_days: 0
+
+EUR:
+  day_count: "ACT/360"
+  ois_index: ESTR
+  business_day: MODIFIED_FOLLOWING
+  calendar: TARGET
+  settlement_days: 2
+
+# Commodities — futures settle T+1 or T+2 depending on exchange
+XAU:  # Gold
+  day_count: "ACT/360"
+  business_day: MODIFIED_FOLLOWING
+  calendar: NEW_YORK
+  settlement_days: 2
+
+CL:   # Crude Oil (WTI)
+  day_count: "ACT/360"
+  business_day: MODIFIED_FOLLOWING
+  calendar: NEW_YORK
+  settlement_days: 1
+
+# Crypto — 24/7, no holidays, no settlement lag
+BTC:
+  day_count: "ACT/365"
+  settlement_days: 0
+
+ETH:
+  day_count: "ACT/365"
+  settlement_days: 0
