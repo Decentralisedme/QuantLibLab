@@ -30,7 +30,7 @@ quantliblab/
 | Module | Status |
 |---|---|
 | `conventions` | Done |
-| `math` | In progress |
+| `math` | Done |
 | `data` | Planned |
 | `curves` | Planned |
 | `volatility` | Planned |
