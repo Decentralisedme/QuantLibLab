@@ -13,6 +13,8 @@ dependencies = [
     "pandas>=2.2",
     "python-dotenv>=1.0",
     "python-dateutil>=2.9",
+    "requests>=2.31",
+    "yfinance>=0.2",
 ]
 
 [project.optional-dependencies]
