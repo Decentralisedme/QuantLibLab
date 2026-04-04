@@ -32,7 +32,7 @@ quantliblab/
 | `conventions` | Done |
 | `math` | Done |
 | `data` | Done |
-| `curves` | Planned |
+| `curves` | Done |
 | `volatility` | Planned |
 | `instruments` | Planned |
 | `pricing` | Planned |
@@ -163,6 +163,66 @@ curve.forward_rate(date1, date2)   # f(t1,t2) = -log(P(t2)/P(t1)) / (t2-t1)
 All rates stored and computed in **continuous compounding** (market standard
 for OIS discount curves). Conversion to other conventions (annual, semi-annual)
 is available via the `conventions` module.
+
+## FX forward curves
+
+### Overview
+
+FX forward rates are derived from two OIS discount curves and the spot rate
+via **Covered Interest Rate Parity (CIP)** — no separate forward market data required.
+
+```
+F(T) = S × P_dom(T) / P_for(T)
+```
+
+Where `S` is the spot rate, `P_dom` is the domestic discount factor,
+and `P_for` is the foreign discount factor at maturity T.
+
+**Swap points** (forward points):
+```
+Swap points = (F(T) - S) × 10,000   [in pips]
+```
+
+### Supported pairs
+
+| Pair | Domestic curve | Foreign curve | Notes |
+|---|---|---|---|
+| GBPUSD | SOFR (USD) | SONIA (GBP) | London calendar |
+| EURUSD | SOFR (USD) | ESTR (EUR) | TARGET2 calendar |
+| EURGBP | SONIA (GBP) | ESTR (EUR) | London calendar |
+
+### FX forward API
+
+```python
+from quantliblab.curves import gbpusd_forward, eurusd_forward, eurgbp_forward
+
+fx = gbpusd_forward(spot=1.2924, sofr_curve=sofr, sonia_curve=sonia)
+
+fx.forward(date)           # F(T) — fair forward rate at date T
+fx.swap_points(date)       # (F(T) - S) × 10,000 in pips
+fx.forward_curve()         # DataFrame: ON/1W/1M/3M/6M/9M/12M tenors
+```
+
+### Example output (GBPUSD, valuation 2025-03-24)
+
+```
+tenor  maturity_date   spot     forward  swap_points_pips  fwd_pct_change
+   ON     2025-03-25  1.2924    1.292403              0.03          0.0002
+   1W     2025-03-31  1.2924    1.292422              0.22          0.0017
+   1M     2025-04-24  1.2924    1.292499              0.99          0.0076
+   3M     2025-06-24  1.2924    1.292306             -0.94         -0.0073
+   6M     2025-09-24  1.2924    1.290741            -16.59         -0.1284
+   9M     2025-12-24  1.2924    1.287464            -49.36         -0.3819
+  12M     2026-03-24  1.2924    1.284216            -81.84         -0.6333
+```
+
+Negative swap points indicate GBP at a forward premium (SONIA > SOFR).
+
+### CIP basis note
+
+Real market forwards may deviate slightly from CIP (cross-currency basis),
+typically 5–30 pips post-2008. This model uses clean CIP — basis correction
+can be added later when cross-currency swap data is available.
 
 ---
 
