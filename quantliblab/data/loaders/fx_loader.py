@@ -2,7 +2,7 @@
 FX spot loader via yfinance.
 
 Fetches daily closing spot rates for major pairs:
-  EURUSD, GBPUSD, USDJPY, USDCHF, AUDUSD, USDCAD
+  EURUSD, GBPUSD, EURGBP, USDJPY, USDCHF, AUDUSD, USDCAD
 
 yfinance ticker format for FX: "EURUSD=X"
 
@@ -21,6 +21,7 @@ import yfinance as yf
 FX_TICKERS: dict[str, str] = {
     "EURUSD": "EURUSD=X",
     "GBPUSD": "GBPUSD=X",
+    "EURGBP": "EURGBP=X",
     "USDJPY": "USDJPY=X",
     "USDCHF": "USDCHF=X",
     "AUDUSD": "AUDUSD=X",
