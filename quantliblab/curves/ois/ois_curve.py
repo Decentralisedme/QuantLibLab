@@ -117,11 +117,24 @@ class OISCurve(RateCurve):
     # ------------------------------------------------------------------
 
     def to_dataframe(self) -> pd.DataFrame:
-        """Return pillar data as a tidy DataFrame."""
+        """
+        Return pillar data as a tidy DataFrame.
+
+        Columns
+        -------
+        instrument      : "Deposit" or "OISSwap"
+        tenor           : e.g. "ON", "3M"
+        start_date      : settlement / effective date (valuation + spot lag)
+        maturity_date   : end date of the instrument
+        year_fraction   : time in years from valuation date to maturity
+        zero_rate       : continuously compounded zero rate (decimal)
+        discount_factor : P(T) = exp(-zero_rate * year_fraction)
+        """
         rows = [
             {
                 "instrument":       p.instrument,
                 "tenor":            p.tenor,
+                "start_date":       p.start_date.isoformat(),
                 "maturity_date":    p.maturity_date.isoformat(),
                 "year_fraction":    round(p.year_frac, 6),
                 "zero_rate":        round(p.zero_rate, 8),

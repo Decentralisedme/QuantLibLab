@@ -12,6 +12,7 @@ from quantliblab.conventions import (
     LondonCalendar,
     NewYorkCalendar,
     TARGETCalendar,
+    CMECalendar,
     Tenor,
     TenorUnit,
 )
@@ -163,3 +164,53 @@ class TestTenor:
 
     def test_str(self):
         assert str(Tenor.from_string("6M")) == "6M"
+
+
+# ---------------------------------------------------------------------------
+# CMECalendar
+# ---------------------------------------------------------------------------
+
+class TestCMECalendar:
+    def setup_method(self):
+        self.cme = CMECalendar()
+        self.nyfed = NewYorkCalendar()
+
+    # Good Friday 2025 = 2025-04-18
+    def test_good_friday_cme_closed(self):
+        assert not self.cme.is_business_day(date(2025, 4, 18))
+
+    def test_good_friday_nyfed_open(self):
+        assert self.nyfed.is_business_day(date(2025, 4, 18))
+
+    # Good Friday 2026 = 2026-04-03
+    def test_good_friday_2026_cme_closed(self):
+        assert not self.cme.is_business_day(date(2026, 4, 3))
+
+    def test_good_friday_2026_nyfed_open(self):
+        assert self.nyfed.is_business_day(date(2026, 4, 3))
+
+    # Columbus Day 2025 = 2025-10-13 — both open (NY Fed removed it too)
+    def test_columbus_day_both_open(self):
+        assert self.cme.is_business_day(date(2025, 10, 13))
+        assert self.nyfed.is_business_day(date(2025, 10, 13))
+
+    # Shared holidays — both closed
+    def test_christmas_both_closed(self):
+        assert not self.cme.is_business_day(date(2025, 12, 25))
+        assert not self.nyfed.is_business_day(date(2025, 12, 25))
+
+    def test_thanksgiving_both_closed(self):
+        assert not self.cme.is_business_day(date(2025, 11, 27))
+        assert not self.nyfed.is_business_day(date(2025, 11, 27))
+
+    def test_mlk_day_both_closed(self):
+        # MLK 2025 = Jan 20
+        assert not self.cme.is_business_day(date(2025, 1, 20))
+        assert not self.nyfed.is_business_day(date(2025, 1, 20))
+
+    def test_weekends_closed(self):
+        assert not self.cme.is_business_day(date(2025, 4, 12))  # Saturday
+        assert not self.cme.is_business_day(date(2025, 4, 13))  # Sunday
+
+    def test_regular_weekday_open(self):
+        assert self.cme.is_business_day(date(2025, 4, 14))  # Monday after Easter

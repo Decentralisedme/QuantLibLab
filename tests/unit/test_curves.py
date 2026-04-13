@@ -186,7 +186,7 @@ class TestOISCurveConstructors:
     def test_to_dataframe_columns(self):
         curve = OISCurve.sofr(VALUATION, SOFR_INSTRUMENTS)
         df = curve.to_dataframe()
-        expected = {"instrument", "tenor", "maturity_date",
+        expected = {"instrument", "tenor", "start_date", "maturity_date",
                     "year_fraction", "zero_rate", "discount_factor"}
         assert set(df.columns) == expected
         assert len(df) == 6

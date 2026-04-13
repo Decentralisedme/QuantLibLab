@@ -88,18 +88,32 @@ def bootstrap(
     -------
     List of CurvePillar, one per instrument, sorted by maturity.
     """
-    # Spot date = valuation + settlement lag
+    # Spot date = valuation + settlement lag (used for 1W and longer)
+    next_business_day = _add_business_days(valuation_date, 1, calendar)
     spot_date = _add_business_days(valuation_date, settlement_days, calendar)
 
     pillars: list[CurvePillar] = []
 
     for instr in instruments:
-        tenor = Tenor.from_string(instr.tenor)
-        maturity = adjust(
-            tenor.add_to(spot_date),
-            BusinessDayConvention.MODIFIED_FOLLOWING,
-            calendar,
-        )
+        # O/N and T/N are exceptions to spot-starting:
+        #   O/N: start = valuation date (T+0), end = next business day
+        #   T/N: start = next business day (T+1), end = T+2 (spot)
+        #   All others: start = spot date, end = spot + tenor
+        if instr.tenor == "ON":
+            start_date = valuation_date
+            maturity = next_business_day
+        elif instr.tenor == "TN":
+            start_date = next_business_day
+            maturity = spot_date
+        else:
+            start_date = spot_date
+            tenor = Tenor.from_string(instr.tenor)
+            maturity = adjust(
+                tenor.add_to(spot_date),
+                BusinessDayConvention.MODIFIED_FOLLOWING,
+                calendar,
+            )
+
         tau = year_fraction(valuation_date, maturity, basis)
 
         if tau <= 0:
@@ -116,6 +130,7 @@ def bootstrap(
         pillars.append(CurvePillar(
             instrument      = instr.instrument_type.value,
             tenor           = instr.tenor,
+            start_date      = start_date,
             maturity_date   = maturity,
             year_frac       = tau,
             zero_rate       = zr,

@@ -28,6 +28,7 @@ class CurvePillar:
     """One calibrated point on the curve."""
     instrument:      str    # e.g. "Deposit", "OISSwap"
     tenor:           str    # e.g. "3M"
+    start_date:      date   # settlement / effective date (valuation + spot lag)
     maturity_date:   date
     year_frac:       float  # time in years from valuation date
     zero_rate:       float  # continuously compounded zero rate

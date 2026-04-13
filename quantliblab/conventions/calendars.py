@@ -3,8 +3,15 @@ Financial holiday calendars.
 
 Calendars provided:
   LondonCalendar  — GBP / SONIA
-  NewYorkCalendar — USD / SOFR
+  NewYorkCalendar — USD / SOFR (NY Fed / Federal Reserve holidays)
   TARGETCalendar  — EUR / ESTR (TARGET2 settlement days)
+  CMECalendar     — CME exchange holidays (used for SOFR futures date generation)
+
+NewYorkCalendar vs CMECalendar:
+  The NY Fed calendar (used for SOFR fixing and OIS swaps) and the CME exchange
+  calendar (used for SOFR futures reference quarter dates) differ on one point:
+    - Good Friday:  CME is CLOSED,  NY Fed is OPEN
+  All other holidays are identical.
 
 Holiday lists cover 2020-2035 by default.  Pass a custom `years` range
 to extend or restrict coverage.
@@ -54,6 +61,20 @@ class TARGETCalendar(BaseCalendar):
         self._holidays = frozenset(_target_holidays(years))
 
 
+class CMECalendar(BaseCalendar):
+    """
+    CME exchange holiday calendar.
+
+    Used for SOFR futures reference quarter date generation.
+    Differs from NewYorkCalendar (NY Fed) in one way:
+      - Good Friday:  CME CLOSED,  NY Fed OPEN
+    """
+
+    def __init__(self, years: range | None = None) -> None:
+        years = years or range(2020, 2036)
+        self._holidays = frozenset(_cme_holidays(years))
+
+
 # ---------------------------------------------------------------------------
 # Holiday generators
 # ---------------------------------------------------------------------------
@@ -88,6 +109,33 @@ def _us_holidays(years: range) -> list[date]:
             _nth_weekday(y, 9, 0, 1),           # Labor Day (1st Mon Sep)
             _nth_weekday(y, 11, 3, 4),          # Thanksgiving (4th Thu Nov)
             _observed(date(y, 12, 25)),          # Christmas
+        ]
+    return holidays
+
+
+def _cme_holidays(years: range) -> list[date]:
+    """
+    CME exchange holidays.
+
+    Same as US Federal Reserve holidays except:
+      + Good Friday (CME closed, NY Fed open)
+      - Columbus Day (CME open, NY Fed closed)
+    """
+    holidays: list[date] = []
+    for y in years:
+        easter = _easter(y)
+        holidays += [
+            _observed(date(y, 1, 1)),           # New Year's Day
+            _nth_weekday(y, 1, 0, 3),           # MLK Day (3rd Mon Jan)
+            _nth_weekday(y, 2, 0, 3),           # Presidents' Day (3rd Mon Feb)
+            easter - timedelta(days=2),          # Good Friday — CME closed
+            _last_weekday(y, 5, 0),             # Memorial Day (last Mon May)
+            _observed(date(y, 6, 19)),           # Juneteenth
+            _observed(date(y, 7, 4)),            # Independence Day
+            _nth_weekday(y, 9, 0, 1),           # Labor Day (1st Mon Sep)
+            _nth_weekday(y, 11, 3, 4),          # Thanksgiving (4th Thu Nov)
+            _observed(date(y, 12, 25)),          # Christmas
+            # Note: Columbus Day (2nd Mon Oct) is NOT included — CME is open
         ]
     return holidays
 

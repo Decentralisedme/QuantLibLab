@@ -21,6 +21,7 @@ load_dotenv()
 from quantliblab.data.loaders.fred_loader import fetch_sofr_on, fetch_sonia_on, fetch_estr_on
 from quantliblab.data.loaders.nyfed_loader import fetch_sofr_averages
 from quantliblab.data.loaders.fx_loader import fetch_all_fx
+from quantliblab.data.loaders.deribit_store import save_index, save_perp
 from quantliblab.data.store import write_many
 from quantliblab.data.validators import (
     validate_rate, validate_fx_spot, ValidationError,
@@ -97,6 +98,27 @@ def fetch_fx(start: date, end: date) -> None:
         print(f"    Saved {len(validated)} rows to fx/{pair.lower()}.csv")
 
 
+def fetch_crypto(start: date, end: date) -> None:
+    """
+    Fetch BTC and ETH index + perpetual snapshots for each date in range.
+
+    Note: Deribit is a live feed — calling this for past dates will always
+    store today's prices labelled with those dates.  Run once per day
+    (cron) to build a genuine daily history.
+    """
+    current = start
+    from datetime import timedelta
+    while current <= end:
+        for underlying in ("BTC", "ETH"):
+            try:
+                save_index(underlying, as_of=current)
+                save_perp(underlying, as_of=current)
+                print(f"    Saved {underlying} index + perp for {current}")
+            except Exception as e:
+                print(f"    [ERROR] {underlying} {current}: {e}")
+        current += timedelta(days=1)
+
+
 def main() -> None:
     start, end = _parse_args()
     print(f"\nQuantLibLab daily data fetch: {start} -> {end}\n")
@@ -112,6 +134,12 @@ def main() -> None:
         fetch_fx(start, end)
     except Exception as e:
         print(f"  ERROR fetching FX: {e}")
+
+    print("\n[ Crypto ]")
+    try:
+        fetch_crypto(start, end)
+    except Exception as e:
+        print(f"  ERROR fetching crypto: {e}")
 
     print("\nDone.")
 

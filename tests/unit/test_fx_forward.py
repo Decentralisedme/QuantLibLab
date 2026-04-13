@@ -135,7 +135,7 @@ class TestFXForwardCurve:
         import math
         # Manually create a curve with a different valuation date
         other_date = VALUATION + timedelta(days=1)
-        pillar = CurvePillar("Deposit", "ON", date(2025, 3, 28),
+        pillar = CurvePillar("Deposit", "ON", date(2025, 3, 24), date(2025, 3, 28),
                              1/360, 0.043, math.exp(-0.043/360))
         from quantliblab.conventions.day_count import DayCountBasis
         wrong_curve = RateCurve(other_date, [pillar], DayCountBasis.ACT_360)
