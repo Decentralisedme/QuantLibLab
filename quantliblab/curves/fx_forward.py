@@ -5,7 +5,11 @@ The fair forward rate is derived from two OIS discount curves and the
 spot FX rate — no separate market data required.
 
 Formula:
-    F(T) = S × P_dom(T) / P_for(T)
+    F(T) = S × P_for(T) / P_dom(T)
+
+(Intuition: invest 1 foreign unit at r_for vs convert at S and invest at
+r_dom; no-arbitrage forces F = S·(1+r_dom·T)/(1+r_for·T) = S·P_for/P_dom.
+Higher domestic rates ⇒ forward premium on the foreign currency.)
 
 Where:
     S        : spot FX rate (units of domestic per one unit of foreign)
@@ -91,11 +95,11 @@ class FXForwardCurve:
         """
         Fair forward FX rate at date d via CIP.
 
-            F(T) = S × P_dom(T) / P_for(T)
+            F(T) = S × P_for(T) / P_dom(T)
         """
         p_dom = self.dom_curve.discount_factor(d)
         p_for = self.for_curve.discount_factor(d)
-        return self.spot * p_dom / p_for
+        return self.spot * p_for / p_dom
 
     def swap_points(self, d: date) -> float:
         """

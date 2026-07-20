@@ -19,12 +19,14 @@ quantliblab/
 ├── math/            # Interpolation, solvers, distributions, statistics
 ├── data/            # Market data loaders, validators, CSV store
 ├── curves/          # OIS curve construction and bootstrapping
-├── volatility/      # Vol surface parametrizations (SABR, SVI)
+├── volatility/      # SVI smile fits (smile/svi.py), Dupire local vol (surface/local_vol.py)
 ├── instruments/     # Product definitions (rates, FX, commodities, crypto)
-├── pricing/         # Analytical and Monte Carlo engines, Greeks, P&L
+├── pricing/         # Analytical engines (analytical/digital.py), Monte Carlo, Greeks
+├── harness/         # Deribit surface calibration + Polymarket fair-value harness
 └── utils/           # Dates, logging, config
 dashboard/           # Streamlit live dashboard (OIS curves)
 notebooks/           # Jupyter explorers (curves_explorer.ipynb)
+scripts/             # fetch_daily_data.py, run_calibration_harness.py
 ```
 
 ## Status
@@ -35,10 +37,12 @@ notebooks/           # Jupyter explorers (curves_explorer.ipynb)
 | `math` | Done |
 | `data` | Done |
 | `curves` | Done |
-| `volatility` | Planned |
+| `volatility` (SVI smile, Dupire local vol) | Done |
 | `instruments/crypto` | Done |
 | `instruments/rates, fx, commodities` | Planned |
-| `pricing` | Planned |
+| `pricing/analytical` (smile-adjusted digitals, one-touch) | Done |
+| `pricing/montecarlo, risk` | Planned |
+| `harness` (Deribit ↔ Polymarket paper-trading loop) | Live-testing |
 
 ## Market data sources
 
@@ -233,7 +237,7 @@ FX forward rates are derived from two OIS discount curves and the spot rate
 via **Covered Interest Rate Parity (CIP)** — no separate forward market data required.
 
 ```
-F(T) = S × P_dom(T) / P_for(T)
+F(T) = S × P_for(T) / P_dom(T)
 ```
 
 **Swap points** (forward points):
@@ -304,6 +308,56 @@ opt      = fetch_option_ticker("BTC-28MAR25-80000-C")  # with full Greeks
 ```
 
 ---
+
+## Volatility surfaces & the Polymarket harness
+
+The Derman–Kani local-volatility program implemented the modern way: fit an
+arbitrage-free **SVI** smile per expiry (Gatheral 2004), then extract local vol
+analytically via **Dupire/Gatheral** on the total-variance surface — not
+implied trees, and no finite-differencing of noisy quotes.
+
+| Module | Role |
+|---|---|
+| `volatility/smile/svi.py` | Raw SVI fit per expiry (weighted LSQ on total variance, multi-start, butterfly soft-penalty). Analytic `w`, `w'`, `w''` and the Gatheral–Jacquier `g(k)` no-arbitrage check — `g(k)` is also the Dupire denominator. |
+| `volatility/surface/local_vol.py` | `LocalVolSurface`: linear-in-total-variance time interpolation (calendar-arb-preserving), Dupire local variance `= (∂w/∂T) / g(k)`, log-Euler path MC, one-touch MC estimator. |
+| `pricing/analytical/digital.py` | Polymarket fair-value engine. European digitals use the **smile-slope correction** — `P(F_T > K) = N(d2) − φ(d2)·√T·(dσ/dk)` — not plain `N(d2)`; with crypto skew the correction is routinely 2–6c on a $1 contract, i.e. the entire edge. One-touch closed form (reflection principle, driftless GBM) for the fast bound. |
+| `harness/deribit_surface.py` | Nightly BTC/ETH calibration: forwards from the futures strip (carry-interpolated), OTM two-sided quote filtering, per-expiry SVI fits, RMSE/butterfly/calendar diagnostics. |
+| `harness/polymarket.py` | Gamma-API loader; parses questions into European above/below vs one-touch (buckets/dailies skipped — mis-parse costs money, a skip costs nothing); prices each vs the fitted surface. |
+| `scripts/run_calibration_harness.py` | The nightly loop: calibrate → price → snapshot → resolve → score. |
+
+### Market taxonomy
+
+- **European** ("BTC above $105k on July 8") → terminal distribution only:
+  smile-slope digital, **no local vol needed**.
+- **One-touch** ("BTC reaches $150k by Dec 31") → path-dependent: the flat
+  barrier-IV closed form and the local-vol MC **bracket** the truth (LV is
+  known to under-price one-touch under steep smiles vs stochastic vol).
+  Quote inside the band, size to the band width — a band, not a point.
+
+### The go-live gate
+
+Every run appends `(fair, market)` snapshots; matured markets are resolved and
+scored. The single decision number is
+
+```
+skill = Brier(market) − Brier(model)
+```
+
+on the same resolved set (last snapshot per market). `skill > 0` sustained over
+~100+ resolutions ⇒ real edge, trade small. `skill ≤ 0` ⇒ the market knows
+more than the model — fix inputs, don't trade. A predicted-vs-realized
+calibration table is printed alongside.
+
+```bash
+python scripts/run_calibration_harness.py             # live nightly run
+python scripts/run_calibration_harness.py --selftest  # offline logic test
+```
+
+Honest caveats live in the module docstrings: Gamma API schema is unversioned
+(parse defensively), Polymarket resolves on Binance/Chainlink prints vs
+Deribit's composite index (small basis ⇒ require an edge threshold), fair
+values are undiscounted to match $1-payout quoting.
+
 
 ## Dashboard and notebooks
 
