@@ -71,21 +71,22 @@ class TestCIPFormula:
         mat = date(2025, 9, 24)
         assert abs(curve.forward(mat) - SPOT_GBPUSD) < 1e-6
 
-    def test_higher_dom_rate_lowers_forward(self):
-        """Higher USD (dom) rate => P_dom drops more => F = S × P_dom/P_for falls."""
+    def test_higher_dom_rate_raises_forward(self):
+        """Higher USD (dom) rate => P_dom drops more => F = S × P_for/P_dom rises
+        (CIP: high-yield currency trades at a forward discount)."""
         sofr  = _flat_sofr(0.05)    # USD at 5% (high)
         sonia = _flat_sonia(0.04)   # GBP at 4%
         curve = gbpusd_forward(SPOT_GBPUSD, sofr, sonia)
         mat = date(2025, 9, 24)
-        assert curve.forward(mat) < SPOT_GBPUSD
+        assert curve.forward(mat) > SPOT_GBPUSD
 
-    def test_lower_dom_rate_raises_forward(self):
-        """Lower USD (dom) rate => P_dom drops less => F = S × P_dom/P_for rises."""
+    def test_lower_dom_rate_lowers_forward(self):
+        """Lower USD (dom) rate => P_dom drops less => F = S × P_for/P_dom falls."""
         sofr  = _flat_sofr(0.03)    # USD at 3% (low)
         sonia = _flat_sonia(0.05)   # GBP at 5%
         curve = gbpusd_forward(SPOT_GBPUSD, sofr, sonia)
         mat = date(2025, 9, 24)
-        assert curve.forward(mat) > SPOT_GBPUSD
+        assert curve.forward(mat) < SPOT_GBPUSD
 
     def test_swap_points_zero_same_basis(self):
         """Same rate, same basis => swap points ≈ 0."""
@@ -170,9 +171,10 @@ class TestConvenienceConstructors:
     def test_eurgbp(self):
         curve = eurgbp_forward(SPOT_EURGBP, _flat_sonia(), _flat_estr())
         assert curve.pair == "EURGBP"
-        # EUR rates lower than GBP => EUR/GBP forward < spot (GBP appreciates)
+        # EUR rates lower than GBP (dom) => low-yield EUR at forward premium:
+        # F = S × P_for/P_dom > S
         mat = date(2025, 9, 24)
-        assert curve.forward(mat) < SPOT_EURGBP
+        assert curve.forward(mat) > SPOT_EURGBP
 
     def test_triangular_consistency(self):
         """EURGBP forward ≈ EURUSD forward / GBPUSD forward (triangular arbitrage)."""
