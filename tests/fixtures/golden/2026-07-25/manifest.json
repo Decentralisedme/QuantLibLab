@@ -1,0 +1,26 @@
+{
+  "label": "2026-07-25",
+  "captured_at": "2026-07-25T16:13:03.833477+00:00",
+  "feeds": {
+    "deribit_surfaces": {
+      "ok": true,
+      "detail": "BTC: 5/12 slices, index=64120; ETH: 6/12 slices, index=1866"
+    },
+    "fred_rates": {
+      "ok": true,
+      "detail": "21 O/N rows, 21 average rows"
+    },
+    "polymarket_gamma": {
+      "ok": true,
+      "detail": "500 raw, 2 parsed, 2 priced"
+    },
+    "sofr_futures": {
+      "ok": true,
+      "detail": "8 SR3 + 12 SR1 contracts"
+    },
+    "fx_spots": {
+      "ok": true,
+      "detail": "7 pairs"
+    }
+  }
+}

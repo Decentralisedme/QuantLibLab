@@ -1,0 +1,3 @@
+asof,market_id,question,asset,type,strike,resolution,T_years,forward,sigma_at_k,smile_slope,fair,fair_lo,fair_hi,market_yes,liquidity,edge_edge_yes,edge_edge_no,edge_side
+2026-07-25T16:13:11.606508+00:00,0xbb57ccf5853a85487bc3d83d04d669310d28c6c810758953b9d9b91d1aee89d2,Will bitcoin hit $1m before GTA VI?,BTC,touch,1000000.0,2026-07-31T12:00:00+00:00,0.015957,64156.34,2.6049,0.5172,0.0,0.0,0.0,0.4985,105413.13507,-0.4985,0.4985,NO
+2026-07-25T16:13:11.645024+00:00,0x02deb9538f5c123373adaa4ee6217b01745f1662bc902e46ac92f3fe6f8741e8,"Will Bitcoin hit $150k by December 31, 2026?",BTC,touch,150000.0,2027-01-01T05:00:00+00:00,0.437075,65286.25,0.4916,0.2373,0.0053,0.0039,0.0068,0.035500000000000004,188347.00141,-0.0302,0.0302,NO

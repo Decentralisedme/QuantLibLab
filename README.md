@@ -353,6 +353,23 @@ python scripts/run_calibration_harness.py             # live nightly run
 python scripts/run_calibration_harness.py --selftest  # offline logic test
 ```
 
+### Golden snapshots (offline test data)
+
+`scripts/capture_golden_snapshot.py` freezes one full day of market data
+under `tests/fixtures/golden/<date>/` — the **raw API payloads** (Deribit,
+FRED, Polymarket Gamma) plus normalized CSVs (fitted SVI slices, futures
+strips, rates, FX). `quantliblab/data/golden.py` provides `record()` /
+`replay()` context managers over the loaders' HTTP seams, so
+`tests/integration/test_golden_pipeline.py` re-runs the entire pipeline —
+parsing, SVI calibration, digital pricing — with zero network. Storing raw
+payloads (not just parsed output) keeps parser regression tests valid as
+models evolve, and lets old days be re-fit under new methodology.
+
+```bash
+python scripts/capture_golden_snapshot.py   # mint a snapshot (network)
+python -m pytest tests/integration -q       # full pipeline, offline
+```
+
 Honest caveats live in the module docstrings: Gamma API schema is unversioned
 (parse defensively), Polymarket resolves on Binance/Chainlink prints vs
 Deribit's composite index (small basis ⇒ require an edge threshold), fair
@@ -360,6 +377,18 @@ values are undiscounted to match $1-payout quoting.
 
 
 ## Dashboard and notebooks
+
+### Simple curve viewer (`dashboard/curve_viewer.py`)
+
+One curve at a time, offline (reads golden snapshots + the CSV store):
+date, curve name, a two-column Maturity/value table with named headers,
+and the data source under each curve. Covers the SOFR futures strip,
+SOFR compounded averages, O/N reference rates, Deribit BTC/ETH futures,
+and SVI-fitted smiles per expiry.
+
+```bash
+streamlit run dashboard/curve_viewer.py
+```
 
 ### Streamlit dashboard (`dashboard/ois_curves.py`)
 
