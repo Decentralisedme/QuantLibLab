@@ -216,6 +216,7 @@ def selftest() -> int:
         ("Bitcoin Up or Down on July 5?",             (None,)),
         ("What price will Ethereum hit in July?",     (None,)),
         ("Will Bitcoin hit an all-time high in 2026?",(None,)),
+        ("Will bitcoin hit $1m before GTA VI?",        (None,)),
     ]
     ok = True
     for q, exp in cases:

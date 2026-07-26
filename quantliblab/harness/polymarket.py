@@ -78,7 +78,13 @@ _MONEY_NO_DOLLAR_RE = re.compile(r"\b([\d]+(?:\.\d+)?)\s*([kK])\b")
 _TOUCH_RE = re.compile(r"\b(reach|hit|touch|dip\s+to|drop\s+to|fall\s+to)\b", re.I)
 _ABOVE_RE = re.compile(r"\b(above|higher\s+than|greater\s+than|over|close\s+above)\b", re.I)
 _BELOW_RE = re.compile(r"\b(below|lower\s+than|less\s+than|under|close\s+below)\b", re.I)
-_SKIP_RE = re.compile(r"\b(up\s+or\s+down|between|what\s+price|range|flip|dominance|etf|all[-\s]?time\s+high)\b", re.I)
+_SKIP_RE = re.compile(
+    r"\b(up\s+or\s+down|between|what\s+price|range|flip|dominance|etf|"
+    r"all[-\s]?time\s+high|"
+    # touch-by-EVENT markets (resolution tied to an event date, not a
+    # calendar date — endDate is a placeholder, not the true horizon)
+    r"before\s+(gta|grand\s+theft\s+auto|the\s+halving|.*\brelease)|"
+    r"if\s+|in\s+case\s+)", re.I)
 
 _MULT = {"k": 1e3, "m": 1e6}
 
@@ -124,7 +130,7 @@ def parse_question(question: str) -> tuple[str, MarketType, float] | tuple[None,
 # Gamma API
 # ---------------------------------------------------------------------------
 
-def fetch_gamma_markets(max_pages: int = 5, page_size: int = 100) -> list[dict]:
+def fetch_gamma_markets(max_pages: int = 20, page_size: int = 100) -> list[dict]:
     """Fetch active, unresolved markets (paged)."""
     out: list[dict] = []
     for page in range(max_pages):

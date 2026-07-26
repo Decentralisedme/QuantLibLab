@@ -112,6 +112,65 @@ def curve_deribit_futures(snap: Path | None, ccy: str):
             f"Source: Deribit {ccy} futures book summary (mark price).")
 
 
+def _svi_rows(snap: Path | None, ccy: str) -> list[dict]:
+    if snap is None:
+        return []
+    return [r for r in _read_csv(snap / "normalized" / f"svi_{ccy.lower()}.csv")
+            if r["used"] == "True"]
+
+
+def curve_atm_term_structure(snap: Path | None, ccy: str):
+    """ATM-forward vol per expiry — the vol term structure."""
+    from quantliblab.volatility.smile.svi import SVIParams
+    rows = _svi_rows(snap, ccy)
+    if not rows:
+        return None
+    recs = []
+    for r in rows:
+        prm = SVIParams(float(r["a"]), float(r["b"]), float(r["rho"]),
+                        float(r["m"]), float(r["s"]))
+        recs.append({MATURITY: r["expiry"],
+                     f"{ccy} ATM vol (%)":
+                         round(float(prm.implied_vol(0.0, float(r["T"]))) * 100, 2)})
+    df = pd.DataFrame(recs).sort_values(MATURITY, ignore_index=True)
+    return (snap.name, df,
+            f"Source: SVI fits of Deribit {ccy} options; ATM = at-the-money "
+            "forward (k = 0) per expiry.")
+
+
+def surface_by_delta(snap: Path | None, ccy: str):
+    """Smile matrix: rows = expiry, cols = 10dP..10dC (+ RR25 / BF25)."""
+    from quantliblab.volatility.smile.delta_conventions import (
+        risk_reversal_butterfly, smile_by_delta,
+    )
+    from quantliblab.volatility.smile.svi import SVIParams
+    rows = _svi_rows(snap, ccy)
+    if not rows:
+        return None
+    recs = []
+    for r in rows:
+        prm = SVIParams(float(r["a"]), float(r["b"]), float(r["rho"]),
+                        float(r["m"]), float(r["s"]))
+        T = float(r["T"])
+        try:
+            q = smile_by_delta(lambda k: float(prm.implied_vol(k, T)), T)
+        except ValueError:
+            continue                          # delta unreachable on this slice
+        rrbf = risk_reversal_butterfly(q)
+        recs.append({MATURITY: r["expiry"],
+                     **{lbl: round(q[lbl]["sigma"] * 100, 2)
+                        for lbl in ("10dP", "25dP", "ATM", "25dC", "10dC")},
+                     "RR25": round(rrbf["rr25"] * 100, 2),
+                     "BF25": round(rrbf["bf25"] * 100, 2)})
+    if not recs:
+        return None
+    df = pd.DataFrame(recs).sort_values(MATURITY, ignore_index=True)
+    return (snap.name, df,
+            f"Source: SVI fits of Deribit {ccy} options, forward-delta "
+            "convention. All values in vol %. RR25 = 25dC − 25dP (skew), "
+            "BF25 = wing avg − ATM (convexity).")
+
+
 def curve_smile(snap: Path | None, ccy: str, expiry: str | None):
     """SVI-fitted smile for one expiry as Strike | IV table."""
     if snap is None:
@@ -161,8 +220,12 @@ CURVES = [
     "Overnight reference rates",
     "Deribit BTC futures",
     "Deribit ETH futures",
-    "BTC smile (SVI fit)",
-    "ETH smile (SVI fit)",
+    "BTC ATM vol term structure",
+    "ETH ATM vol term structure",
+    "BTC vol surface (by delta)",
+    "ETH vol surface (by delta)",
+    "BTC smile (SVI fit, by strike)",
+    "ETH smile (SVI fit, by strike)",
 ]
 choice = st.sidebar.selectbox("Curve", CURVES)
 
@@ -177,6 +240,10 @@ elif choice == "Deribit BTC futures":
     result = curve_deribit_futures(snap, "BTC")
 elif choice == "Deribit ETH futures":
     result = curve_deribit_futures(snap, "ETH")
+elif choice.endswith("ATM vol term structure"):
+    result = curve_atm_term_structure(snap, choice[:3])
+elif choice.endswith("vol surface (by delta)"):
+    result = surface_by_delta(snap, choice[:3])
 else:
     ccy = "BTC" if choice.startswith("BTC") else "ETH"
     result, expiries = curve_smile(snap, ccy, None)

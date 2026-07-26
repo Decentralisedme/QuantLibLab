@@ -1,0 +1,68 @@
+2026-07-25 18:08:30,992 INFO    harness.deribit BTC: fitted 5/12 expiries, index=64167
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-07-26 T=0.0017 F=64165 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-07-27 T=0.0044 F=64171 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-07-28 T=0.0072 F=64181 quotes=18 rmse=30.06vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-07-29 T=0.0099 F=64192 quotes=19 rmse=21.60vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-07-31 T=0.0154 F=64197 quotes=25 rmse=26.40vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-08-07 T=0.0346 F=64246 quotes=19 rmse=0.20vp used=True 
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-08-14 T=0.0538 F=64294 quotes=14 rmse=0.05vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-08-28 T=0.0921 F=64392 quotes=49 rmse=0.48vp used=True 
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-09-25 T=0.1688 F=64601 quotes=47 rmse=0.38vp used=True 
+2026-07-25 18:08:30,992 INFO    harness   BTC 2026-12-25 T=0.4181 F=65278 quotes=55 rmse=0.21vp used=True 
+2026-07-25 18:08:30,992 INFO    harness   BTC 2027-03-26 T=0.6674 F=65917 quotes=51 rmse=0.09vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:30,992 INFO    harness   BTC 2027-06-25 T=0.9168 F=66666 quotes=37 rmse=0.06vp used=True 
+2026-07-25 18:08:32,406 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.05375091981173896, 0.09210708419530061)] — digitals near these horizons are suspect
+2026-07-25 18:08:32,406 INFO    harness.deribit ETH: fitted 7/12 expiries, index=1867
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-07-26 T=0.0017 F=1867 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-07-27 T=0.0044 F=1867 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-07-28 T=0.0072 F=1868 quotes=17 rmse=30.65vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-07-29 T=0.0099 F=1868 quotes=15 rmse=23.46vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-07-31 T=0.0154 F=1868 quotes=22 rmse=0.44vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-08-07 T=0.0346 F=1868 quotes=13 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-08-14 T=0.0538 F=1868 quotes=12 rmse=0.13vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-08-28 T=0.0921 F=1868 quotes=33 rmse=0.73vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-09-25 T=0.1688 F=1872 quotes=40 rmse=0.41vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2026-12-25 T=0.4181 F=1885 quotes=41 rmse=0.19vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2027-03-26 T=0.6674 F=1903 quotes=39 rmse=0.13vp used=True 
+2026-07-25 18:08:32,406 INFO    harness   ETH 2027-06-25 T=0.9168 F=1922 quotes=29 rmse=0.04vp used=True 
+2026-07-25 18:08:32,983 INFO    harness Gamma returned 500 active markets
+2026-07-25 18:08:32,985 INFO    harness.polymarket parser skipped: {'no asset': 491, 'skip-pattern (bucket/daily/ambiguous)': 7}
+2026-07-25 18:08:32,986 INFO    harness parsed 2 crypto binaries
+2026-07-25 18:08:33,250 INFO    harness EDGE -0.498  fair=0.000 mkt=0.498  Will bitcoin hit $1m before GTA VI?
+2026-07-25 18:08:33,250 INFO    harness EDGE -0.030  fair=0.005 mkt=0.036  Will Bitcoin hit $150k by December 31, 2026?
+2026-07-25 18:08:33,251 INFO    harness resolved 0 newly matured markets (0 still pending)
+2026-07-25 18:08:33,251 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-07-26 07:00:08,228 INFO    harness.deribit BTC: fitted 5/12 expiries, index=64359
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-07-26 T=0.0002 F=64347 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-07-27 T=0.0030 F=64354 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-07-28 T=0.0057 F=64361 quotes=18 rmse=35.49vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-07-29 T=0.0084 F=64376 quotes=19 rmse=24.76vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-07-31 T=0.0139 F=64387 quotes=25 rmse=28.34vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-08-07 T=0.0331 F=64435 quotes=19 rmse=0.21vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-08-14 T=0.0523 F=64477 quotes=14 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-08-28 T=0.0906 F=64578 quotes=49 rmse=0.49vp used=True 
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-09-25 T=0.1674 F=64790 quotes=47 rmse=0.36vp used=True 
+2026-07-26 07:00:08,231 INFO    harness   BTC 2026-12-25 T=0.4167 F=65463 quotes=55 rmse=0.24vp used=True 
+2026-07-26 07:00:08,231 INFO    harness   BTC 2027-03-26 T=0.6660 F=66111 quotes=51 rmse=0.10vp used=True 
+2026-07-26 07:00:08,231 INFO    harness   BTC 2027-06-25 T=0.9153 F=66839 quotes=37 rmse=0.05vp used=True 
+2026-07-26 07:00:11,617 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03310476181246829, 0.05228284400424911), (0.05228284400424911, 0.09063900838781075)] — digitals near these horizons are suspect
+2026-07-26 07:00:11,617 INFO    harness.deribit ETH: fitted 8/12 expiries, index=1882
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-07-26 T=0.0002 F=1881 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-07-27 T=0.0030 F=1882 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-07-28 T=0.0057 F=1882 quotes=16 rmse=18.92vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-07-29 T=0.0084 F=1882 quotes=16 rmse=26.78vp used=False butterfly arbitrage in fit
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-07-31 T=0.0139 F=1882 quotes=21 rmse=0.71vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-08-07 T=0.0331 F=1882 quotes=13 rmse=0.12vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-08-14 T=0.0523 F=1883 quotes=12 rmse=0.07vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-08-28 T=0.0906 F=1882 quotes=33 rmse=0.53vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-09-25 T=0.1674 F=1886 quotes=40 rmse=0.43vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2026-12-25 T=0.4167 F=1898 quotes=41 rmse=0.21vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2027-03-26 T=0.6660 F=1917 quotes=39 rmse=0.16vp used=True 
+2026-07-26 07:00:11,618 INFO    harness   ETH 2027-06-25 T=0.9153 F=1935 quotes=29 rmse=0.07vp used=True 
+2026-07-26 07:00:12,592 INFO    harness Gamma returned 500 active markets
+2026-07-26 07:00:12,596 INFO    harness.polymarket parser skipped: {'no asset': 491, 'skip-pattern (bucket/daily/ambiguous)': 7}
+2026-07-26 07:00:12,596 INFO    harness parsed 2 crypto binaries
+2026-07-26 07:00:13,315 INFO    harness EDGE -0.498  fair=0.000 mkt=0.498  Will bitcoin hit $1m before GTA VI?
+2026-07-26 07:00:13,315 INFO    harness EDGE -0.032  fair=0.005 mkt=0.037  Will Bitcoin hit $150k by December 31, 2026?
+2026-07-26 07:00:13,318 INFO    harness resolved 0 newly matured markets (0 still pending)
+2026-07-26 07:00:13,319 INFO    harness no resolved markets yet — Brier scoring skipped
