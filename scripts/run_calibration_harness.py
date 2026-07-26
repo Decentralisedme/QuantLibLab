@@ -45,12 +45,16 @@ log = logging.getLogger("harness")
 DATA_DIR = Path("data/harness")
 SNAPSHOTS = DATA_DIR / "snapshots.csv"
 RESOLUTIONS = DATA_DIR / "resolutions.csv"
+SURFACES = DATA_DIR / "surfaces.csv"          # nightly fitted-SVI archive
 
 SNAP_FIELDS = ["asof", "market_id", "question", "asset", "type", "strike",
                "resolution", "T_years", "forward", "sigma_at_k", "smile_slope",
                "fair", "fair_lo", "fair_hi", "market_yes", "liquidity",
                "edge_edge_yes", "edge_edge_no", "edge_side"]
 RES_FIELDS = ["market_id", "resolved_at", "outcome"]
+SURF_FIELDS = ["asof", "currency", "index_price", "expiry", "T", "F",
+               "a", "b", "rho", "m", "s", "rmse_volpts", "n_quotes",
+               "used", "reason"]
 
 
 def _append_csv(path: Path, fields: list[str], rows: list[dict]) -> None:
@@ -87,6 +91,9 @@ def step_calibrate() -> dict:
         if fs.surface is None:
             log.error("%s: no usable surface — skipping pricing", ccy)
         surfaces[ccy] = fs
+        # archive tonight's fit — 10 rows/day buys the historical
+        # vol-surface dataset (ATM, skew, RR term structures over time)
+        _append_csv(SURFACES, SURF_FIELDS, fs.slice_rows())
     return surfaces
 
 

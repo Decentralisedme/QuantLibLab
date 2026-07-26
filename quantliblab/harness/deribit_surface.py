@@ -27,6 +27,7 @@ import numpy as np
 from quantliblab.data.loaders.deribit_loader import (
     fetch_futures, fetch_index_price, fetch_options,
 )
+from quantliblab.pricing.analytical.black76 import vega as _b76_vega
 from quantliblab.volatility.smile.svi import SVIParams, fit_svi, fit_rmse
 from quantliblab.volatility.surface.local_vol import LocalVolSurface, SVISlice
 
@@ -70,6 +71,32 @@ class FittedSurface:
         if self.surface is None:
             raise RuntimeError(f"no usable surface for {self.currency}")
         return self.surface.smile(k, T)   # single implementation in LocalVolSurface
+
+    def slice_rows(self) -> list[dict]:
+        """One flat dict per expiry (fitted or rejected) — the nightly
+        surface archive row format. Persisting these builds the
+        historical vol-surface dataset (ATM/skew/RR time series)."""
+        by_T = ({round(sl.T, 9): sl for sl in self.surface.slices}
+                if self.surface is not None else {})
+        rows = []
+        for d in self.diagnostics:
+            sl = by_T.get(round(d.T, 9))
+            rows.append({
+                "asof": self.asof.isoformat(),
+                "currency": self.currency,
+                "index_price": round(self.index_price, 2),
+                "expiry": d.expiry.isoformat(),
+                "T": round(d.T, 6), "F": round(d.F, 2),
+                "a": round(sl.params.a, 8) if sl else "",
+                "b": round(sl.params.b, 8) if sl else "",
+                "rho": round(sl.params.rho, 6) if sl else "",
+                "m": round(sl.params.m, 6) if sl else "",
+                "s": round(sl.params.s, 6) if sl else "",
+                "rmse_volpts": (round(d.rmse_volpts, 3)
+                                if d.rmse_volpts == d.rmse_volpts else ""),
+                "n_quotes": d.n_quotes, "used": d.used, "reason": d.reason,
+            })
+        return rows
 
     def forward_at(self, T: float) -> float:
         """F(T) from the fitted slices' forwards, carry-interpolated."""
@@ -169,7 +196,13 @@ def calibrate_currency(currency: str) -> FittedSurface:
                 # to be monotone in quote quality for weighting purposes
                 spread_iv = iv * (o.ask - o.bid) / max(o.mark_price, 1e-12)
             ks.append(k); ivs.append(iv)
-            wts.append(1.0 / max(spread_iv, MIN_IV_SPREAD))
+            # vega-over-spread weights: trust tight markets AND focus fit
+            # accuracy where price sensitivity to vol lives (textbook
+            # smile-calibration weighting). F-normalized vega keeps
+            # magnitudes comparable across currencies; overall scale is
+            # irrelevant (fit_svi normalizes weights).
+            vga = _b76_vega(F, o.strike, T, iv) / F
+            wts.append(vga / max(spread_iv, MIN_IV_SPREAD))
 
         d.n_quotes = len(ks)
         if len(ks) < MIN_QUOTES_PER_EXPIRY:
