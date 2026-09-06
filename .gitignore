@@ -43,3 +43,4 @@ htmlcov/
 # mypy
 .mypy_cache/
 *.png
+data/harness/harness.log
