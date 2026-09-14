@@ -66,3 +66,1533 @@
 2026-07-26 07:00:13,315 INFO    harness EDGE -0.032  fair=0.005 mkt=0.037  Will Bitcoin hit $150k by December 31, 2026?
 2026-07-26 07:00:13,318 INFO    harness resolved 0 newly matured markets (0 still pending)
 2026-07-26 07:00:13,319 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-07-27 07:00:05,708 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.08789944254610603, 0.16461177131322932), (0.16461177131322932, 0.41392683980638006)] — digitals near these horizons are suspect
+2026-07-27 07:00:05,710 INFO    harness.deribit BTC: fitted 3/12 expiries, index=65410
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-07-27 T=0.0002 F=65404 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-07-28 T=0.0030 F=65409 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-07-29 T=0.0057 F=65423 quotes=17 rmse=24.08vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-07-30 T=0.0084 F=65441 quotes=20 rmse=29.95vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-07-31 T=0.0112 F=65440 quotes=22 rmse=33.72vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-08-07 T=0.0304 F=65493 quotes=19 rmse=0.28vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-08-14 T=0.0495 F=65548 quotes=14 rmse=0.11vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-08-28 T=0.0879 F=65655 quotes=49 rmse=1.08vp used=True 
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-09-25 T=0.1646 F=65896 quotes=47 rmse=0.54vp used=True 
+2026-07-27 07:00:05,711 INFO    harness   BTC 2026-12-25 T=0.4139 F=66577 quotes=54 rmse=0.40vp used=True 
+2026-07-27 07:00:05,711 INFO    harness   BTC 2027-03-26 T=0.6632 F=67239 quotes=51 rmse=0.11vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:05,711 INFO    harness   BTC 2027-06-25 T=0.9126 F=67962 quotes=37 rmse=0.05vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:09,253 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.04954319782981355, 0.08789936221337519)] — digitals near these horizons are suspect
+2026-07-27 07:00:09,254 INFO    harness.deribit ETH: fitted 7/12 expiries, index=1964
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-07-27 T=0.0002 F=1964 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-07-28 T=0.0030 F=1964 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-07-29 T=0.0057 F=1964 quotes=18 rmse=42.87vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-07-30 T=0.0084 F=1964 quotes=18 rmse=22.43vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-07-31 T=0.0112 F=1965 quotes=21 rmse=0.78vp used=True 
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-08-07 T=0.0304 F=1964 quotes=13 rmse=0.10vp used=True 
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-08-14 T=0.0495 F=1965 quotes=12 rmse=0.05vp used=True 
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-08-28 T=0.0879 F=1965 quotes=33 rmse=0.55vp used=True 
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-09-25 T=0.1646 F=1969 quotes=39 rmse=0.90vp used=True 
+2026-07-27 07:00:09,254 INFO    harness   ETH 2026-12-25 T=0.4139 F=1981 quotes=41 rmse=0.29vp used=True 
+2026-07-27 07:00:09,255 INFO    harness   ETH 2027-03-26 T=0.6632 F=2002 quotes=39 rmse=0.18vp used=False butterfly arbitrage in fit
+2026-07-27 07:00:09,255 INFO    harness   ETH 2027-06-25 T=0.9126 F=2021 quotes=29 rmse=0.05vp used=True 
+2026-07-27 07:00:11,650 INFO    harness Gamma returned 2000 active markets
+2026-07-27 07:00:11,669 INFO    harness.polymarket parser skipped: {'skip-pattern (bucket/daily/ambiguous)': 41, 'no asset': 1914, 'no strike': 15}
+2026-07-27 07:00:11,670 INFO    harness parsed 30 crypto binaries
+2026-07-27 07:00:29,550 INFO    harness EDGE +0.104  fair=0.501 mkt=0.397  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-07-27 07:00:29,550 INFO    harness EDGE +0.048  fair=0.153 mkt=0.105  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-07-27 07:00:29,550 INFO    harness EDGE +0.044  fair=0.519 mkt=0.475  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-07-27 07:00:29,550 INFO    harness EDGE -0.040  fair=0.025 mkt=0.065  Will Ethereum reach $4,500 by December 31, 2026?
+2026-07-27 07:00:29,550 INFO    harness EDGE -0.040  fair=0.025 mkt=0.065  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-07-27 07:00:29,551 INFO    harness EDGE -0.034  fair=0.005 mkt=0.039  Will Bitcoin hit $150k by December 31, 2026?
+2026-07-27 07:00:29,551 INFO    harness EDGE -0.032  fair=0.093 mkt=0.125  Will Ethereum reach $3,500 by December 31, 2026?
+2026-07-27 07:00:29,551 INFO    harness EDGE +0.030  fair=0.071 mkt=0.041  Will Bitcoin dip to $25,000 by December 31, 2026?
+2026-07-27 07:00:29,551 INFO    harness EDGE -0.030  fair=0.004 mkt=0.034  Will Bitcoin reach $160,000 by December 31, 2026?
+2026-07-27 07:00:29,551 INFO    harness EDGE -0.029  fair=0.008 mkt=0.037  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-07-27 07:00:29,566 INFO    harness resolved 0 newly matured markets (0 still pending)
+2026-07-27 07:00:29,566 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-07-28 07:00:06,838 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.16187204586780188, 0.41118711436095257)] — digitals near these horizons are suspect
+2026-07-28 07:00:06,840 INFO    harness.deribit BTC: fitted 3/11 expiries, index=63389
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-07-28 T=0.0002 F=63386 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-07-29 T=0.0030 F=63383 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-07-30 T=0.0057 F=63399 quotes=18 rmse=17.14vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-07-31 T=0.0084 F=63411 quotes=26 rmse=31.23vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-08-07 T=0.0276 F=63451 quotes=19 rmse=0.20vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-08-14 T=0.0468 F=63492 quotes=15 rmse=0.26vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-08-28 T=0.0852 F=63586 quotes=48 rmse=0.92vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-09-25 T=0.1619 F=63798 quotes=45 rmse=0.70vp used=True 
+2026-07-28 07:00:06,841 INFO    harness   BTC 2026-12-25 T=0.4112 F=64458 quotes=54 rmse=0.32vp used=True 
+2026-07-28 07:00:06,841 INFO    harness   BTC 2027-03-26 T=0.6605 F=65119 quotes=51 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:06,841 INFO    harness   BTC 2027-06-25 T=0.9098 F=65842 quotes=37 rmse=0.05vp used=True 
+2026-07-28 07:00:11,185 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.046803435989884574, 0.08515960037344622)] — digitals near these horizons are suspect
+2026-07-28 07:00:11,185 INFO    harness.deribit ETH: fitted 6/11 expiries, index=1881
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-07-28 T=0.0002 F=1881 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-07-29 T=0.0030 F=1881 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-07-30 T=0.0057 F=1881 quotes=30 rmse=25.30vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-07-31 T=0.0084 F=1882 quotes=28 rmse=24.06vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-08-07 T=0.0276 F=1882 quotes=13 rmse=0.18vp used=True 
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-08-14 T=0.0468 F=1882 quotes=12 rmse=0.07vp used=True 
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-08-28 T=0.0852 F=1881 quotes=32 rmse=0.74vp used=True 
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-09-25 T=0.1619 F=1885 quotes=39 rmse=0.49vp used=True 
+2026-07-28 07:00:11,186 INFO    harness   ETH 2026-12-25 T=0.4112 F=1898 quotes=41 rmse=0.27vp used=True 
+2026-07-28 07:00:11,186 INFO    harness   ETH 2027-03-26 T=0.6605 F=1917 quotes=39 rmse=0.22vp used=False butterfly arbitrage in fit
+2026-07-28 07:00:11,186 INFO    harness   ETH 2027-06-25 T=0.9098 F=1935 quotes=30 rmse=0.04vp used=True 
+2026-07-28 07:00:12,800 INFO    harness Gamma returned 2000 active markets
+2026-07-28 07:00:12,817 INFO    harness.polymarket parser skipped: {'skip-pattern (bucket/daily/ambiguous)': 41, 'no asset': 1914, 'no strike': 15}
+2026-07-28 07:00:12,818 INFO    harness parsed 30 crypto binaries
+2026-07-28 07:00:30,537 INFO    harness EDGE +0.133  fair=0.564 mkt=0.430  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.060  fair=0.035 mkt=0.095  Will Ethereum reach $4,000 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.053  fair=0.072 mkt=0.125  Will Ethereum reach $3,500 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE +0.050  fair=0.590 mkt=0.540  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.045  fair=0.020 mkt=0.065  Will Ethereum reach $4,500 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.038  fair=0.007 mkt=0.045  Will Ethereum reach $5,500 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE +0.036  fair=0.281 mkt=0.245  Will Bitcoin dip to $45,000 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.034  fair=0.021 mkt=0.055  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.032  fair=0.005 mkt=0.037  Will Bitcoin hit $150k by December 31, 2026?
+2026-07-28 07:00:30,538 INFO    harness EDGE -0.030  fair=0.007 mkt=0.038  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-07-28 07:00:30,552 INFO    harness resolved 0 newly matured markets (0 still pending)
+2026-07-28 07:00:30,552 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-07-30 07:00:12,191 INFO    harness.deribit BTC: fitted 1/11 expiries, index=63956
+2026-07-30 07:00:12,193 INFO    harness   BTC 2026-07-30 T=0.0002 F=63962 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-07-31 T=0.0030 F=63976 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-08-01 T=0.0057 F=63968 quotes=20 rmse=37.53vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-08-02 T=0.0084 F=63984 quotes=19 rmse=25.40vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-08-07 T=0.0221 F=64031 quotes=19 rmse=0.74vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-08-14 T=0.0413 F=64079 quotes=17 rmse=0.37vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-08-28 T=0.0797 F=64172 quotes=49 rmse=0.82vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-09-25 T=0.1564 F=64385 quotes=45 rmse=0.88vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2026-12-25 T=0.4057 F=65040 quotes=52 rmse=0.45vp used=True 
+2026-07-30 07:00:12,194 INFO    harness   BTC 2027-03-26 T=0.6550 F=65693 quotes=51 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 INFO    harness   BTC 2027-06-25 T=0.9043 F=66410 quotes=37 rmse=0.07vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:12,194 ERROR   harness BTC: no usable surface — skipping pricing
+2026-07-30 07:00:17,930 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.04132381418404363, 0.07967997856760527)] — digitals near these horizons are suspect
+2026-07-30 07:00:17,930 INFO    harness.deribit ETH: fitted 8/11 expiries, index=1904
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-07-30 T=0.0002 F=1904 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-07-31 T=0.0030 F=1905 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-08-01 T=0.0057 F=1904 quotes=22 rmse=19.42vp used=False butterfly arbitrage in fit
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-08-02 T=0.0084 F=1904 quotes=21 rmse=0.22vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-08-07 T=0.0221 F=1905 quotes=13 rmse=0.40vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-08-14 T=0.0413 F=1904 quotes=12 rmse=0.05vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-08-28 T=0.0797 F=1905 quotes=33 rmse=0.49vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-09-25 T=0.1564 F=1908 quotes=39 rmse=0.50vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2026-12-25 T=0.4057 F=1921 quotes=41 rmse=0.25vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2027-03-26 T=0.6550 F=1940 quotes=39 rmse=0.24vp used=True 
+2026-07-30 07:00:17,931 INFO    harness   ETH 2027-06-25 T=0.9043 F=1958 quotes=30 rmse=0.06vp used=True 
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'gamma-api.polymarket.com'. (_ssl.c:1032)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'gamma-api.polymarket.com'. (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Max retries exceeded with url: /markets?active=true&closed=false&limit=100&offset=0 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'gamma-api.polymarket.com'. (_ssl.c:1032)")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 274, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 266, in main
+    step_price(surfaces)
+    ~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 104, in step_price
+    raw = fetch_gamma_markets()
+  File "/Users/ricana/Lab/Dev/QuantLibLab/quantliblab/harness/polymarket.py", line 137, in fetch_gamma_markets
+    r = requests.get(
+        f"{GAMMA_BASE}/markets",
+    ...<2 lines>...
+        timeout=_TIMEOUT,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/adapters.py", line 676, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Max retries exceeded with url: /markets?active=true&closed=false&limit=100&offset=0 (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'gamma-api.polymarket.com'. (_ssl.c:1032)")))
+2026-08-07 07:00:15,435 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.13447452612966135, 0.23036493708856545)] — digitals near these horizons are suspect
+2026-08-07 07:00:15,436 INFO    harness.deribit BTC: fitted 4/12 expiries, index=64286
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-07 T=0.0002 F=64269 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-08 T=0.0030 F=64285 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-09 T=0.0057 F=64281 quotes=14 rmse=1.07vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-10 T=0.0084 F=64297 quotes=16 rmse=14.23vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-14 T=0.0194 F=64319 quotes=14 rmse=18.43vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-21 T=0.0386 F=64366 quotes=18 rmse=0.10vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-08-28 T=0.0578 F=64420 quotes=42 rmse=0.46vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-09-25 T=0.1345 F=64645 quotes=41 rmse=0.33vp used=True 
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-10-30 T=0.2304 F=64914 quotes=37 rmse=0.13vp used=True 
+2026-08-07 07:00:15,437 INFO    harness   BTC 2026-12-25 T=0.3838 F=65380 quotes=53 rmse=1.18vp used=True 
+2026-08-07 07:00:15,437 INFO    harness   BTC 2027-03-26 T=0.6331 F=66074 quotes=51 rmse=0.26vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:15,437 INFO    harness   BTC 2027-06-25 T=0.8824 F=66830 quotes=37 rmse=0.05vp used=True 
+2026-08-07 07:00:20,532 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03858398530787037, 0.057762067499651196), (0.1344743962667745, 0.2303648072256786)] — digitals near these horizons are suspect
+2026-08-07 07:00:20,532 INFO    harness.deribit ETH: fitted 8/12 expiries, index=1900
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-07 T=0.0002 F=1900 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-08 T=0.0030 F=1900 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-09 T=0.0057 F=1900 quotes=21 rmse=37.58vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-10 T=0.0084 F=1900 quotes=20 rmse=16.75vp used=False butterfly arbitrage in fit
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-14 T=0.0194 F=1901 quotes=15 rmse=0.23vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-21 T=0.0386 F=1901 quotes=15 rmse=0.18vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-08-28 T=0.0578 F=1902 quotes=29 rmse=0.35vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-09-25 T=0.1345 F=1906 quotes=38 rmse=0.84vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-10-30 T=0.2304 F=1910 quotes=27 rmse=0.21vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2026-12-25 T=0.3838 F=1919 quotes=41 rmse=0.45vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2027-03-26 T=0.6331 F=1939 quotes=39 rmse=0.20vp used=True 
+2026-08-07 07:00:20,533 INFO    harness   ETH 2027-06-25 T=0.8824 F=1957 quotes=30 rmse=0.09vp used=True 
+2026-08-07 07:00:22,132 INFO    harness Gamma returned 2000 active markets
+2026-08-07 07:00:22,149 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-07 07:00:22,149 INFO    harness parsed 30 crypto binaries
+2026-08-07 07:00:38,696 INFO    harness EDGE +0.045  fair=0.522 mkt=0.476  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.039  fair=0.016 mkt=0.055  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.035  fair=0.030 mkt=0.065  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.035  fair=0.009 mkt=0.043  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.034  fair=0.008 mkt=0.042  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.033  fair=0.003 mkt=0.036  Will Bitcoin hit $150k by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.032  fair=0.063 mkt=0.095  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.031  fair=0.003 mkt=0.034  Will Bitcoin reach $150,000 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.031  fair=0.004 mkt=0.035  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-08-07 07:00:38,697 INFO    harness EDGE -0.031  fair=0.005 mkt=0.036  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-07 07:00:38,780 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-07 07:00:38,780 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-08 07:00:07,597 INFO    harness.deribit BTC: fitted 2/12 expiries, index=64962
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-08 T=0.0002 F=64949 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-09 T=0.0030 F=64952 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-10 T=0.0057 F=64959 quotes=12 rmse=13.28vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-11 T=0.0084 F=64966 quotes=15 rmse=14.21vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-14 T=0.0167 F=64991 quotes=14 rmse=23.62vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-21 T=0.0358 F=65040 quotes=18 rmse=0.45vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-08-28 T=0.0550 F=65102 quotes=41 rmse=0.50vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-09-25 T=0.1317 F=65322 quotes=41 rmse=0.31vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-10-30 T=0.2276 F=65592 quotes=37 rmse=0.08vp used=True 
+2026-08-08 07:00:07,599 INFO    harness   BTC 2026-12-25 T=0.3811 F=66060 quotes=53 rmse=1.40vp used=True 
+2026-08-08 07:00:07,599 INFO    harness   BTC 2027-03-26 T=0.6304 F=66744 quotes=51 rmse=0.36vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:07,599 INFO    harness   BTC 2027-06-25 T=0.8797 F=67468 quotes=37 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:11,644 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.13173491878827373, 0.22762532974717783)] — digitals near these horizons are suspect
+2026-08-08 07:00:11,644 INFO    harness.deribit ETH: fitted 7/12 expiries, index=1917
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-08 T=0.0002 F=1917 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-09 T=0.0030 F=1917 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-10 T=0.0057 F=1917 quotes=14 rmse=20.32vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-11 T=0.0084 F=1917 quotes=21 rmse=34.94vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-14 T=0.0167 F=1917 quotes=14 rmse=14.12vp used=False butterfly arbitrage in fit
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-21 T=0.0358 F=1918 quotes=15 rmse=0.17vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-08-28 T=0.0550 F=1919 quotes=28 rmse=0.62vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-09-25 T=0.1317 F=1922 quotes=38 rmse=0.89vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-10-30 T=0.2276 F=1927 quotes=27 rmse=0.29vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2026-12-25 T=0.3810 F=1935 quotes=41 rmse=0.34vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2027-03-26 T=0.6304 F=1954 quotes=39 rmse=0.22vp used=True 
+2026-08-08 07:00:11,645 INFO    harness   ETH 2027-06-25 T=0.8797 F=1974 quotes=30 rmse=0.08vp used=True 
+2026-08-08 07:00:13,201 INFO    harness Gamma returned 2000 active markets
+2026-08-08 07:00:13,219 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-08 07:00:13,219 INFO    harness parsed 30 crypto binaries
+2026-08-08 07:00:29,406 INFO    harness EDGE +0.062  fair=0.504 mkt=0.443  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE +0.042  fair=0.142 mkt=0.100  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.039  fair=0.016 mkt=0.055  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.038  fair=0.507 mkt=0.545  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.037  fair=0.005 mkt=0.042  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.036  fair=0.065 mkt=0.100  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.035  fair=0.009 mkt=0.044  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.035  fair=0.030 mkt=0.065  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.033  fair=0.003 mkt=0.036  Will Bitcoin hit $150k by December 31, 2026?
+2026-08-08 07:00:29,406 INFO    harness EDGE -0.032  fair=0.003 mkt=0.035  Will Bitcoin reach $150,000 by December 31, 2026?
+2026-08-08 07:00:29,485 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-08 07:00:29,486 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-09 07:00:06,811 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.005707665163844495, 0.008447391191241755), (0.1289953363967212, 0.22488574735562533)] — digitals near these horizons are suspect
+2026-08-09 07:00:06,813 INFO    harness.deribit BTC: fitted 5/12 expiries, index=64754
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-09 T=0.0002 F=64745 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-10 T=0.0030 F=64742 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-11 T=0.0057 F=64750 quotes=14 rmse=0.43vp used=True 
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-12 T=0.0084 F=64757 quotes=16 rmse=0.39vp used=True 
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-14 T=0.0139 F=64773 quotes=14 rmse=25.45vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-21 T=0.0331 F=64822 quotes=18 rmse=0.30vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-08-28 T=0.0523 F=64890 quotes=41 rmse=0.40vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-09-25 T=0.1290 F=65108 quotes=41 rmse=0.31vp used=True 
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-10-30 T=0.2249 F=65377 quotes=37 rmse=0.11vp used=True 
+2026-08-09 07:00:06,814 INFO    harness   BTC 2026-12-25 T=0.3783 F=65838 quotes=53 rmse=1.24vp used=True 
+2026-08-09 07:00:06,814 INFO    harness   BTC 2027-03-26 T=0.6276 F=66515 quotes=51 rmse=0.29vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:06,814 INFO    harness   BTC 2027-06-25 T=0.8769 F=67242 quotes=37 rmse=0.11vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:10,294 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.033104806703608575, 0.0522828888953894), (0.12899521766251268, 0.2248856286214168)] — digitals near these horizons are suspect
+2026-08-09 07:00:10,294 INFO    harness.deribit ETH: fitted 8/12 expiries, index=1913
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-09 T=0.0002 F=1913 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-10 T=0.0030 F=1913 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-11 T=0.0057 F=1914 quotes=17 rmse=0.53vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-12 T=0.0084 F=1914 quotes=17 rmse=0.47vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-14 T=0.0139 F=1914 quotes=14 rmse=16.30vp used=False butterfly arbitrage in fit
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-21 T=0.0331 F=1915 quotes=15 rmse=0.19vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-08-28 T=0.0523 F=1915 quotes=28 rmse=0.52vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-09-25 T=0.1290 F=1919 quotes=38 rmse=1.15vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-10-30 T=0.2249 F=1923 quotes=27 rmse=0.29vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2026-12-25 T=0.3783 F=1931 quotes=41 rmse=0.40vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2027-03-26 T=0.6276 F=1950 quotes=39 rmse=0.21vp used=True 
+2026-08-09 07:00:10,295 INFO    harness   ETH 2027-06-25 T=0.8769 F=1970 quotes=30 rmse=0.06vp used=True 
+2026-08-09 07:00:11,973 INFO    harness Gamma returned 2000 active markets
+2026-08-09 07:00:11,991 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-09 07:00:11,991 INFO    harness parsed 30 crypto binaries
+2026-08-09 07:00:28,389 INFO    harness EDGE +0.071  fair=0.511 mkt=0.440  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.069  fair=0.516 mkt=0.585  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE +0.041  fair=0.141 mkt=0.100  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.039  fair=0.016 mkt=0.055  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.037  fair=0.063 mkt=0.100  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.035  fair=0.030 mkt=0.065  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.035  fair=0.005 mkt=0.040  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.033  fair=0.005 mkt=0.038  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.032  fair=0.003 mkt=0.036  Will Bitcoin hit $150k by December 31, 2026?
+2026-08-09 07:00:28,390 INFO    harness EDGE -0.032  fair=0.009 mkt=0.042  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-09 07:00:28,473 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-09 07:00:28,474 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-15 07:00:09,807 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.11255686973867961, 0.2084472806975837)] — digitals near these horizons are suspect
+2026-08-15 07:00:09,809 INFO    harness.deribit BTC: fitted 3/12 expiries, index=63020
+2026-08-15 07:00:09,809 INFO    harness   BTC 2026-08-15 T=0.0002 F=63011 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-15 07:00:09,809 INFO    harness   BTC 2026-08-16 T=0.0030 F=63016 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-15 07:00:09,809 INFO    harness   BTC 2026-08-17 T=0.0057 F=63026 quotes=10 rmse=9.39vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-08-18 T=0.0084 F=63036 quotes=14 rmse=14.42vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-08-21 T=0.0167 F=63061 quotes=15 rmse=23.13vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-08-28 T=0.0358 F=63115 quotes=29 rmse=0.56vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-09-04 T=0.0550 F=63166 quotes=15 rmse=0.15vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-09-25 T=0.1126 F=63333 quotes=37 rmse=0.70vp used=True 
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-10-30 T=0.2084 F=63596 quotes=37 rmse=0.07vp used=True 
+2026-08-15 07:00:09,810 INFO    harness   BTC 2026-12-25 T=0.3619 F=64038 quotes=54 rmse=0.92vp used=True 
+2026-08-15 07:00:09,810 INFO    harness   BTC 2027-03-26 T=0.6112 F=64707 quotes=51 rmse=0.21vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:09,810 INFO    harness   BTC 2027-06-25 T=0.8605 F=65437 quotes=37 rmse=0.12vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,129 INFO    harness.deribit ETH: fitted 4/12 expiries, index=1879
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-15 T=0.0002 F=1879 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-16 T=0.0030 F=1879 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-17 T=0.0057 F=1879 quotes=15 rmse=25.91vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-18 T=0.0084 F=1879 quotes=17 rmse=33.03vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-21 T=0.0167 F=1879 quotes=13 rmse=25.25vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-08-28 T=0.0358 F=1880 quotes=24 rmse=0.84vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-09-04 T=0.0550 F=1881 quotes=11 rmse=0.25vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-09-25 T=0.1126 F=1883 quotes=33 rmse=1.05vp used=False butterfly arbitrage in fit
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-10-30 T=0.2084 F=1888 quotes=27 rmse=0.33vp used=True 
+2026-08-15 07:00:14,130 INFO    harness   ETH 2026-12-25 T=0.3619 F=1897 quotes=41 rmse=0.68vp used=True 
+2026-08-15 07:00:14,130 INFO    harness   ETH 2027-03-26 T=0.6112 F=1916 quotes=39 rmse=0.25vp used=True 
+2026-08-15 07:00:14,130 INFO    harness   ETH 2027-06-25 T=0.8605 F=1935 quotes=30 rmse=0.09vp used=True 
+2026-08-15 07:00:16,496 INFO    harness Gamma returned 2000 active markets
+2026-08-15 07:00:16,509 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-15 07:00:16,509 INFO    harness parsed 30 crypto binaries
+2026-08-15 07:00:31,697 INFO    harness EDGE +0.104  fair=0.522 mkt=0.417  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.047  fair=0.048 mkt=0.095  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE +0.034  fair=0.139 mkt=0.105  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.034  fair=0.011 mkt=0.045  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.034  fair=0.007 mkt=0.041  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.033  fair=0.052 mkt=0.085  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.033  fair=0.022 mkt=0.055  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.032  fair=0.013 mkt=0.045  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.030  fair=0.004 mkt=0.035  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-08-15 07:00:31,697 INFO    harness EDGE -0.030  fair=0.006 mkt=0.036  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-15 07:00:31,779 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-15 07:00:31,780 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-16 07:00:10,869 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.10981718961650178, 0.2057076005754059)] — digitals near these horizons are suspect
+2026-08-16 07:00:10,870 INFO    harness.deribit BTC: fitted 4/12 expiries, index=63004
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-16 T=0.0002 F=62992 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-17 T=0.0030 F=62992 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-18 T=0.0057 F=63001 quotes=11 rmse=0.18vp used=True 
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-19 T=0.0084 F=63011 quotes=16 rmse=21.23vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-21 T=0.0139 F=63026 quotes=15 rmse=26.18vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-08-28 T=0.0331 F=63082 quotes=27 rmse=0.35vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-09-04 T=0.0523 F=63132 quotes=15 rmse=0.36vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-09-25 T=0.1098 F=63299 quotes=37 rmse=0.59vp used=True 
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-10-30 T=0.2057 F=63566 quotes=37 rmse=0.11vp used=True 
+2026-08-16 07:00:10,871 INFO    harness   BTC 2026-12-25 T=0.3591 F=64012 quotes=54 rmse=0.98vp used=True 
+2026-08-16 07:00:10,871 INFO    harness   BTC 2027-03-26 T=0.6084 F=64693 quotes=51 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:10,871 INFO    harness   BTC 2027-06-25 T=0.8578 F=65421 quotes=37 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03310467804093734, 0.20570741776696472)] — digitals near these horizons are suspect
+2026-08-16 07:00:14,730 INFO    harness.deribit ETH: fitted 5/12 expiries, index=1878
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-16 T=0.0002 F=1878 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-17 T=0.0030 F=1878 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-18 T=0.0057 F=1878 quotes=15 rmse=19.62vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-19 T=0.0084 F=1878 quotes=17 rmse=14.72vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-21 T=0.0139 F=1878 quotes=13 rmse=28.78vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-08-28 T=0.0331 F=1879 quotes=23 rmse=0.30vp used=True 
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-09-04 T=0.0523 F=1880 quotes=11 rmse=0.13vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-09-25 T=0.1098 F=1882 quotes=33 rmse=1.20vp used=False butterfly arbitrage in fit
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-10-30 T=0.2057 F=1888 quotes=27 rmse=0.73vp used=True 
+2026-08-16 07:00:14,730 INFO    harness   ETH 2026-12-25 T=0.3591 F=1896 quotes=41 rmse=0.66vp used=True 
+2026-08-16 07:00:14,730 INFO    harness   ETH 2027-03-26 T=0.6084 F=1916 quotes=39 rmse=0.22vp used=True 
+2026-08-16 07:00:14,730 INFO    harness   ETH 2027-06-25 T=0.8578 F=1935 quotes=30 rmse=0.05vp used=True 
+2026-08-16 07:00:16,322 INFO    harness Gamma returned 2000 active markets
+2026-08-16 07:00:16,338 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-16 07:00:16,338 INFO    harness parsed 30 crypto binaries
+2026-08-16 07:00:33,660 INFO    harness EDGE +0.107  fair=0.522 mkt=0.414  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.045  fair=0.050 mkt=0.095  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE +0.036  fair=0.141 mkt=0.105  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.034  fair=0.011 mkt=0.045  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.033  fair=0.007 mkt=0.041  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.033  fair=0.022 mkt=0.055  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.032  fair=0.013 mkt=0.045  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.032  fair=0.053 mkt=0.085  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.030  fair=0.025 mkt=0.055  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-08-16 07:00:33,660 INFO    harness EDGE -0.030  fair=0.005 mkt=0.035  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-08-16 07:00:33,744 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-16 07:00:33,746 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-18 07:00:09,460 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.20022813624226282, 0.3536527937765094)] — digitals near these horizons are suspect
+2026-08-18 07:00:09,462 INFO    harness.deribit BTC: fitted 5/11 expiries, index=64166
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-08-18 T=0.0002 F=64150 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-08-19 T=0.0030 F=64155 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-08-20 T=0.0057 F=64168 quotes=16 rmse=19.15vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-08-21 T=0.0084 F=64179 quotes=17 rmse=24.92vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-08-28 T=0.0276 F=64246 quotes=25 rmse=18.93vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-09-04 T=0.0468 F=64303 quotes=16 rmse=0.31vp used=True 
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-09-25 T=0.1043 F=64486 quotes=37 rmse=0.52vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-10-30 T=0.2002 F=64752 quotes=37 rmse=0.09vp used=True 
+2026-08-18 07:00:09,463 INFO    harness   BTC 2026-12-25 T=0.3537 F=65216 quotes=54 rmse=0.86vp used=True 
+2026-08-18 07:00:09,463 INFO    harness   BTC 2027-03-26 T=0.6030 F=65911 quotes=51 rmse=0.12vp used=True 
+2026-08-18 07:00:09,463 INFO    harness   BTC 2027-06-25 T=0.8523 F=66656 quotes=37 rmse=0.09vp used=True 
+2026-08-18 07:00:13,617 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.10433759942675037, 0.2002280103856545)] — digitals near these horizons are suspect
+2026-08-18 07:00:13,617 INFO    harness.deribit ETH: fitted 7/11 expiries, index=1893
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-08-18 T=0.0002 F=1893 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-08-19 T=0.0030 F=1893 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-08-20 T=0.0057 F=1893 quotes=19 rmse=33.21vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-08-21 T=0.0084 F=1893 quotes=19 rmse=36.55vp used=False butterfly arbitrage in fit
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-08-28 T=0.0276 F=1894 quotes=24 rmse=0.50vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-09-04 T=0.0468 F=1894 quotes=11 rmse=0.07vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-09-25 T=0.1043 F=1896 quotes=33 rmse=1.24vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-10-30 T=0.2002 F=1902 quotes=27 rmse=0.41vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2026-12-25 T=0.3537 F=1911 quotes=41 rmse=0.40vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2027-03-26 T=0.6030 F=1930 quotes=39 rmse=0.18vp used=True 
+2026-08-18 07:00:13,618 INFO    harness   ETH 2027-06-25 T=0.8523 F=1950 quotes=30 rmse=0.08vp used=True 
+2026-08-18 07:00:18,141 INFO    harness Gamma returned 2000 active markets
+2026-08-18 07:00:18,157 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-18 07:00:18,157 INFO    harness parsed 30 crypto binaries
+2026-08-18 07:00:33,271 INFO    harness EDGE +0.091  fair=0.498 mkt=0.407  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.049  fair=0.046 mkt=0.095  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.034  fair=0.011 mkt=0.045  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.033  fair=0.022 mkt=0.055  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.031  fair=0.014 mkt=0.045  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.029  fair=0.006 mkt=0.036  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.028  fair=0.003 mkt=0.032  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.028  fair=0.028 mkt=0.055  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE +0.026  fair=0.131 mkt=0.105  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-08-18 07:00:33,271 INFO    harness EDGE -0.026  fair=0.008 mkt=0.034  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-18 07:00:33,359 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-18 07:00:33,360 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-19 07:00:09,917 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.10159796485232749, 0.1974883758112316), (0.1974883758112316, 0.3509130333454782)] — digitals near these horizons are suspect
+2026-08-19 07:00:09,919 INFO    harness.deribit BTC: fitted 4/11 expiries, index=64198
+2026-08-19 07:00:09,919 INFO    harness   BTC 2026-08-19 T=0.0002 F=64189 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-19 07:00:09,919 INFO    harness   BTC 2026-08-20 T=0.0030 F=64201 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-19 07:00:09,919 INFO    harness   BTC 2026-08-21 T=0.0057 F=64208 quotes=14 rmse=22.79vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-08-22 T=0.0084 F=64223 quotes=17 rmse=13.57vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-08-28 T=0.0249 F=64270 quotes=25 rmse=20.61vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-09-04 T=0.0441 F=64328 quotes=16 rmse=0.25vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-09-25 T=0.1016 F=64498 quotes=38 rmse=0.84vp used=True 
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-10-30 T=0.1975 F=64784 quotes=37 rmse=0.15vp used=True 
+2026-08-19 07:00:09,920 INFO    harness   BTC 2026-12-25 T=0.3509 F=65245 quotes=54 rmse=0.70vp used=True 
+2026-08-19 07:00:09,920 INFO    harness   BTC 2027-03-26 T=0.6002 F=65941 quotes=51 rmse=0.09vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:09,920 INFO    harness   BTC 2027-06-25 T=0.8495 F=66694 quotes=37 rmse=0.13vp used=True 
+2026-08-19 07:00:11,854 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.02488553014979706, 0.04406361234157788), (0.10159785891692034, 0.19748826987582446), (0.6002279959032217, 0.8495430643963724)] — digitals near these horizons are suspect
+2026-08-19 07:00:11,854 INFO    harness.deribit ETH: fitted 7/11 expiries, index=1909
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-08-19 T=0.0002 F=1909 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-08-20 T=0.0030 F=1909 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-08-21 T=0.0057 F=1909 quotes=16 rmse=38.46vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-08-22 T=0.0084 F=1910 quotes=20 rmse=26.40vp used=False butterfly arbitrage in fit
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-08-28 T=0.0249 F=1911 quotes=24 rmse=0.70vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-09-04 T=0.0441 F=1911 quotes=11 rmse=0.08vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-09-25 T=0.1016 F=1913 quotes=33 rmse=1.44vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-10-30 T=0.1975 F=1919 quotes=27 rmse=0.38vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2026-12-25 T=0.3509 F=1928 quotes=41 rmse=0.76vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2027-03-26 T=0.6002 F=1947 quotes=39 rmse=0.20vp used=True 
+2026-08-19 07:00:11,855 INFO    harness   ETH 2027-06-25 T=0.8495 F=1967 quotes=30 rmse=0.09vp used=True 
+2026-08-19 07:00:17,006 INFO    harness Gamma returned 2000 active markets
+2026-08-19 07:00:17,026 INFO    harness.polymarket parser skipped: {'no asset': 1885, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-19 07:00:17,026 INFO    harness parsed 30 crypto binaries
+2026-08-19 07:00:32,058 INFO    harness EDGE +0.080  fair=0.482 mkt=0.402  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.033  fair=0.022 mkt=0.055  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.033  fair=0.012 mkt=0.045  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.030  fair=0.015 mkt=0.045  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.028  fair=0.004 mkt=0.032  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.026  fair=0.029 mkt=0.055  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.026  fair=0.002 mkt=0.028  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.026  fair=0.006 mkt=0.032  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.025  fair=0.008 mkt=0.034  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-08-19 07:00:32,058 INFO    harness EDGE -0.025  fair=0.005 mkt=0.029  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-08-19 07:00:32,138 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-19 07:00:32,140 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-21 07:00:09,698 INFO    harness.deribit BTC: fitted 4/12 expiries, index=75388
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-08-21 T=0.0002 F=75412 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-08-22 T=0.0030 F=75433 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-08-23 T=0.0057 F=75424 quotes=30 rmse=39.83vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-08-24 T=0.0084 F=75443 quotes=33 rmse=37.19vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-08-28 T=0.0194 F=75506 quotes=45 rmse=1.93vp used=True 
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-09-04 T=0.0386 F=75579 quotes=25 rmse=0.37vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-09-11 T=0.0578 F=75631 quotes=21 rmse=0.11vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-09-25 T=0.0961 F=75766 quotes=59 rmse=2.04vp used=True 
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-10-30 T=0.1920 F=76073 quotes=47 rmse=0.21vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2026-12-25 T=0.3454 F=76698 quotes=59 rmse=1.33vp used=True 
+2026-08-21 07:00:09,701 INFO    harness   BTC 2027-03-26 T=0.5947 F=77529 quotes=51 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:09,701 INFO    harness   BTC 2027-06-25 T=0.8441 F=78458 quotes=43 rmse=0.17vp used=True 
+2026-08-21 07:00:12,938 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.19200882472713723, 0.3454334822613838)] — digitals near these horizons are suspect
+2026-08-21 07:00:12,939 INFO    harness.deribit ETH: fitted 7/12 expiries, index=2365
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-08-21 T=0.0002 F=2364 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-08-22 T=0.0030 F=2365 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-08-23 T=0.0057 F=2365 quotes=32 rmse=29.62vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-08-24 T=0.0084 F=2366 quotes=30 rmse=15.79vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-08-28 T=0.0194 F=2367 quotes=31 rmse=1.77vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-09-04 T=0.0386 F=2367 quotes=21 rmse=0.15vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-09-11 T=0.0578 F=2367 quotes=15 rmse=0.06vp used=False butterfly arbitrage in fit
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-09-25 T=0.0961 F=2369 quotes=44 rmse=1.33vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-10-30 T=0.1920 F=2375 quotes=34 rmse=0.39vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2026-12-25 T=0.3454 F=2387 quotes=43 rmse=0.55vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2027-03-26 T=0.5947 F=2412 quotes=39 rmse=0.26vp used=True 
+2026-08-21 07:00:12,940 INFO    harness   ETH 2027-06-25 T=0.8441 F=2438 quotes=35 rmse=0.17vp used=True 
+2026-08-21 07:00:14,464 INFO    harness Gamma returned 2000 active markets
+2026-08-21 07:00:14,480 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-21 07:00:14,480 INFO    harness parsed 32 crypto binaries
+2026-08-21 07:00:30,466 INFO    harness EDGE +0.074  fair=0.220 mkt=0.145  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE +0.052  fair=0.257 mkt=0.205  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.047  fair=0.098 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.030  fair=0.035 mkt=0.065  Will Ethereum dip to $800 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.029  fair=0.036 mkt=0.065  Will Bitcoin dip to $35,000 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.025  fair=0.031 mkt=0.056  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.023  fair=0.052 mkt=0.075  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.021  fair=0.194 mkt=0.215  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.019  fair=0.004 mkt=0.024  Will Ethereum reach $7,500 by December 31, 2026?
+2026-08-21 07:00:30,466 INFO    harness EDGE -0.019  fair=0.006 mkt=0.025  Will Ethereum reach $7,000 by December 31, 2026?
+2026-08-21 07:00:30,552 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-21 07:00:30,554 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-22 07:00:09,733 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.005707639499016997, 0.008447365526414256), (0.34269394086888, 0.5920090093620307), (0.5920090093620307, 0.8413240778551814)] — digitals near these horizons are suspect
+2026-08-22 07:00:09,734 INFO    harness.deribit BTC: fitted 10/12 expiries, index=77353
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-08-22 T=0.0002 F=77370 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-08-23 T=0.0030 F=77383 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-08-24 T=0.0057 F=77402 quotes=29 rmse=0.54vp used=True 
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-08-25 T=0.0084 F=77414 quotes=29 rmse=0.25vp used=True 
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-08-28 T=0.0167 F=77452 quotes=40 rmse=1.58vp used=True 
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-09-04 T=0.0358 F=77515 quotes=28 rmse=0.53vp used=True 
+2026-08-22 07:00:09,735 INFO    harness   BTC 2026-09-11 T=0.0550 F=77573 quotes=26 rmse=0.14vp used=True 
+2026-08-22 07:00:09,736 INFO    harness   BTC 2026-09-25 T=0.0934 F=77692 quotes=54 rmse=0.73vp used=True 
+2026-08-22 07:00:09,736 INFO    harness   BTC 2026-10-30 T=0.1893 F=77999 quotes=51 rmse=0.16vp used=True 
+2026-08-22 07:00:09,736 INFO    harness   BTC 2026-12-25 T=0.3427 F=78587 quotes=59 rmse=1.10vp used=True 
+2026-08-22 07:00:09,736 INFO    harness   BTC 2027-03-26 T=0.5920 F=79446 quotes=51 rmse=0.35vp used=True 
+2026-08-22 07:00:09,736 INFO    harness   BTC 2027-06-25 T=0.8413 F=80358 quotes=48 rmse=0.14vp used=True 
+2026-08-22 07:00:11,383 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03584444008659944, 0.05502252227838027)] — digitals near these horizons are suspect
+2026-08-22 07:00:11,383 INFO    harness.deribit ETH: fitted 10/12 expiries, index=2438
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-08-22 T=0.0002 F=2438 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-08-23 T=0.0030 F=2439 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-08-24 T=0.0057 F=2439 quotes=38 rmse=0.23vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-08-25 T=0.0084 F=2439 quotes=32 rmse=0.19vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-08-28 T=0.0167 F=2441 quotes=29 rmse=6.66vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-09-04 T=0.0358 F=2441 quotes=23 rmse=0.16vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-09-11 T=0.0550 F=2442 quotes=18 rmse=0.18vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-09-25 T=0.0934 F=2443 quotes=44 rmse=2.42vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-10-30 T=0.1893 F=2450 quotes=38 rmse=0.27vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2026-12-25 T=0.3427 F=2462 quotes=44 rmse=1.47vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2027-03-26 T=0.5920 F=2486 quotes=39 rmse=0.08vp used=True 
+2026-08-22 07:00:11,384 INFO    harness   ETH 2027-06-25 T=0.8413 F=2513 quotes=40 rmse=0.13vp used=True 
+2026-08-22 07:00:12,971 INFO    harness Gamma returned 2000 active markets
+2026-08-22 07:00:12,987 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-22 07:00:12,987 INFO    harness parsed 32 crypto binaries
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.058  fair=0.067 mkt=0.125  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE +0.052  fair=0.297 mkt=0.245  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.039  fair=0.241 mkt=0.280  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE +0.038  fair=0.209 mkt=0.171  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.038  fair=0.127 mkt=0.165  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.027  fair=0.024 mkt=0.051  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.025  fair=0.040 mkt=0.065  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.025  fair=0.017 mkt=0.041  Will Bitcoin reach $160,000 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.022  fair=0.011 mkt=0.033  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-22 07:00:28,891 INFO    harness EDGE -0.022  fair=0.093 mkt=0.115  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-22 07:00:28,976 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-22 07:00:28,978 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-23 07:00:07,262 INFO    harness.deribit BTC: fitted 6/12 expiries, index=76048
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-08-23 T=0.0002 F=76049 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-08-24 T=0.0030 F=76072 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-08-25 T=0.0057 F=76098 quotes=29 rmse=19.45vp used=False butterfly arbitrage in fit
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-08-26 T=0.0084 F=76113 quotes=25 rmse=0.17vp used=True 
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-08-28 T=0.0139 F=76135 quotes=40 rmse=0.41vp used=False butterfly arbitrage in fit
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-09-04 T=0.0331 F=76171 quotes=29 rmse=0.36vp used=True 
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-09-11 T=0.0523 F=76224 quotes=26 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-09-25 T=0.0906 F=76343 quotes=54 rmse=0.43vp used=True 
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-10-30 T=0.1865 F=76671 quotes=51 rmse=0.33vp used=False butterfly arbitrage in fit
+2026-08-23 07:00:07,265 INFO    harness   BTC 2026-12-25 T=0.3400 F=77267 quotes=59 rmse=0.37vp used=True 
+2026-08-23 07:00:07,265 INFO    harness   BTC 2027-03-26 T=0.5893 F=78087 quotes=51 rmse=0.08vp used=True 
+2026-08-23 07:00:07,265 INFO    harness   BTC 2027-06-25 T=0.8386 F=78933 quotes=48 rmse=0.06vp used=True 
+2026-08-23 07:00:09,645 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.0522828745867897, 0.09063903897035135)] — digitals near these horizons are suspect
+2026-08-23 07:00:09,645 INFO    harness.deribit ETH: fitted 9/12 expiries, index=2375
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-08-23 T=0.0002 F=2374 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-08-24 T=0.0030 F=2374 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-08-25 T=0.0057 F=2375 quotes=34 rmse=15.81vp used=False butterfly arbitrage in fit
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-08-26 T=0.0084 F=2375 quotes=26 rmse=0.28vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-08-28 T=0.0139 F=2376 quotes=28 rmse=2.45vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-09-04 T=0.0331 F=2376 quotes=26 rmse=0.62vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-09-11 T=0.0523 F=2377 quotes=18 rmse=0.16vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-09-25 T=0.0906 F=2379 quotes=50 rmse=1.76vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-10-30 T=0.1865 F=2385 quotes=39 rmse=0.25vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2026-12-25 T=0.3400 F=2397 quotes=43 rmse=0.61vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2027-03-26 T=0.5893 F=2421 quotes=39 rmse=0.10vp used=True 
+2026-08-23 07:00:09,646 INFO    harness   ETH 2027-06-25 T=0.8386 F=2448 quotes=40 rmse=0.11vp used=True 
+2026-08-23 07:00:11,204 INFO    harness Gamma returned 2000 active markets
+2026-08-23 07:00:11,221 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-23 07:00:11,221 INFO    harness parsed 32 crypto binaries
+2026-08-23 07:00:26,797 INFO    harness EDGE +0.084  fair=0.230 mkt=0.146  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.064  fair=0.211 mkt=0.275  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.044  fair=0.033 mkt=0.077  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.042  fair=0.108 mkt=0.150  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.040  fair=0.245 mkt=0.285  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE +0.033  fair=0.258 mkt=0.225  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.027  fair=0.008 mkt=0.035  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.026  fair=0.020 mkt=0.046  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.026  fair=0.005 mkt=0.031  Will Ethereum reach $7,000 by December 31, 2026?
+2026-08-23 07:00:26,797 INFO    harness EDGE -0.024  fair=0.013 mkt=0.037  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-23 07:00:26,874 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-23 07:00:26,876 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-24 07:00:08,098 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.3372145387271372, 0.5865296072202879)] — digitals near these horizons are suspect
+2026-08-24 07:00:08,100 INFO    harness.deribit BTC: fitted 7/12 expiries, index=77147
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-08-24 T=0.0002 F=77140 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-08-25 T=0.0030 F=77164 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-08-26 T=0.0057 F=77188 quotes=25 rmse=21.56vp used=False butterfly arbitrage in fit
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-08-27 T=0.0084 F=77206 quotes=27 rmse=15.74vp used=False butterfly arbitrage in fit
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-08-28 T=0.0112 F=77230 quotes=37 rmse=13.53vp used=False butterfly arbitrage in fit
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-09-04 T=0.0304 F=77305 quotes=29 rmse=0.23vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-09-11 T=0.0495 F=77355 quotes=26 rmse=0.15vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-09-25 T=0.0879 F=77533 quotes=54 rmse=0.57vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-10-30 T=0.1838 F=77799 quotes=51 rmse=0.20vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2026-12-25 T=0.3372 F=78400 quotes=59 rmse=0.42vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2027-03-26 T=0.5865 F=79248 quotes=51 rmse=0.11vp used=True 
+2026-08-24 07:00:08,101 INFO    harness   BTC 2027-06-25 T=0.8358 F=80139 quotes=48 rmse=0.10vp used=True 
+2026-08-24 07:00:10,279 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.00844723162947108, 0.011186957656868342), (0.18378969738289574, 0.3372143549171423)] — digitals near these horizons are suspect
+2026-08-24 07:00:10,280 INFO    harness.deribit ETH: fitted 9/12 expiries, index=2448
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-08-24 T=0.0002 F=2448 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-08-25 T=0.0030 F=2449 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-08-26 T=0.0057 F=2449 quotes=27 rmse=0.45vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-08-27 T=0.0084 F=2450 quotes=30 rmse=0.15vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-08-28 T=0.0112 F=2450 quotes=26 rmse=0.80vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-09-04 T=0.0304 F=2451 quotes=26 rmse=0.82vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-09-11 T=0.0495 F=2452 quotes=18 rmse=0.09vp used=False butterfly arbitrage in fit
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-09-25 T=0.0879 F=2455 quotes=50 rmse=2.01vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-10-30 T=0.1838 F=2461 quotes=39 rmse=0.45vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2026-12-25 T=0.3372 F=2473 quotes=44 rmse=0.78vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2027-03-26 T=0.5865 F=2498 quotes=39 rmse=0.17vp used=True 
+2026-08-24 07:00:10,281 INFO    harness   ETH 2027-06-25 T=0.8358 F=2528 quotes=40 rmse=0.17vp used=True 
+2026-08-24 07:00:11,855 INFO    harness Gamma returned 2000 active markets
+2026-08-24 07:00:11,872 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-24 07:00:11,872 INFO    harness parsed 32 crypto binaries
+2026-08-24 07:00:27,485 INFO    harness EDGE +0.099  fair=0.200 mkt=0.102  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.050  fair=0.250 mkt=0.300  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE +0.033  fair=0.278 mkt=0.245  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.030  fair=0.075 mkt=0.105  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.028  fair=0.043 mkt=0.072  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.027  fair=0.026 mkt=0.054  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.023  fair=0.012 mkt=0.036  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.020  fair=0.045 mkt=0.065  Will Bitcoin dip to $35,000 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.019  fair=0.018 mkt=0.037  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-24 07:00:27,486 INFO    harness EDGE -0.019  fair=0.009 mkt=0.028  Will Ethereum reach $7,000 by December 31, 2026?
+2026-08-24 07:00:27,573 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-24 07:00:27,575 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-25 07:00:07,651 INFO    harness.deribit BTC: fitted 7/11 expiries, index=80708
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-08-25 T=0.0002 F=80687 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-08-26 T=0.0030 F=80705 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-08-27 T=0.0057 F=80722 quotes=31 rmse=45.78vp used=False butterfly arbitrage in fit
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-08-28 T=0.0084 F=80749 quotes=35 rmse=39.45vp used=False butterfly arbitrage in fit
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-09-04 T=0.0276 F=80816 quotes=31 rmse=0.29vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-09-11 T=0.0468 F=80860 quotes=27 rmse=0.08vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-09-25 T=0.0852 F=81044 quotes=54 rmse=0.63vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-10-30 T=0.1811 F=81359 quotes=53 rmse=0.10vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2026-12-25 T=0.3345 F=81948 quotes=59 rmse=0.36vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2027-03-26 T=0.5838 F=82848 quotes=51 rmse=0.10vp used=True 
+2026-08-25 07:00:07,654 INFO    harness   BTC 2027-06-25 T=0.8331 F=83881 quotes=50 rmse=0.05vp used=True 
+2026-08-25 07:00:09,662 INFO    harness.deribit ETH: fitted 8/11 expiries, index=2508
+2026-08-25 07:00:09,663 INFO    harness   ETH 2026-08-25 T=0.0002 F=2508 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-25 07:00:09,663 INFO    harness   ETH 2026-08-26 T=0.0030 F=2508 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-08-27 T=0.0057 F=2509 quotes=31 rmse=20.64vp used=False butterfly arbitrage in fit
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-08-28 T=0.0084 F=2509 quotes=31 rmse=1.51vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-09-04 T=0.0276 F=2510 quotes=26 rmse=1.68vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-09-11 T=0.0468 F=2511 quotes=18 rmse=0.12vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-09-25 T=0.0852 F=2514 quotes=58 rmse=4.68vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-10-30 T=0.1810 F=2520 quotes=39 rmse=0.32vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2026-12-25 T=0.3345 F=2530 quotes=44 rmse=0.40vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2027-03-26 T=0.5838 F=2551 quotes=39 rmse=0.15vp used=True 
+2026-08-25 07:00:09,664 INFO    harness   ETH 2027-06-25 T=0.8331 F=2577 quotes=40 rmse=0.13vp used=True 
+2026-08-25 07:00:11,234 INFO    harness Gamma returned 2000 active markets
+2026-08-25 07:00:11,251 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-25 07:00:11,251 INFO    harness parsed 32 crypto binaries
+2026-08-25 07:00:26,531 INFO    harness EDGE -0.051  fair=0.279 mkt=0.330  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.050  fair=0.145 mkt=0.195  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE +0.048  fair=0.190 mkt=0.142  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE +0.048  fair=0.378 mkt=0.330  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.037  fair=0.048 mkt=0.085  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.028  fair=0.082 mkt=0.110  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.027  fair=0.020 mkt=0.048  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.026  fair=0.214 mkt=0.240  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.024  fair=0.029 mkt=0.054  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-25 07:00:26,532 INFO    harness EDGE -0.024  fair=0.013 mkt=0.037  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-25 07:00:26,617 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-25 07:00:26,620 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-27 07:00:08,845 INFO    harness.deribit BTC: fitted 6/11 expiries, index=78878
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-08-27 T=0.0002 F=78893 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-08-28 T=0.0030 F=78919 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-08-29 T=0.0057 F=78928 quotes=26 rmse=36.68vp used=False butterfly arbitrage in fit
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-08-30 T=0.0084 F=78939 quotes=27 rmse=29.19vp used=False butterfly arbitrage in fit
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-09-04 T=0.0221 F=78975 quotes=31 rmse=15.54vp used=False butterfly arbitrage in fit
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-09-11 T=0.0413 F=79020 quotes=27 rmse=0.13vp used=True 
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-09-25 T=0.0797 F=79136 quotes=52 rmse=2.18vp used=True 
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-10-30 T=0.1756 F=79508 quotes=53 rmse=0.15vp used=True 
+2026-08-27 07:00:08,848 INFO    harness   BTC 2026-12-25 T=0.3290 F=80141 quotes=59 rmse=0.48vp used=True 
+2026-08-27 07:00:08,848 INFO    harness   BTC 2027-03-26 T=0.5783 F=81038 quotes=51 rmse=0.18vp used=True 
+2026-08-27 07:00:08,848 INFO    harness   BTC 2027-06-25 T=0.8276 F=82052 quotes=50 rmse=0.12vp used=True 
+2026-08-27 07:00:11,210 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.005707481923484272, 0.008447207950881533)] — digitals near these horizons are suspect
+2026-08-27 07:00:11,210 INFO    harness.deribit ETH: fitted 9/11 expiries, index=2495
+2026-08-27 07:00:11,210 INFO    harness   ETH 2026-08-27 T=0.0002 F=2495 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-08-28 T=0.0030 F=2496 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-08-29 T=0.0057 F=2496 quotes=27 rmse=0.30vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-08-30 T=0.0084 F=2496 quotes=27 rmse=0.21vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-09-04 T=0.0221 F=2498 quotes=26 rmse=0.30vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-09-11 T=0.0413 F=2500 quotes=18 rmse=0.17vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-09-25 T=0.0797 F=2504 quotes=46 rmse=1.44vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-10-30 T=0.1756 F=2510 quotes=39 rmse=0.39vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2026-12-25 T=0.3290 F=2522 quotes=44 rmse=0.51vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2027-03-26 T=0.5783 F=2547 quotes=39 rmse=0.18vp used=True 
+2026-08-27 07:00:11,211 INFO    harness   ETH 2027-06-25 T=0.8276 F=2574 quotes=40 rmse=0.15vp used=True 
+2026-08-27 07:00:13,252 INFO    harness Gamma returned 2000 active markets
+2026-08-27 07:00:13,272 INFO    harness.polymarket parser skipped: {'no asset': 1883, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 16}
+2026-08-27 07:00:13,272 INFO    harness parsed 32 crypto binaries
+2026-08-27 07:00:28,332 INFO    harness EDGE +0.070  fair=0.315 mkt=0.245  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-27 07:00:28,332 INFO    harness EDGE -0.042  fair=0.072 mkt=0.115  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-27 07:00:28,332 INFO    harness EDGE +0.040  fair=0.185 mkt=0.145  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-27 07:00:28,332 INFO    harness EDGE -0.034  fair=0.191 mkt=0.225  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-27 07:00:28,332 INFO    harness EDGE -0.028  fair=0.042 mkt=0.071  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-27 07:00:28,333 INFO    harness EDGE -0.027  fair=0.098 mkt=0.125  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-27 07:00:28,333 INFO    harness EDGE -0.025  fair=0.026 mkt=0.051  Will Ethereum reach $5,500 by December 31, 2026?
+2026-08-27 07:00:28,333 INFO    harness EDGE -0.025  fair=0.260 mkt=0.285  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-27 07:00:28,333 INFO    harness EDGE -0.024  fair=0.012 mkt=0.036  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-27 07:00:28,333 INFO    harness EDGE -0.024  fair=0.017 mkt=0.041  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-27 07:00:28,423 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-27 07:00:28,425 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-29 07:00:08,358 INFO    harness.deribit BTC: fitted 6/13 expiries, index=77643
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-08-29 T=0.0002 F=77658 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-08-30 T=0.0030 F=77658 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-08-31 T=0.0057 F=77665 quotes=22 rmse=14.64vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-09-01 T=0.0084 F=77674 quotes=25 rmse=12.90vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-09-04 T=0.0167 F=77702 quotes=28 rmse=28.73vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-09-11 T=0.0358 F=77749 quotes=27 rmse=0.18vp used=True 
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-09-18 T=0.0550 F=77817 quotes=20 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-09-25 T=0.0742 F=77870 quotes=42 rmse=0.53vp used=True 
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-10-30 T=0.1701 F=78231 quotes=53 rmse=0.28vp used=True 
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-11-27 T=0.2468 F=78541 quotes=44 rmse=0.11vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:08,361 INFO    harness   BTC 2026-12-25 T=0.3235 F=78845 quotes=59 rmse=1.16vp used=True 
+2026-08-29 07:00:08,361 INFO    harness   BTC 2027-03-26 T=0.5728 F=79751 quotes=51 rmse=0.24vp used=True 
+2026-08-29 07:00:08,361 INFO    harness   BTC 2027-06-25 T=0.8221 F=80763 quotes=50 rmse=0.14vp used=True 
+2026-08-29 07:00:14,100 INFO    harness.deribit ETH: fitted 6/13 expiries, index=2439
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-08-29 T=0.0002 F=2440 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-08-30 T=0.0030 F=2440 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-08-31 T=0.0057 F=2440 quotes=19 rmse=29.87vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-09-01 T=0.0084 F=2440 quotes=25 rmse=15.79vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-09-04 T=0.0167 F=2441 quotes=22 rmse=0.74vp used=True 
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-09-11 T=0.0358 F=2443 quotes=19 rmse=0.24vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-09-18 T=0.0550 F=2444 quotes=16 rmse=0.18vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-09-25 T=0.0742 F=2447 quotes=35 rmse=0.77vp used=True 
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-10-30 T=0.1701 F=2453 quotes=39 rmse=0.84vp used=True 
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-11-27 T=0.2468 F=2458 quotes=31 rmse=0.13vp used=False butterfly arbitrage in fit
+2026-08-29 07:00:14,101 INFO    harness   ETH 2026-12-25 T=0.3235 F=2463 quotes=44 rmse=0.84vp used=True 
+2026-08-29 07:00:14,101 INFO    harness   ETH 2027-03-26 T=0.5728 F=2488 quotes=39 rmse=0.23vp used=True 
+2026-08-29 07:00:14,101 INFO    harness   ETH 2027-06-25 T=0.8221 F=2516 quotes=40 rmse=0.12vp used=True 
+2026-08-29 07:00:16,176 INFO    harness Gamma returned 2000 active markets
+2026-08-29 07:00:16,191 INFO    harness.polymarket parser skipped: {'no asset': 1859, 'skip-pattern (bucket/daily/ambiguous)': 86, 'no strike': 22, 'no direction keyword': 1}
+2026-08-29 07:00:16,191 INFO    harness parsed 32 crypto binaries
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.041  fair=0.054 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.040  fair=0.105 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.034  fair=0.030 mkt=0.064  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.033  fair=0.193 mkt=0.225  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.032  fair=0.073 mkt=0.105  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.032  fair=0.011 mkt=0.043  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.028  fair=0.212 mkt=0.240  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.027  fair=0.007 mkt=0.034  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE -0.021  fair=0.084 mkt=0.105  Will Bitcoin dip to $45,000 by December 31, 2026?
+2026-08-29 07:00:31,327 INFO    harness EDGE +0.020  fair=0.183 mkt=0.163  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-29 07:00:31,407 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-29 07:00:31,410 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-30 07:00:08,042 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.0331049125395104, 0.05228299473129123)] — digitals near these horizons are suspect
+2026-08-30 07:00:08,043 INFO    harness.deribit BTC: fitted 7/13 expiries, index=78130
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-08-30 T=0.0002 F=78121 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-08-31 T=0.0030 F=78129 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-01 T=0.0057 F=78145 quotes=20 rmse=0.51vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-02 T=0.0084 F=78159 quotes=23 rmse=19.25vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-04 T=0.0139 F=78185 quotes=27 rmse=33.01vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-11 T=0.0331 F=78238 quotes=27 rmse=0.24vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-18 T=0.0523 F=78301 quotes=20 rmse=0.20vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-09-25 T=0.0715 F=78357 quotes=43 rmse=0.51vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-10-30 T=0.1674 F=78722 quotes=53 rmse=0.31vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-11-27 T=0.2441 F=79032 quotes=44 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:08,044 INFO    harness   BTC 2026-12-25 T=0.3208 F=79347 quotes=59 rmse=0.53vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2027-03-26 T=0.5701 F=80266 quotes=51 rmse=0.18vp used=True 
+2026-08-30 07:00:08,044 INFO    harness   BTC 2027-06-25 T=0.8194 F=81279 quotes=50 rmse=0.17vp used=True 
+2026-08-30 07:00:15,027 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.07146093205850457, 0.16735134301740867)] — digitals near these horizons are suspect
+2026-08-30 07:00:15,028 INFO    harness.deribit ETH: fitted 5/13 expiries, index=2456
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-08-30 T=0.0002 F=2456 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-08-31 T=0.0030 F=2456 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-01 T=0.0057 F=2457 quotes=30 rmse=19.29vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-02 T=0.0084 F=2457 quotes=26 rmse=28.21vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-04 T=0.0139 F=2458 quotes=22 rmse=19.71vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-11 T=0.0331 F=2460 quotes=19 rmse=0.29vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-18 T=0.0523 F=2462 quotes=16 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-09-25 T=0.0715 F=2465 quotes=38 rmse=0.72vp used=True 
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-10-30 T=0.1674 F=2471 quotes=39 rmse=0.49vp used=True 
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-11-27 T=0.2441 F=2477 quotes=31 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-08-30 07:00:15,029 INFO    harness   ETH 2026-12-25 T=0.3208 F=2482 quotes=44 rmse=0.98vp used=True 
+2026-08-30 07:00:15,029 INFO    harness   ETH 2027-03-26 T=0.5701 F=2508 quotes=39 rmse=0.24vp used=True 
+2026-08-30 07:00:15,029 INFO    harness   ETH 2027-06-25 T=0.8194 F=2536 quotes=40 rmse=0.12vp used=True 
+2026-08-30 07:00:17,147 INFO    harness Gamma returned 2000 active markets
+2026-08-30 07:00:17,163 INFO    harness.polymarket parser skipped: {'no asset': 1859, 'skip-pattern (bucket/daily/ambiguous)': 86, 'no strike': 22, 'no direction keyword': 1}
+2026-08-30 07:00:17,163 INFO    harness parsed 32 crypto binaries
+2026-08-30 07:00:32,138 INFO    harness EDGE -0.042  fair=0.183 mkt=0.225  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.039  fair=0.106 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.039  fair=0.056 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.034  fair=0.221 mkt=0.255  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.034  fair=0.030 mkt=0.064  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.032  fair=0.073 mkt=0.105  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.027  fair=0.010 mkt=0.037  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.027  fair=0.007 mkt=0.034  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE -0.019  fair=0.004 mkt=0.024  Will Ethereum reach $7,000 by December 31, 2026?
+2026-08-30 07:00:32,139 INFO    harness EDGE +0.019  fair=0.183 mkt=0.164  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-30 07:00:32,230 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-30 07:00:32,233 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-08-31 07:00:07,470 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.0495432885016172, 0.06872137069339802)] — digitals near these horizons are suspect
+2026-08-31 07:00:07,472 INFO    harness.deribit BTC: fitted 6/13 expiries, index=77999
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-08-31 T=0.0002 F=77996 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-01 T=0.0030 F=78011 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-02 T=0.0057 F=78023 quotes=22 rmse=17.46vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-03 T=0.0084 F=78033 quotes=27 rmse=33.20vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-04 T=0.0112 F=78040 quotes=26 rmse=36.08vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-11 T=0.0304 F=78093 quotes=27 rmse=0.32vp used=True 
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-18 T=0.0495 F=78157 quotes=20 rmse=0.11vp used=True 
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-09-25 T=0.0687 F=78193 quotes=43 rmse=0.36vp used=True 
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-10-30 T=0.1646 F=78597 quotes=53 rmse=0.38vp used=True 
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-11-27 T=0.2413 F=78920 quotes=44 rmse=0.15vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:07,474 INFO    harness   BTC 2026-12-25 T=0.3180 F=79236 quotes=59 rmse=1.13vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:07,474 INFO    harness   BTC 2027-03-26 T=0.5674 F=80146 quotes=51 rmse=0.25vp used=True 
+2026-08-31 07:00:07,474 INFO    harness   BTC 2027-06-25 T=0.8167 F=81150 quotes=50 rmse=0.09vp used=True 
+2026-08-31 07:00:15,006 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.049543141921867075, 0.0687212241136479)] — digitals near these horizons are suspect
+2026-08-31 07:00:15,007 INFO    harness.deribit ETH: fitted 6/13 expiries, index=2436
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-08-31 T=0.0002 F=2436 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-01 T=0.0030 F=2436 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-02 T=0.0057 F=2436 quotes=28 rmse=32.21vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-03 T=0.0084 F=2437 quotes=30 rmse=17.42vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-04 T=0.0112 F=2437 quotes=20 rmse=24.48vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-11 T=0.0304 F=2439 quotes=19 rmse=0.31vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-18 T=0.0495 F=2441 quotes=16 rmse=0.06vp used=True 
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-09-25 T=0.0687 F=2444 quotes=35 rmse=0.63vp used=True 
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-10-30 T=0.1646 F=2449 quotes=39 rmse=0.79vp used=True 
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-11-27 T=0.2413 F=2455 quotes=31 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-08-31 07:00:15,008 INFO    harness   ETH 2026-12-25 T=0.3180 F=2460 quotes=44 rmse=1.66vp used=True 
+2026-08-31 07:00:15,008 INFO    harness   ETH 2027-03-26 T=0.5674 F=2485 quotes=39 rmse=0.24vp used=True 
+2026-08-31 07:00:15,008 INFO    harness   ETH 2027-06-25 T=0.8167 F=2513 quotes=40 rmse=0.11vp used=True 
+2026-08-31 07:00:17,101 INFO    harness Gamma returned 2000 active markets
+2026-08-31 07:00:17,116 INFO    harness.polymarket parser skipped: {'no asset': 1859, 'skip-pattern (bucket/daily/ambiguous)': 86, 'no strike': 22, 'no direction keyword': 1}
+2026-08-31 07:00:17,117 INFO    harness parsed 32 crypto binaries
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.043  fair=0.182 mkt=0.225  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.040  fair=0.210 mkt=0.250  Will Ethereum reach $3,500 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.036  fair=0.026 mkt=0.062  Will Ethereum reach $5,000 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.033  fair=0.102 mkt=0.135  Will Ethereum reach $4,000 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.033  fair=0.052 mkt=0.085  Will Ethereum reach $4,500 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE +0.033  fair=0.180 mkt=0.148  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE +0.030  fair=0.265 mkt=0.235  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.028  fair=0.009 mkt=0.037  Will Ethereum reach $6,000 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.027  fair=0.006 mkt=0.034  Will Ethereum reach $6,500 by December 31, 2026?
+2026-08-31 07:00:32,153 INFO    harness EDGE -0.019  fair=0.036 mkt=0.055  Will Bitcoin dip to $35,000 by December 31, 2026?
+2026-08-31 07:00:32,244 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-08-31 07:00:32,247 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-01 07:00:08,238 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.31529670281909566, 0.5646117713122464)] — digitals near these horizons are suspect
+2026-09-01 07:00:08,240 INFO    harness.deribit BTC: fitted 5/12 expiries, index=79138
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-01 T=0.0002 F=79141 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-02 T=0.0030 F=79158 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-03 T=0.0057 F=79170 quotes=24 rmse=18.16vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-04 T=0.0084 F=79181 quotes=26 rmse=33.37vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-11 T=0.0276 F=79230 quotes=27 rmse=0.27vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-18 T=0.0468 F=79294 quotes=20 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-09-25 T=0.0660 F=79336 quotes=45 rmse=0.35vp used=True 
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-10-30 T=0.1619 F=79738 quotes=53 rmse=0.21vp used=True 
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-11-27 T=0.2386 F=80060 quotes=44 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:08,241 INFO    harness   BTC 2026-12-25 T=0.3153 F=80392 quotes=59 rmse=1.08vp used=True 
+2026-09-01 07:00:08,241 INFO    harness   BTC 2027-03-26 T=0.5646 F=81296 quotes=51 rmse=0.19vp used=True 
+2026-09-01 07:00:08,241 INFO    harness   BTC 2027-06-25 T=0.8139 F=82299 quotes=50 rmse=0.05vp used=True 
+2026-09-01 07:00:13,178 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.04680339157179097, 0.06598147376357179)] — digitals near these horizons are suspect
+2026-09-01 07:00:13,179 INFO    harness.deribit ETH: fitted 6/12 expiries, index=2483
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-01 T=0.0002 F=2483 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-02 T=0.0030 F=2483 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-03 T=0.0057 F=2484 quotes=29 rmse=38.71vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-04 T=0.0084 F=2484 quotes=23 rmse=24.21vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-11 T=0.0276 F=2486 quotes=19 rmse=0.56vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-18 T=0.0468 F=2488 quotes=16 rmse=0.07vp used=True 
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-09-25 T=0.0660 F=2491 quotes=35 rmse=0.75vp used=True 
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-10-30 T=0.1619 F=2497 quotes=39 rmse=0.60vp used=True 
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-11-27 T=0.2386 F=2503 quotes=31 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-09-01 07:00:13,180 INFO    harness   ETH 2026-12-25 T=0.3153 F=2507 quotes=44 rmse=0.81vp used=True 
+2026-09-01 07:00:13,180 INFO    harness   ETH 2027-03-26 T=0.5646 F=2532 quotes=39 rmse=0.15vp used=True 
+2026-09-01 07:00:13,180 INFO    harness   ETH 2027-06-25 T=0.8139 F=2561 quotes=40 rmse=0.10vp used=True 
+2026-09-01 07:00:15,254 INFO    harness Gamma returned 2000 active markets
+2026-09-01 07:00:15,269 INFO    harness.polymarket parser skipped: {'no asset': 1859, 'skip-pattern (bucket/daily/ambiguous)': 86, 'no strike': 22, 'no direction keyword': 1}
+2026-09-01 07:00:15,269 INFO    harness parsed 32 crypto binaries
+2026-09-01 07:00:30,044 INFO    harness EDGE -0.050  fair=0.165 mkt=0.215  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE +0.045  fair=0.290 mkt=0.245  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.037  fair=0.108 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.035  fair=0.226 mkt=0.260  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.033  fair=0.030 mkt=0.063  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.029  fair=0.056 mkt=0.085  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.027  fair=0.006 mkt=0.033  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.025  fair=0.010 mkt=0.035  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.018  fair=0.047 mkt=0.065  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-09-01 07:00:30,045 INFO    harness EDGE -0.018  fair=0.018 mkt=0.036  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-01 07:00:30,133 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-01 07:00:30,136 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-02 07:00:09,129 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.04406375774032851, 0.06324183993210933), (0.23584457965813674, 0.31255690842526)] — digitals near these horizons are suspect
+2026-09-02 07:00:09,130 INFO    harness.deribit BTC: fitted 7/12 expiries, index=77632
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-02 T=0.0002 F=77640 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-03 T=0.0030 F=77660 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-04 T=0.0057 F=77664 quotes=22 rmse=37.09vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-05 T=0.0084 F=77679 quotes=29 rmse=36.17vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-11 T=0.0249 F=77724 quotes=27 rmse=12.47vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-18 T=0.0441 F=77780 quotes=21 rmse=0.10vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-09-25 T=0.0632 F=77820 quotes=44 rmse=0.69vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-10-30 T=0.1591 F=78190 quotes=53 rmse=0.36vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-11-27 T=0.2358 F=78492 quotes=44 rmse=0.08vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2026-12-25 T=0.3126 F=78792 quotes=59 rmse=0.95vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2027-03-26 T=0.5619 F=79684 quotes=51 rmse=0.10vp used=True 
+2026-09-02 07:00:09,131 INFO    harness   BTC 2027-06-25 T=0.8112 F=80663 quotes=50 rmse=0.09vp used=True 
+2026-09-02 07:00:12,459 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.06324171951243024, 0.15913213047133434)] — digitals near these horizons are suspect
+2026-09-02 07:00:12,460 INFO    harness.deribit ETH: fitted 7/12 expiries, index=2422
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-02 T=0.0002 F=2422 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-03 T=0.0030 F=2423 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-04 T=0.0057 F=2423 quotes=24 rmse=42.38vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-05 T=0.0084 F=2423 quotes=29 rmse=32.92vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-11 T=0.0249 F=2425 quotes=19 rmse=0.37vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-18 T=0.0441 F=2427 quotes=16 rmse=0.07vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-09-25 T=0.0632 F=2430 quotes=38 rmse=0.63vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-10-30 T=0.1591 F=2436 quotes=39 rmse=0.41vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-11-27 T=0.2358 F=2442 quotes=31 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-09-02 07:00:12,461 INFO    harness   ETH 2026-12-25 T=0.3126 F=2447 quotes=43 rmse=0.72vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2027-03-26 T=0.5619 F=2472 quotes=39 rmse=0.19vp used=True 
+2026-09-02 07:00:12,461 INFO    harness   ETH 2027-06-25 T=0.8112 F=2499 quotes=40 rmse=0.13vp used=True 
+2026-09-02 07:00:14,647 INFO    harness Gamma returned 2000 active markets
+2026-09-02 07:00:14,661 INFO    harness.polymarket parser skipped: {'no asset': 1859, 'skip-pattern (bucket/daily/ambiguous)': 86, 'no strike': 22, 'no direction keyword': 1}
+2026-09-02 07:00:14,661 INFO    harness parsed 32 crypto binaries
+2026-09-02 07:00:29,312 INFO    harness EDGE -0.053  fair=0.182 mkt=0.235  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.050  fair=0.095 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.049  fair=0.196 mkt=0.245  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.037  fair=0.048 mkt=0.085  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.034  fair=0.026 mkt=0.060  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE +0.033  fair=0.253 mkt=0.220  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.031  fair=0.015 mkt=0.046  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE +0.030  fair=0.177 mkt=0.147  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.027  fair=0.006 mkt=0.033  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-02 07:00:29,313 INFO    harness EDGE -0.026  fair=0.069 mkt=0.095  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-02 07:00:29,400 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-02 07:00:29,403 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-03 07:00:06,725 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.04132411408428462, 0.06050219627606545), (0.23310493600209284, 0.30981726476921617)] — digitals near these horizons are suspect
+2026-09-03 07:00:06,726 INFO    harness.deribit BTC: fitted 7/12 expiries, index=77792
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-03 T=0.0002 F=77773 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-04 T=0.0030 F=77781 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-05 T=0.0057 F=77790 quotes=24 rmse=17.29vp used=False butterfly arbitrage in fit
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-06 T=0.0084 F=77797 quotes=25 rmse=30.49vp used=False butterfly arbitrage in fit
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-11 T=0.0221 F=77823 quotes=27 rmse=15.29vp used=False butterfly arbitrage in fit
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-18 T=0.0413 F=77871 quotes=21 rmse=0.09vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-09-25 T=0.0605 F=77914 quotes=44 rmse=0.83vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-10-30 T=0.1564 F=78282 quotes=53 rmse=0.17vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-11-27 T=0.2331 F=78586 quotes=44 rmse=0.05vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2026-12-25 T=0.3098 F=78892 quotes=59 rmse=0.95vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2027-03-26 T=0.5591 F=79806 quotes=51 rmse=0.14vp used=True 
+2026-09-03 07:00:06,728 INFO    harness   BTC 2027-06-25 T=0.8084 F=80805 quotes=50 rmse=0.07vp used=True 
+2026-09-03 07:00:10,027 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.23310480941993278, 0.30981713818705603)] — digitals near these horizons are suspect
+2026-09-03 07:00:10,027 INFO    harness.deribit ETH: fitted 8/12 expiries, index=2405
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-03 T=0.0002 F=2405 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-04 T=0.0030 F=2406 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-05 T=0.0057 F=2406 quotes=29 rmse=30.42vp used=False butterfly arbitrage in fit
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-06 T=0.0084 F=2406 quotes=26 rmse=28.66vp used=False butterfly arbitrage in fit
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-11 T=0.0221 F=2408 quotes=19 rmse=0.50vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-18 T=0.0413 F=2410 quotes=17 rmse=0.14vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-09-25 T=0.0605 F=2412 quotes=37 rmse=0.66vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-10-30 T=0.1564 F=2418 quotes=39 rmse=0.58vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-11-27 T=0.2331 F=2425 quotes=32 rmse=0.08vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2026-12-25 T=0.3098 F=2429 quotes=43 rmse=0.38vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2027-03-26 T=0.5591 F=2454 quotes=39 rmse=0.20vp used=True 
+2026-09-03 07:00:10,028 INFO    harness   ETH 2027-06-25 T=0.8084 F=2481 quotes=40 rmse=0.12vp used=True 
+2026-09-03 07:00:12,037 INFO    harness Gamma returned 2000 active markets
+2026-09-03 07:00:12,055 INFO    harness.polymarket parser skipped: {'no asset': 1862, 'skip-pattern (bucket/daily/ambiguous)': 83, 'no strike': 22, 'no direction keyword': 1}
+2026-09-03 07:00:12,055 INFO    harness parsed 32 crypto binaries
+2026-09-03 07:00:26,656 INFO    harness EDGE -0.051  fair=0.044 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.040  fair=0.085 mkt=0.125  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.040  fair=0.185 mkt=0.225  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.039  fair=0.176 mkt=0.215  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.037  fair=0.024 mkt=0.061  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE +0.033  fair=0.248 mkt=0.215  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.032  fair=0.006 mkt=0.037  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE +0.028  fair=0.182 mkt=0.154  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.022  fair=0.008 mkt=0.030  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-03 07:00:26,657 INFO    harness EDGE -0.018  fair=0.002 mkt=0.019  Will Ethereum reach $8,000 by December 31, 2026?
+2026-09-03 07:00:26,747 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-03 07:00:26,750 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-04 07:00:07,671 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.03858437322777143, 0.05776245541955226)] — digitals near these horizons are suspect
+2026-09-04 07:00:07,674 INFO    harness.deribit BTC: fitted 6/12 expiries, index=80983
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-04 T=0.0002 F=80975 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-05 T=0.0030 F=80965 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-06 T=0.0057 F=80971 quotes=30 rmse=43.31vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-07 T=0.0084 F=80980 quotes=32 rmse=33.87vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-11 T=0.0194 F=80997 quotes=26 rmse=18.68vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-18 T=0.0386 F=81039 quotes=21 rmse=0.17vp used=True 
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-09-25 T=0.0578 F=81063 quotes=43 rmse=0.49vp used=True 
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-10-30 T=0.1537 F=81441 quotes=53 rmse=0.21vp used=True 
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-11-27 T=0.2304 F=81760 quotes=45 rmse=0.08vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:07,675 INFO    harness   BTC 2026-12-25 T=0.3071 F=82076 quotes=59 rmse=0.65vp used=True 
+2026-09-04 07:00:07,675 INFO    harness   BTC 2027-03-26 T=0.5564 F=82971 quotes=51 rmse=0.19vp used=True 
+2026-09-04 07:00:07,675 INFO    harness   BTC 2027-06-25 T=0.8057 F=83952 quotes=50 rmse=0.06vp used=True 
+2026-09-04 07:00:10,647 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03858423144197108, 0.05776231363375191)] — digitals near these horizons are suspect
+2026-09-04 07:00:10,647 INFO    harness.deribit ETH: fitted 8/12 expiries, index=2508
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-04 T=0.0002 F=2508 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-05 T=0.0030 F=2508 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-06 T=0.0057 F=2509 quotes=30 rmse=42.82vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-07 T=0.0084 F=2509 quotes=31 rmse=31.80vp used=False butterfly arbitrage in fit
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-11 T=0.0194 F=2510 quotes=19 rmse=0.51vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-18 T=0.0386 F=2512 quotes=17 rmse=0.10vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-09-25 T=0.0578 F=2514 quotes=39 rmse=0.52vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-10-30 T=0.1537 F=2520 quotes=39 rmse=1.04vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-11-27 T=0.2304 F=2527 quotes=32 rmse=0.10vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2026-12-25 T=0.3071 F=2533 quotes=44 rmse=0.64vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2027-03-26 T=0.5564 F=2558 quotes=39 rmse=0.25vp used=True 
+2026-09-04 07:00:10,648 INFO    harness   ETH 2027-06-25 T=0.8057 F=2586 quotes=40 rmse=0.10vp used=True 
+2026-09-04 07:00:12,653 INFO    harness Gamma returned 2000 active markets
+2026-09-04 07:00:12,667 INFO    harness.polymarket parser skipped: {'no asset': 1862, 'skip-pattern (bucket/daily/ambiguous)': 83, 'no strike': 22, 'no direction keyword': 1}
+2026-09-04 07:00:12,667 INFO    harness parsed 32 crypto binaries
+2026-09-04 07:00:27,034 INFO    harness EDGE -0.074  fair=0.241 mkt=0.315  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.049  fair=0.116 mkt=0.165  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.044  fair=0.061 mkt=0.105  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.038  fair=0.147 mkt=0.185  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE +0.032  fair=0.163 mkt=0.132  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.030  fair=0.008 mkt=0.038  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE +0.028  fair=0.338 mkt=0.310  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.027  fair=0.098 mkt=0.125  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.025  fair=0.033 mkt=0.058  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-04 07:00:27,035 INFO    harness EDGE -0.024  fair=0.004 mkt=0.028  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-04 07:00:27,132 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-04 07:00:27,136 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-05 07:00:05,678 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.005707679294457128, 0.008447405321854388), (0.2276254875136352, 0.30433781628075846)] — digitals near these horizons are suspect
+2026-09-05 07:00:05,679 INFO    harness.deribit BTC: fitted 9/12 expiries, index=79600
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-05 T=0.0002 F=79574 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-06 T=0.0030 F=79563 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-07 T=0.0057 F=79570 quotes=19 rmse=0.36vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-08 T=0.0084 F=79574 quotes=22 rmse=0.60vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-11 T=0.0167 F=79583 quotes=21 rmse=24.37vp used=False butterfly arbitrage in fit
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-18 T=0.0358 F=79623 quotes=21 rmse=0.19vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-09-25 T=0.0550 F=79666 quotes=43 rmse=0.64vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-10-30 T=0.1509 F=79994 quotes=53 rmse=0.18vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-11-27 T=0.2276 F=80318 quotes=45 rmse=0.08vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2026-12-25 T=0.3043 F=80651 quotes=59 rmse=0.55vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2027-03-26 T=0.5537 F=81575 quotes=51 rmse=0.14vp used=True 
+2026-09-05 07:00:05,680 INFO    harness   BTC 2027-06-25 T=0.8030 F=82509 quotes=50 rmse=0.13vp used=True 
+2026-09-05 07:00:09,168 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03584456869006849, 0.055022650881849315)] — digitals near these horizons are suspect
+2026-09-05 07:00:09,168 INFO    harness.deribit ETH: fitted 7/12 expiries, index=2451
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-05 T=0.0002 F=2452 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-06 T=0.0030 F=2452 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-07 T=0.0057 F=2452 quotes=20 rmse=17.13vp used=False butterfly arbitrage in fit
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-08 T=0.0084 F=2452 quotes=24 rmse=16.30vp used=False butterfly arbitrage in fit
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-11 T=0.0167 F=2453 quotes=21 rmse=16.19vp used=False butterfly arbitrage in fit
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-18 T=0.0358 F=2455 quotes=17 rmse=0.17vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-09-25 T=0.0550 F=2456 quotes=42 rmse=0.87vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-10-30 T=0.1509 F=2461 quotes=39 rmse=0.76vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-11-27 T=0.2276 F=2468 quotes=32 rmse=0.14vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2026-12-25 T=0.3043 F=2474 quotes=44 rmse=1.03vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2027-03-26 T=0.5537 F=2499 quotes=39 rmse=0.18vp used=True 
+2026-09-05 07:00:09,169 INFO    harness   ETH 2027-06-25 T=0.8030 F=2527 quotes=40 rmse=0.15vp used=True 
+2026-09-05 07:00:11,233 INFO    harness Gamma returned 2000 active markets
+2026-09-05 07:00:11,251 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-05 07:00:11,251 INFO    harness parsed 32 crypto binaries
+2026-09-05 07:00:25,768 INFO    harness EDGE -0.054  fair=0.101 mkt=0.155  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-05 07:00:25,768 INFO    harness EDGE -0.052  fair=0.208 mkt=0.260  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-05 07:00:25,768 INFO    harness EDGE -0.043  fair=0.052 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE +0.039  fair=0.294 mkt=0.255  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.033  fair=0.006 mkt=0.039  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.032  fair=0.028 mkt=0.059  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.031  fair=0.084 mkt=0.115  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.028  fair=0.010 mkt=0.038  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.026  fair=0.003 mkt=0.029  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-05 07:00:25,769 INFO    harness EDGE -0.025  fair=0.150 mkt=0.175  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-09-05 07:00:25,861 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-05 07:00:25,865 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-06 07:00:06,366 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.01392682014025241, 0.03310490233203323)] — digitals near these horizons are suspect
+2026-09-06 07:00:06,367 INFO    harness.deribit BTC: fitted 8/12 expiries, index=79992
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-06 T=0.0002 F=79980 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-07 T=0.0030 F=79977 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-08 T=0.0057 F=79982 quotes=21 rmse=0.63vp used=False butterfly arbitrage in fit
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-09 T=0.0084 F=79988 quotes=25 rmse=18.22vp used=False butterfly arbitrage in fit
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-11 T=0.0139 F=79994 quotes=22 rmse=25.08vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-18 T=0.0331 F=80056 quotes=21 rmse=0.25vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-09-25 T=0.0523 F=80098 quotes=44 rmse=0.79vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-10-30 T=0.1482 F=80436 quotes=53 rmse=0.21vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-11-27 T=0.2249 F=80756 quotes=45 rmse=0.07vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2026-12-25 T=0.3016 F=81071 quotes=59 rmse=0.59vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2027-03-26 T=0.5509 F=81989 quotes=51 rmse=0.18vp used=True 
+2026-09-06 07:00:06,368 INFO    harness   BTC 2027-06-25 T=0.8002 F=82930 quotes=50 rmse=0.11vp used=True 
+2026-09-06 07:00:09,913 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.03310482085096398, 0.0522829030427448), (0.22488564276877218, 0.3015979715358955)] — digitals near these horizons are suspect
+2026-09-06 07:00:09,913 INFO    harness.deribit ETH: fitted 7/12 expiries, index=2513
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-06 T=0.0002 F=2512 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-07 T=0.0030 F=2513 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-08 T=0.0057 F=2513 quotes=29 rmse=40.31vp used=False butterfly arbitrage in fit
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-09 T=0.0084 F=2513 quotes=27 rmse=30.65vp used=False butterfly arbitrage in fit
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-11 T=0.0139 F=2514 quotes=21 rmse=15.87vp used=False butterfly arbitrage in fit
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-18 T=0.0331 F=2516 quotes=17 rmse=0.23vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-09-25 T=0.0523 F=2518 quotes=44 rmse=0.57vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-10-30 T=0.1482 F=2523 quotes=39 rmse=0.76vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-11-27 T=0.2249 F=2531 quotes=32 rmse=0.09vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2026-12-25 T=0.3016 F=2537 quotes=44 rmse=0.41vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2027-03-26 T=0.5509 F=2563 quotes=39 rmse=0.17vp used=True 
+2026-09-06 07:00:09,914 INFO    harness   ETH 2027-06-25 T=0.8002 F=2592 quotes=40 rmse=0.11vp used=True 
+2026-09-06 07:00:11,943 INFO    harness Gamma returned 2000 active markets
+2026-09-06 07:00:11,961 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-06 07:00:11,961 INFO    harness parsed 32 crypto binaries
+2026-09-06 07:00:26,201 INFO    harness EDGE +0.046  fair=0.311 mkt=0.265  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.039  fair=0.116 mkt=0.155  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.035  fair=0.060 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE +0.034  fair=0.154 mkt=0.119  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.031  fair=0.008 mkt=0.039  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.028  fair=0.034 mkt=0.062  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.027  fair=0.004 mkt=0.031  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.026  fair=0.013 mkt=0.038  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.024  fair=0.020 mkt=0.044  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-06 07:00:26,202 INFO    harness EDGE -0.024  fair=0.006 mkt=0.029  Will Ethereum reach $7,000 by December 31, 2026?
+2026-09-06 07:00:26,292 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-06 07:00:26,296 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-07 07:00:06,460 INFO    harness.deribit BTC: fitted 5/12 expiries, index=79741
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-07 T=0.0002 F=79731 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-08 T=0.0030 F=79727 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-09 T=0.0057 F=79736 quotes=22 rmse=21.65vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-10 T=0.0084 F=79742 quotes=25 rmse=18.53vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-11 T=0.0112 F=79742 quotes=22 rmse=32.64vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-18 T=0.0304 F=79804 quotes=21 rmse=0.29vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-09-25 T=0.0495 F=79851 quotes=42 rmse=1.00vp used=True 
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-10-30 T=0.1454 F=80202 quotes=53 rmse=0.17vp used=True 
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-11-27 T=0.2221 F=80518 quotes=45 rmse=0.10vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:06,463 INFO    harness   BTC 2026-12-25 T=0.2989 F=80837 quotes=59 rmse=0.75vp used=True 
+2026-09-07 07:00:06,463 INFO    harness   BTC 2027-03-26 T=0.5482 F=81759 quotes=51 rmse=0.21vp used=True 
+2026-09-07 07:00:06,463 INFO    harness   BTC 2027-06-25 T=0.7975 F=82727 quotes=50 rmse=0.07vp used=True 
+2026-09-07 07:00:09,459 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.008447283568937088, 0.011187009596334348)] — digitals near these horizons are suspect
+2026-09-07 07:00:09,459 INFO    harness.deribit ETH: fitted 9/12 expiries, index=2505
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-07 T=0.0002 F=2504 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-08 T=0.0030 F=2504 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-09 T=0.0057 F=2505 quotes=27 rmse=37.41vp used=False butterfly arbitrage in fit
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-10 T=0.0084 F=2505 quotes=27 rmse=17.03vp used=True 
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-11 T=0.0112 F=2505 quotes=21 rmse=0.24vp used=True 
+2026-09-07 07:00:09,459 INFO    harness   ETH 2026-09-18 T=0.0304 F=2508 quotes=17 rmse=0.09vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2026-09-25 T=0.0495 F=2510 quotes=44 rmse=0.57vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2026-10-30 T=0.1454 F=2516 quotes=39 rmse=0.40vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2026-11-27 T=0.2221 F=2524 quotes=32 rmse=0.13vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2026-12-25 T=0.2989 F=2530 quotes=44 rmse=0.49vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2027-03-26 T=0.5482 F=2555 quotes=39 rmse=0.13vp used=True 
+2026-09-07 07:00:09,460 INFO    harness   ETH 2027-06-25 T=0.7975 F=2584 quotes=40 rmse=0.09vp used=True 
+2026-09-07 07:00:11,464 INFO    harness Gamma returned 2000 active markets
+2026-09-07 07:00:11,478 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-07 07:00:11,478 INFO    harness parsed 32 crypto binaries
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.053  fair=0.117 mkt=0.170  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE +0.040  fair=0.295 mkt=0.255  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.040  fair=0.155 mkt=0.195  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.038  fair=0.013 mkt=0.051  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE +0.036  fair=0.156 mkt=0.120  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.034  fair=0.061 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.034  fair=0.035 mkt=0.069  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.033  fair=0.021 mkt=0.054  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.030  fair=0.235 mkt=0.265  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-07 07:00:25,630 INFO    harness EDGE -0.028  fair=0.009 mkt=0.036  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-07 07:00:25,720 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-07 07:00:25,725 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-08 07:00:05,524 INFO    harness.deribit BTC: fitted 5/11 expiries, index=78563
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-08 T=0.0002 F=78551 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-09 T=0.0030 F=78553 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-10 T=0.0057 F=78560 quotes=21 rmse=21.88vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-11 T=0.0084 F=78569 quotes=23 rmse=33.66vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-18 T=0.0276 F=78619 quotes=21 rmse=0.24vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-09-25 T=0.0468 F=78664 quotes=42 rmse=1.05vp used=True 
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-10-30 T=0.1427 F=78990 quotes=53 rmse=0.20vp used=True 
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-11-27 T=0.2194 F=79292 quotes=45 rmse=0.08vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:05,527 INFO    harness   BTC 2026-12-25 T=0.2961 F=79624 quotes=59 rmse=0.61vp used=True 
+2026-09-08 07:00:05,527 INFO    harness   BTC 2027-03-26 T=0.5454 F=80586 quotes=51 rmse=0.18vp used=True 
+2026-09-08 07:00:05,527 INFO    harness   BTC 2027-06-25 T=0.7947 F=81606 quotes=50 rmse=0.06vp used=True 
+2026-09-08 07:00:08,078 INFO    harness.deribit ETH: fitted 7/11 expiries, index=2473
+2026-09-08 07:00:08,079 INFO    harness   ETH 2026-09-08 T=0.0002 F=2473 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-09-09 T=0.0030 F=2473 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-09-10 T=0.0057 F=2473 quotes=27 rmse=32.62vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-09-11 T=0.0084 F=2474 quotes=26 rmse=20.47vp used=False butterfly arbitrage in fit
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-09-18 T=0.0276 F=2476 quotes=17 rmse=0.10vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-09-25 T=0.0468 F=2478 quotes=42 rmse=0.51vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-10-30 T=0.1427 F=2484 quotes=39 rmse=0.59vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-11-27 T=0.2194 F=2492 quotes=32 rmse=0.13vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2026-12-25 T=0.2961 F=2498 quotes=44 rmse=0.62vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2027-03-26 T=0.5454 F=2523 quotes=39 rmse=0.14vp used=True 
+2026-09-08 07:00:08,080 INFO    harness   ETH 2027-06-25 T=0.7947 F=2551 quotes=40 rmse=0.12vp used=True 
+2026-09-08 07:00:10,184 INFO    harness Gamma returned 2000 active markets
+2026-09-08 07:00:10,202 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-08 07:00:10,202 INFO    harness parsed 32 crypto binaries
+2026-09-08 07:00:24,038 INFO    harness EDGE +0.046  fair=0.160 mkt=0.114  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.041  fair=0.219 mkt=0.260  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.039  fair=0.106 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.038  fair=0.057 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.038  fair=0.167 mkt=0.205  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.034  fair=0.032 mkt=0.066  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.033  fair=0.011 mkt=0.044  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-08 07:00:24,038 INFO    harness EDGE -0.032  fair=0.019 mkt=0.051  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-08 07:00:24,039 INFO    harness EDGE -0.029  fair=0.009 mkt=0.038  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-08 07:00:24,039 INFO    harness EDGE -0.025  fair=0.004 mkt=0.029  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-08 07:00:24,126 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-08 07:00:24,130 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-09 07:00:07,252 INFO    harness.deribit BTC: fitted 7/11 expiries, index=78927
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-09 T=0.0002 F=78922 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-10 T=0.0030 F=78933 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-11 T=0.0057 F=78946 quotes=20 rmse=0.33vp used=False butterfly arbitrage in fit
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-12 T=0.0084 F=78956 quotes=26 rmse=0.37vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-18 T=0.0249 F=79003 quotes=21 rmse=0.19vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-09-25 T=0.0441 F=79050 quotes=41 rmse=0.57vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-10-30 T=0.1400 F=79382 quotes=53 rmse=0.24vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-11-27 T=0.2167 F=79688 quotes=45 rmse=0.08vp used=False butterfly arbitrage in fit
+2026-09-09 07:00:07,255 INFO    harness   BTC 2026-12-25 T=0.2934 F=80002 quotes=59 rmse=0.62vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2027-03-26 T=0.5427 F=80954 quotes=51 rmse=0.18vp used=True 
+2026-09-09 07:00:07,255 INFO    harness   BTC 2027-06-25 T=0.7920 F=81968 quotes=50 rmse=0.08vp used=True 
+2026-09-09 07:00:10,274 INFO    harness.deribit ETH: fitted 7/11 expiries, index=2496
+2026-09-09 07:00:10,275 INFO    harness   ETH 2026-09-09 T=0.0002 F=2496 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-09-10 T=0.0030 F=2496 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-09-11 T=0.0057 F=2496 quotes=24 rmse=40.11vp used=False butterfly arbitrage in fit
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-09-12 T=0.0084 F=2497 quotes=26 rmse=14.35vp used=False butterfly arbitrage in fit
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-09-18 T=0.0249 F=2499 quotes=17 rmse=0.09vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-09-25 T=0.0441 F=2501 quotes=43 rmse=0.47vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-10-30 T=0.1400 F=2508 quotes=39 rmse=0.72vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-11-27 T=0.2167 F=2515 quotes=32 rmse=0.22vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2026-12-25 T=0.2934 F=2521 quotes=44 rmse=0.75vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2027-03-26 T=0.5427 F=2547 quotes=39 rmse=0.09vp used=True 
+2026-09-09 07:00:10,276 INFO    harness   ETH 2027-06-25 T=0.7920 F=2574 quotes=40 rmse=0.15vp used=True 
+2026-09-09 07:00:12,260 INFO    harness Gamma returned 2000 active markets
+2026-09-09 07:00:12,274 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-09 07:00:12,274 INFO    harness parsed 32 crypto binaries
+2026-09-09 07:00:25,944 INFO    harness EDGE +0.044  fair=0.284 mkt=0.240  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.037  fair=0.228 mkt=0.265  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE +0.035  fair=0.156 mkt=0.121  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.034  fair=0.111 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.032  fair=0.058 mkt=0.090  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.032  fair=0.013 mkt=0.044  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.030  fair=0.033 mkt=0.064  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.030  fair=0.008 mkt=0.038  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.028  fair=0.020 mkt=0.048  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-09 07:00:25,944 INFO    harness EDGE -0.025  fair=0.004 mkt=0.029  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-09 07:00:26,032 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-09 07:00:26,037 INFO    harness no resolved markets yet — Brier scoring skipped
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='www.deribit.com', port=443): Failed to resolve 'www.deribit.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.deribit.com', port=443): Max retries exceeded with url: /api/v2/public/get_index_price?index_name=btc_usd (Caused by NameResolutionError("HTTPSConnection(host='www.deribit.com', port=443): Failed to resolve 'www.deribit.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/quantliblab/data/loaders/deribit_loader.py", line 51, in _get
+    resp = requests.get(url, params=params, timeout=_TIMEOUT)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/.venv/lib/python3.13/site-packages/requests/adapters.py", line 678, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.deribit.com', port=443): Max retries exceeded with url: /api/v2/public/get_index_price?index_name=btc_usd (Caused by NameResolutionError("HTTPSConnection(host='www.deribit.com', port=443): Failed to resolve 'www.deribit.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 274, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 265, in main
+    surfaces = step_calibrate()
+  File "/Users/ricana/Lab/Dev/QuantLibLab/scripts/run_calibration_harness.py", line 85, in step_calibrate
+    fs = calibrate_currency(ccy)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/quantliblab/harness/deribit_surface.py", line 148, in calibrate_currency
+    index = fetch_index_price(currency)
+  File "/Users/ricana/Lab/Dev/QuantLibLab/quantliblab/data/loaders/deribit_loader.py", line 114, in fetch_index_price
+    result = _get("get_index_price", {"index_name": index_name})
+  File "/Users/ricana/Lab/Dev/QuantLibLab/quantliblab/data/loaders/deribit_loader.py", line 61, in _get
+    raise RuntimeError(
+    ...<2 lines>...
+    ) from exc
+RuntimeError: Deribit request to get_index_price failed after 3 attempts: HTTPSConnectionPool(host='www.deribit.com', port=443): Max retries exceeded with url: /api/v2/public/get_index_price?index_name=btc_usd (Caused by NameResolutionError("HTTPSConnection(host='www.deribit.com', port=443): Failed to resolve 'www.deribit.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-11 07:00:08,282 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.03858435873046677, 0.13447476968937086)] — digitals near these horizons are suspect
+2026-09-11 07:00:08,284 INFO    harness.deribit BTC: fitted 5/12 expiries, index=77228
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-11 T=0.0002 F=77229 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-12 T=0.0030 F=77230 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-13 T=0.0057 F=77236 quotes=25 rmse=16.43vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-14 T=0.0084 F=77245 quotes=26 rmse=24.37vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-18 T=0.0194 F=77280 quotes=21 rmse=0.48vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-09-25 T=0.0386 F=77328 quotes=41 rmse=0.59vp used=True 
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-10-02 T=0.0578 F=77390 quotes=17 rmse=0.14vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-10-30 T=0.1345 F=77657 quotes=53 rmse=0.45vp used=True 
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-11-27 T=0.2112 F=77954 quotes=45 rmse=0.12vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:08,285 INFO    harness   BTC 2026-12-25 T=0.2879 F=78262 quotes=59 rmse=0.63vp used=True 
+2026-09-11 07:00:08,285 INFO    harness   BTC 2027-03-26 T=0.5372 F=79187 quotes=51 rmse=0.10vp used=True 
+2026-09-11 07:00:08,285 INFO    harness   BTC 2027-06-25 T=0.7865 F=80185 quotes=50 rmse=0.06vp used=True 
+2026-09-11 07:00:12,739 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.057762294291476404, 0.1344746230585997)] — digitals near these horizons are suspect
+2026-09-11 07:00:12,739 INFO    harness.deribit ETH: fitted 8/12 expiries, index=2468
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-11 T=0.0002 F=2468 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-12 T=0.0030 F=2468 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-13 T=0.0057 F=2469 quotes=27 rmse=31.53vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-14 T=0.0084 F=2469 quotes=28 rmse=26.06vp used=False butterfly arbitrage in fit
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-18 T=0.0194 F=2470 quotes=17 rmse=0.18vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-09-25 T=0.0386 F=2472 quotes=41 rmse=0.88vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-10-02 T=0.0578 F=2474 quotes=13 rmse=0.04vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-10-30 T=0.1345 F=2479 quotes=39 rmse=1.15vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-11-27 T=0.2112 F=2486 quotes=32 rmse=0.14vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2026-12-25 T=0.2879 F=2493 quotes=44 rmse=0.74vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2027-03-26 T=0.5372 F=2516 quotes=39 rmse=0.18vp used=True 
+2026-09-11 07:00:12,740 INFO    harness   ETH 2027-06-25 T=0.7865 F=2544 quotes=40 rmse=0.12vp used=True 
+2026-09-11 07:00:14,743 INFO    harness Gamma returned 2000 active markets
+2026-09-11 07:00:14,756 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-11 07:00:14,756 INFO    harness parsed 32 crypto binaries
+2026-09-11 07:00:28,465 INFO    harness EDGE -0.044  fair=0.211 mkt=0.255  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.034  fair=0.101 mkt=0.135  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.034  fair=0.051 mkt=0.085  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.033  fair=0.010 mkt=0.043  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.031  fair=0.028 mkt=0.059  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.029  fair=0.007 mkt=0.036  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE +0.028  fair=0.163 mkt=0.135  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.027  fair=0.017 mkt=0.044  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.027  fair=0.004 mkt=0.032  Will Ethereum reach $7,000 by December 31, 2026?
+2026-09-11 07:00:28,466 INFO    harness EDGE -0.027  fair=0.058 mkt=0.085  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-11 07:00:28,556 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-11 07:00:28,560 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-12 07:00:08,599 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.03584463512471461, 0.13173504608361872)] — digitals near these horizons are suspect
+2026-09-12 07:00:08,601 INFO    harness.deribit BTC: fitted 5/12 expiries, index=77204
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-12 T=0.0002 F=77200 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-13 T=0.0030 F=77197 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-14 T=0.0057 F=77206 quotes=17 rmse=0.40vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-15 T=0.0084 F=77215 quotes=22 rmse=12.10vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-18 T=0.0167 F=77243 quotes=21 rmse=20.00vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-09-25 T=0.0358 F=77291 quotes=39 rmse=0.68vp used=True 
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-10-02 T=0.0550 F=77352 quotes=18 rmse=0.13vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-10-30 T=0.1317 F=77632 quotes=53 rmse=0.39vp used=True 
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-11-27 T=0.2084 F=77932 quotes=45 rmse=0.15vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:08,602 INFO    harness   BTC 2026-12-25 T=0.2852 F=78255 quotes=59 rmse=0.89vp used=True 
+2026-09-12 07:00:08,602 INFO    harness   BTC 2027-03-26 T=0.5345 F=79177 quotes=51 rmse=0.09vp used=True 
+2026-09-12 07:00:08,602 INFO    harness   BTC 2027-06-25 T=0.7838 F=80188 quotes=50 rmse=0.08vp used=True 
+2026-09-12 07:00:11,763 INFO    harness.deribit ETH: fitted 7/12 expiries, index=2512
+2026-09-12 07:00:11,764 INFO    harness   ETH 2026-09-12 T=0.0002 F=2512 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-12 07:00:11,764 INFO    harness   ETH 2026-09-13 T=0.0030 F=2512 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-12 07:00:11,764 INFO    harness   ETH 2026-09-14 T=0.0057 F=2512 quotes=24 rmse=18.83vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:11,764 INFO    harness   ETH 2026-09-15 T=0.0084 F=2513 quotes=32 rmse=29.59vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-09-18 T=0.0167 F=2514 quotes=21 rmse=0.29vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-09-25 T=0.0358 F=2516 quotes=40 rmse=0.89vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-10-02 T=0.0550 F=2517 quotes=16 rmse=0.13vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-10-30 T=0.1317 F=2523 quotes=39 rmse=0.53vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-11-27 T=0.2084 F=2530 quotes=32 rmse=0.13vp used=False butterfly arbitrage in fit
+2026-09-12 07:00:11,765 INFO    harness   ETH 2026-12-25 T=0.2852 F=2537 quotes=44 rmse=0.56vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2027-03-26 T=0.5345 F=2561 quotes=39 rmse=0.16vp used=True 
+2026-09-12 07:00:11,765 INFO    harness   ETH 2027-06-25 T=0.7838 F=2589 quotes=41 rmse=0.13vp used=True 
+2026-09-12 07:00:15,197 INFO    harness Gamma returned 2000 active markets
+2026-09-12 07:00:15,211 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-12 07:00:15,211 INFO    harness parsed 32 crypto binaries
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.058  fair=0.107 mkt=0.165  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.056  fair=0.229 mkt=0.285  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.042  fair=0.053 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.035  fair=0.007 mkt=0.042  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.035  fair=0.055 mkt=0.090  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.034  fair=0.030 mkt=0.065  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.033  fair=0.005 mkt=0.038  Will Ethereum reach $7,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.032  fair=0.011 mkt=0.043  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.029  fair=0.106 mkt=0.135  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-09-12 07:00:29,796 INFO    harness EDGE -0.027  fair=0.018 mkt=0.044  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-12 07:00:29,932 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-12 07:00:29,937 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-13 07:00:06,483 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.033104941740677324, 0.12899535269958143)] — digitals near these horizons are suspect
+2026-09-13 07:00:06,485 INFO    harness.deribit BTC: fitted 5/12 expiries, index=77296
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-13 T=0.0002 F=77287 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-14 T=0.0030 F=77295 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-15 T=0.0057 F=77308 quotes=20 rmse=16.59vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-16 T=0.0084 F=77319 quotes=24 rmse=31.41vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-18 T=0.0139 F=77341 quotes=21 rmse=21.78vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-09-25 T=0.0331 F=77396 quotes=38 rmse=0.51vp used=True 
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-10-02 T=0.0523 F=77455 quotes=18 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-10-30 T=0.1290 F=77733 quotes=53 rmse=0.52vp used=True 
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-11-27 T=0.2057 F=78034 quotes=45 rmse=0.17vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:06,486 INFO    harness   BTC 2026-12-25 T=0.2824 F=78351 quotes=59 rmse=1.02vp used=True 
+2026-09-13 07:00:06,486 INFO    harness   BTC 2027-03-26 T=0.5317 F=79273 quotes=51 rmse=0.11vp used=True 
+2026-09-13 07:00:06,486 INFO    harness   BTC 2027-06-25 T=0.7811 F=80285 quotes=50 rmse=0.07vp used=True 
+2026-09-13 07:00:09,344 INFO    harness.deribit ETH: fitted 8/12 expiries, index=2522
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-13 T=0.0002 F=2522 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-14 T=0.0030 F=2523 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-15 T=0.0057 F=2523 quotes=34 rmse=39.62vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-16 T=0.0084 F=2524 quotes=25 rmse=11.94vp used=False butterfly arbitrage in fit
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-18 T=0.0139 F=2525 quotes=21 rmse=0.47vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-09-25 T=0.0331 F=2527 quotes=39 rmse=0.61vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-10-02 T=0.0523 F=2528 quotes=16 rmse=0.11vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-10-30 T=0.1290 F=2535 quotes=39 rmse=0.46vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-11-27 T=0.2057 F=2542 quotes=32 rmse=0.12vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2026-12-25 T=0.2824 F=2549 quotes=44 rmse=0.49vp used=True 
+2026-09-13 07:00:09,345 INFO    harness   ETH 2027-03-26 T=0.5317 F=2574 quotes=39 rmse=0.11vp used=True 
+2026-09-13 07:00:09,346 INFO    harness   ETH 2027-06-25 T=0.7811 F=2602 quotes=41 rmse=0.17vp used=True 
+2026-09-13 07:00:11,300 INFO    harness Gamma returned 2000 active markets
+2026-09-13 07:00:11,313 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-13 07:00:11,313 INFO    harness parsed 32 crypto binaries
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.054  fair=0.111 mkt=0.165  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.039  fair=0.056 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.031  fair=0.005 mkt=0.036  Will Ethereum reach $7,000 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.030  fair=0.011 mkt=0.042  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.029  fair=0.007 mkt=0.036  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.028  fair=0.057 mkt=0.085  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.027  fair=0.003 mkt=0.030  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.027  fair=0.018 mkt=0.045  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE +0.024  fair=0.219 mkt=0.195  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-13 07:00:24,822 INFO    harness EDGE -0.023  fair=0.072 mkt=0.095  Will Bitcoin dip to $45,000 by December 31, 2026?
+2026-09-13 07:00:24,911 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-13 07:00:24,915 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-14 07:00:07,598 INFO    harness.deribit BTC: fitted 5/12 expiries, index=77593
+2026-09-14 07:00:07,601 INFO    harness   BTC 2026-09-14 T=0.0002 F=77584 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-09-15 T=0.0030 F=77593 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-09-16 T=0.0057 F=77605 quotes=24 rmse=38.83vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-09-17 T=0.0084 F=77612 quotes=25 rmse=17.10vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-09-18 T=0.0112 F=77620 quotes=21 rmse=22.63vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-09-25 T=0.0304 F=77678 quotes=39 rmse=0.30vp used=True 
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-10-02 T=0.0495 F=77743 quotes=18 rmse=0.09vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-10-30 T=0.1263 F=78009 quotes=53 rmse=0.31vp used=True 
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-11-27 T=0.2030 F=78299 quotes=45 rmse=0.16vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:07,602 INFO    harness   BTC 2026-12-25 T=0.2797 F=78630 quotes=59 rmse=1.51vp used=True 
+2026-09-14 07:00:07,602 INFO    harness   BTC 2027-03-26 T=0.5290 F=79530 quotes=51 rmse=0.16vp used=True 
+2026-09-14 07:00:07,602 INFO    harness   BTC 2027-06-25 T=0.7783 F=80529 quotes=50 rmse=0.10vp used=True 
+2026-09-14 07:00:10,454 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.04954313788372019, 0.12625546665084347)] — digitals near these horizons are suspect
+2026-09-14 07:00:10,455 INFO    harness.deribit ETH: fitted 9/12 expiries, index=2516
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-14 T=0.0002 F=2516 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-15 T=0.0030 F=2516 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-16 T=0.0057 F=2517 quotes=27 rmse=16.96vp used=False butterfly arbitrage in fit
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-17 T=0.0084 F=2518 quotes=28 rmse=0.17vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-18 T=0.0112 F=2518 quotes=21 rmse=0.19vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-09-25 T=0.0304 F=2520 quotes=42 rmse=0.91vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-10-02 T=0.0495 F=2521 quotes=16 rmse=0.10vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-10-30 T=0.1263 F=2528 quotes=39 rmse=0.41vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-11-27 T=0.2030 F=2535 quotes=32 rmse=0.06vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2026-12-25 T=0.2797 F=2543 quotes=44 rmse=0.56vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2027-03-26 T=0.5290 F=2567 quotes=39 rmse=0.14vp used=True 
+2026-09-14 07:00:10,456 INFO    harness   ETH 2027-06-25 T=0.7783 F=2595 quotes=41 rmse=0.15vp used=True 
+2026-09-14 07:00:12,414 INFO    harness Gamma returned 2000 active markets
+2026-09-14 07:00:12,427 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 73, 'no strike': 22, 'no direction keyword': 1}
+2026-09-14 07:00:12,427 INFO    harness parsed 32 crypto binaries
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.036  fair=0.109 mkt=0.145  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.031  fair=0.164 mkt=0.195  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.031  fair=0.054 mkt=0.085  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.030  fair=0.011 mkt=0.041  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.028  fair=0.007 mkt=0.035  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.028  fair=0.017 mkt=0.044  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.024  fair=0.231 mkt=0.255  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.024  fair=0.003 mkt=0.028  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE +0.022  fair=0.227 mkt=0.205  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-14 07:00:25,688 INFO    harness EDGE -0.021  fair=0.005 mkt=0.027  Will Ethereum reach $7,000 by December 31, 2026?
+2026-09-14 07:00:25,778 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-14 07:00:25,784 INFO    harness no resolved markets yet — Brier scoring skipped
