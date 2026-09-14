@@ -162,8 +162,23 @@ def fit_svi(
     w_mkt = iv ** 2 * T
     w_atm = float(np.interp(0.0, np.sort(k), w_mkt[np.argsort(k)]))
 
+    # Wing-slope cap: the right/left wing slopes of raw SVI are b(1+rho) and
+    # b(1-rho), so a bound on b alone already caps b(1+|rho|) <= 2*b_hi
+    # regardless of where the optimizer sends rho -- a box-bounds-only way
+    # to couple the two. Scaled off w_atm (ATM total variance), not T
+    # directly: at short T, a ~ w_atm is tiny, leaving g(k) almost no slack
+    # before it crosses zero, and an unbounded b lets the butterfly soft
+    # penalty (below) trap the optimizer in a badly-fit, still-arbitraged
+    # local optimum instead of the well-behaved low-b solution the data
+    # actually supports. b_hi = clip(8*w_atm, 0.08, 10.0) was tuned against
+    # live short-dated BTC/ETH Deribit slices (T ~ 0.007-0.05, w_atm ~
+    # 0.001-0.006): the floor stays below every observed arbitrage-onset
+    # threshold with margin at those w_atm, and 8*w_atm clears legitimate
+    # steep-smile fits at normal w_atm (e.g. true b=0.35 at w_atm~0.076
+    # recovers exactly) so longer-dated slices are unaffected.
+    b_hi = float(np.clip(8.0 * w_atm, 0.08, 10.0))
     lo = np.array([-1.0, 1e-8, -0.999, -1.5, 1e-4])
-    hi = np.array([np.maximum(w_mkt.max() * 2, 1.0), 10.0, 0.999, 1.5, 2.0])
+    hi = np.array([np.maximum(w_mkt.max() * 2, 1.0), b_hi, 0.999, 1.5, 2.0])
 
     def residuals(p):
         params = SVIParams(*p)
