@@ -233,6 +233,7 @@ def price_market(pm: ParsedMarket, surface, now: datetime | None = None) -> dict
 
     row = {
         "asof": now.isoformat(),
+        "venue": "polymarket",
         "market_id": pm.market_id,
         "question": pm.question[:120],
         "asset": pm.asset,

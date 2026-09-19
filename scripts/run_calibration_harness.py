@@ -33,7 +33,9 @@ from __future__ import annotations
 import argparse
 import csv
 import logging
+import os
 import sys
+import tempfile
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -46,15 +48,23 @@ DATA_DIR = Path("data/harness")
 SNAPSHOTS = DATA_DIR / "snapshots.csv"
 RESOLUTIONS = DATA_DIR / "resolutions.csv"
 SURFACES = DATA_DIR / "surfaces.csv"          # nightly fitted-SVI archive
+KALSHI_EXCLUSIONS = DATA_DIR / "kalshi_exclusions.csv"  # every polled event, qualify or not
 
-SNAP_FIELDS = ["asof", "market_id", "question", "asset", "type", "strike",
-               "resolution", "T_years", "forward", "sigma_at_k", "smile_slope",
+# venue and the H-004 interpolation-diagnostic columns are blank for
+# Polymarket rows (DictWriter restval) — they only apply to Kalshi's
+# bracketed-interpolation pricing path.
+SNAP_FIELDS = ["asof", "venue", "market_id", "event_ticker", "question", "asset", "type",
+               "strike", "resolution", "T_years", "forward", "sigma_at_k", "smile_slope",
                "fair", "fair_lo", "fair_hi", "market_yes", "liquidity",
-               "edge_edge_yes", "edge_edge_no", "edge_side"]
-RES_FIELDS = ["market_id", "resolved_at", "outcome"]
+               "edge_edge_yes", "edge_edge_no", "edge_side",
+               "w_atm", "T_lower", "T_upper", "sigma_lower", "sigma_upper",
+               "rmse_lower", "rmse_upper", "is_pit_observation", "calendar_arb_in_bracket"]
+RES_FIELDS = ["market_id", "resolved_at", "outcome", "settlement_value"]
 SURF_FIELDS = ["asof", "currency", "index_price", "expiry", "T", "F",
                "a", "b", "rho", "m", "s", "rmse_volpts", "n_quotes",
                "used", "reason"]
+EXCLUSION_FIELDS = ["asof", "event_ticker", "asset", "cadence", "close_time",
+                     "T_years", "n_strikes", "qualifies", "reason"]
 
 
 def _append_csv(path: Path, fields: list[str], rows: list[dict]) -> None:
@@ -72,6 +82,68 @@ def _read_csv(path: Path) -> list[dict]:
         return []
     with path.open(newline="") as f:
         return list(csv.DictReader(f))
+
+
+def _write_snapshots_atomic(new_rows: list[dict]) -> None:
+    """
+    snapshots.csv is load-bearing state now, not just output — step_price
+    rebuilds known_pit_events from it on every run. Plain append is unsafe
+    for that:
+
+      * a crash mid-write can leave a torn final line with no trailing
+        newline; the next plain append then writes new rows onto the tail
+        of that corrupt line instead of a fresh one, misaligning columns
+        for every row after it.
+      * that corruption is exactly what could make an event_ticker's prior
+        is_pit_observation=True row unreadable or invisible on the next
+        poll, causing it to be (wrongly) treated as never-seen and
+        stamped True again — a duplicate PIT observation.
+
+    So: read the existing file plus this poll's new rows, write the whole
+    thing to a temp file in the same directory, then os.replace() over the
+    target. os.replace is atomic on the same filesystem — the file on disk
+    is always either the complete old version or the complete new one,
+    never a partial write. Then verify what actually landed on disk.
+    """
+    existing = _read_csv(SNAPSHOTS)
+    all_rows = existing + new_rows
+    SNAPSHOTS.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(
+        dir=SNAPSHOTS.parent, prefix=".snapshots.", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=SNAP_FIELDS, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(all_rows)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_name, SNAPSHOTS)
+    except BaseException:
+        Path(tmp_name).unlink(missing_ok=True)
+        raise
+    _assert_pit_uniqueness(_read_csv(SNAPSHOTS))
+
+
+def _assert_pit_uniqueness(rows: list[dict]) -> None:
+    """One PIT observation per Kalshi expiry, never two. A duplicate means
+    is_pit_observation=True was stamped on two different polls (two
+    different asof) for the same event_ticker — the failure mode the
+    atomic write above exists to prevent, or evidence snapshots.csv was
+    truncated/rebuilt out from under known_pit_events. Fail loudly rather
+    than let it silently double-count an expiry in the PIT histogram."""
+    first_asof: dict[str, str] = {}
+    for r in rows:
+        if r.get("venue") != "kalshi" or r.get("is_pit_observation") != "True":
+            continue
+        et, asof = r.get("event_ticker", ""), r.get("asof", "")
+        prior = first_asof.get(et)
+        if prior is not None and prior != asof:
+            raise RuntimeError(
+                f"duplicate PIT observation for event_ticker={et!r}: "
+                f"is_pit_observation=True recorded at both asof={prior!r} "
+                f"and asof={asof!r} in {SNAPSHOTS} — do not trust the PIT "
+                f"histogram until this is investigated")
+        first_asof[et] = asof
 
 
 # ---------------------------------------------------------------------------
@@ -117,9 +189,26 @@ def step_price(surfaces: dict) -> list[dict]:
             continue
         if row:
             rows.append(row)
-    _append_csv(SNAPSHOTS, SNAP_FIELDS, rows)
-    # print the opportunity board, largest |edge| first
-    priced = [r for r in rows if r.get("market_yes") not in ("", None)]
+
+    from quantliblab.harness.kalshi import fetch_and_price
+    # An event_ticker already appearing as a kalshi row in snapshots.csv
+    # qualified on some earlier poll — its FIRST such row was already
+    # stamped is_pit_observation=True there, so every event we've seen
+    # before is a repoll now, never the PIT observation again.
+    known_pit_events = {r["event_ticker"] for r in _read_csv(SNAPSHOTS)
+                        if r.get("venue") == "kalshi" and r.get("event_ticker")}
+    kalshi_rows, exclusions = fetch_and_price(surfaces, known_pit_events=known_pit_events)
+    log.info("kalshi: %d/%d polled events qualified, %d strikes priced",
+              sum(1 for e in exclusions if e["qualifies"]), len(exclusions),
+              len(kalshi_rows))
+    _append_csv(KALSHI_EXCLUSIONS, EXCLUSION_FIELDS, exclusions)
+    rows.extend(kalshi_rows)
+
+    _write_snapshots_atomic(rows)
+    # print the opportunity board, largest |edge| first (Polymarket only —
+    # Kalshi's ladder-mid isn't a trading signal, see ADR-0010 "Not in scope")
+    priced = [r for r in rows if r.get("venue") != "kalshi"
+              and r.get("market_yes") not in ("", None)]
     priced.sort(key=lambda r: abs(float(r["fair"]) - float(r["market_yes"])),
                 reverse=True)
     for r in priced[:10]:
@@ -130,9 +219,11 @@ def step_price(surfaces: dict) -> list[dict]:
 
 
 def step_resolve() -> None:
+    from quantliblab.harness.kalshi import fetch_settlement
     from quantliblab.harness.polymarket import fetch_resolution
     now = datetime.now(timezone.utc)
     snaps = _read_csv(SNAPSHOTS)
+    venue_of: dict[str, str] = {r["market_id"]: r.get("venue", "") for r in snaps}
     done = {r["market_id"] for r in _read_csv(RESOLUTIONS)}
     pending = sorted({
         r["market_id"] for r in snaps
@@ -142,13 +233,17 @@ def step_resolve() -> None:
     new = []
     for mid in pending:
         try:
-            outcome = fetch_resolution(mid)
+            if venue_of.get(mid) == "kalshi":
+                outcome, settlement = fetch_settlement(mid)
+            else:
+                outcome, settlement = fetch_resolution(mid), None
         except Exception as e:
             log.warning("resolution fetch failed for %s: %s", mid, e)
             continue
         if outcome is not None:
             new.append({"market_id": mid, "resolved_at": now.isoformat(),
-                        "outcome": outcome})
+                        "outcome": outcome,
+                        "settlement_value": settlement if settlement is not None else ""})
     if new:
         _append_csv(RESOLUTIONS, RES_FIELDS, new)
     log.info("resolved %d newly matured markets (%d still pending)",
@@ -156,7 +251,12 @@ def step_resolve() -> None:
 
 
 def step_score() -> None:
-    snaps = _read_csv(SNAPSHOTS)
+    # Brier-per-contract is Polymarket-only (H-004): Kalshi's ladder strikes
+    # share one outcome and are not independent observations, so pooling them
+    # in here would silently misscore. Kalshi rows are archived in
+    # snapshots.csv/resolutions.csv for the PIT/KS scoring script (not yet
+    # built — see H-004's frozen design) rather than scored here.
+    snaps = [r for r in _read_csv(SNAPSHOTS) if r.get("venue", "polymarket") != "kalshi"]
     res = {r["market_id"]: int(r["outcome"]) for r in _read_csv(RESOLUTIONS)}
     if not res:
         log.info("no resolved markets yet — Brier scoring skipped")
