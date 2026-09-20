@@ -1,0 +1,15 @@
+[Unit]
+Description=QuantLibLab nightly calibration harness
+Wants=network-online.target
+After=network-online.target
+OnFailure=quantlib-harness-alert.service
+
+[Service]
+Type=oneshot
+User=groku
+Group=groku
+WorkingDirectory=/home/groku/QuantLibLab
+ExecStart=/home/groku/QuantLibLab/.venv/bin/python scripts/run_calibration_harness.py
+StandardOutput=append:/home/groku/QuantLibLab/data/harness/harness.log
+StandardError=append:/home/groku/QuantLibLab/data/harness/harness.log
+TimeoutStartSec=1800
