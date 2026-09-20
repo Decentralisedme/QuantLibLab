@@ -116,6 +116,46 @@ class TestQualifyLadder:
         assert not qr.ok
         assert "monotone" in qr.reason
 
+    def test_wing_violation_below_band_is_forgiven(self):
+        """Tick quantization near p=0 can make adjacent strikes look
+        non-monotone even though Kalshi's book isn't crossed — both points
+        below MONOTONE_BAND's floor, so the check is skipped entirely."""
+        fs = _surface()
+        strikes = self._good_strikes(n=20)  # interior, monotone, p in [0.33, 0.9]
+        strikes.append(_strike(F0 * 1.30, bid=0.003, ask=0.013))  # mid=0.008
+        strikes.append(_strike(F0 * 1.35, bid=0.014, ask=0.024))  # mid=0.019, > mid0 + one tick
+        ladder = _ladder(strikes)
+        qr = qualify_ladder(ladder, fs, 0.15)
+        assert qr.ok, qr.reason
+
+    def test_interior_violation_within_one_tick_is_tolerated(self):
+        fs = _surface()
+        strikes = self._good_strikes()
+        k0, k1 = strikes[-2].floor_strike, strikes[-1].floor_strike
+        strikes[-2] = _strike(k0, bid=0.20, ask=0.20)   # mid=0.20, in-band
+        strikes[-1] = _strike(k1, bid=0.204, ask=0.204)  # mid=0.204, +0.004 < one tick
+        ladder = _ladder(strikes)
+        qr = qualify_ladder(ladder, fs, 0.15)
+        assert qr.ok, qr.reason
+
+    def test_interior_violation_beyond_one_tick_still_excluded(self):
+        fs = _surface()
+        strikes = self._good_strikes()
+        k0, k1 = strikes[-2].floor_strike, strikes[-1].floor_strike
+        strikes[-2] = _strike(k0, bid=0.20, ask=0.20)   # mid=0.20, in-band
+        strikes[-1] = _strike(k1, bid=0.21, ask=0.21)   # mid=0.21, +0.01 > one tick
+        ladder = _ladder(strikes)
+        qr = qualify_ladder(ladder, fs, 0.15)
+        assert not qr.ok
+        assert "monotone" in qr.reason
+
+    def test_n_two_sided_reported_regardless_of_outcome(self):
+        fs = _surface()
+        strikes = self._good_strikes(n=5)
+        qr = qualify_ladder(_ladder(strikes), fs, 0.15)
+        assert not qr.ok
+        assert qr.n_two_sided == 5
+
     def test_excluded_on_empty_ladder(self):
         fs = _surface()
         qr = qualify_ladder(_ladder([]), fs, 0.15)

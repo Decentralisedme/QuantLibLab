@@ -63,7 +63,14 @@ _PAGE = 200
 _MAX_PAGES = 20
 
 MIN_TWO_SIDED_STRIKES = 20    # H-004 qualifying-expiry condition
-MONOTONE_TOL = 1e-6           # float noise allowance on the mid ladder
+# Monotonicity is only enforced inside this p-band, with a one-Kalshi-tick
+# tolerance (quotes are in half-cent increments). Near 0 or 1 the true
+# probability step between adjacent $250 strikes can be sub-tick, so
+# quantization alone produces apparent non-monotonicity there — checking it
+# would reject good ladders in the wings, not catch a crossed book. Fixed;
+# do not widen.
+MONOTONE_BAND = (0.02, 0.98)
+MONOTONE_TOL = 0.005
 _CAL_ARB_GRID = np.linspace(-2.0, 2.0, 201)   # matches LocalVolSurface.check_calendar_arbitrage defaults
 
 
@@ -105,6 +112,7 @@ class QualifyResult:
     ok: bool
     reason: str
     bracket: BracketInfo | None = None
+    n_two_sided: int = 0
 
 
 # ---------------------------------------------------------------------------
@@ -242,46 +250,52 @@ def _pair_has_calendar_arb(lo: SVISlice, hi: SVISlice) -> bool:
 # ---------------------------------------------------------------------------
 
 def qualify_ladder(ladder: Ladder, fs, T: float) -> QualifyResult:
-    if ladder.close_time is None:
-        return QualifyResult(False, "no close_time on ladder")
-    if not ladder.strikes:
-        return QualifyResult(False, "empty ladder")
-    if fs is None or fs.surface is None:
-        return QualifyResult(False, f"no usable Deribit surface for {ladder.asset}")
-
-    br = bracket(fs, T)
-    if br is None:
-        return QualifyResult(False, "T not bracketed by two usable Deribit slices")
-
-    # fs.surface.slices only ever contains used=True fits (deribit_surface
-    # appends a slice iff d.used), so this should never fire — kept as an
-    # explicit, named check because H-004 lists it as its own condition.
-    if not (br.diag_lower and br.diag_lower.used and br.diag_upper and br.diag_upper.used):
-        return QualifyResult(False, "bracketing slice not used=True", br)
-
     two_sided = sum(
         1 for s in ladder.strikes
         if s.yes_bid is not None and s.yes_ask is not None
         and s.yes_bid > 0.0 and s.yes_ask < 1.0
     )
+    if ladder.close_time is None:
+        return QualifyResult(False, "no close_time on ladder", n_two_sided=two_sided)
+    if not ladder.strikes:
+        return QualifyResult(False, "empty ladder", n_two_sided=two_sided)
+    if fs is None or fs.surface is None:
+        return QualifyResult(False, f"no usable Deribit surface for {ladder.asset}",
+                              n_two_sided=two_sided)
+
+    br = bracket(fs, T)
+    if br is None:
+        return QualifyResult(False, "T not bracketed by two usable Deribit slices",
+                              n_two_sided=two_sided)
+
+    # fs.surface.slices only ever contains used=True fits (deribit_surface
+    # appends a slice iff d.used), so this should never fire — kept as an
+    # explicit, named check because H-004 lists it as its own condition.
+    if not (br.diag_lower and br.diag_lower.used and br.diag_upper and br.diag_upper.used):
+        return QualifyResult(False, "bracketing slice not used=True", br, n_two_sided=two_sided)
+
     if two_sided < MIN_TWO_SIDED_STRIKES:
         return QualifyResult(
-            False, f"only {two_sided} two-sided strikes (need {MIN_TWO_SIDED_STRIKES})", br)
+            False, f"only {two_sided} two-sided strikes (need {MIN_TWO_SIDED_STRIKES})",
+            br, n_two_sided=two_sided)
 
     mids = sorted(
         (s.floor_strike, (s.yes_bid + s.yes_ask) / 2.0)
         for s in ladder.strikes if s.yes_bid is not None and s.yes_ask is not None
     )
+    lo, hi = MONOTONE_BAND
     for (k0, p0), (k1, p1) in zip(mids, mids[1:]):
+        if not (lo < p0 < hi and lo < p1 < hi):
+            continue  # tick quantization in the wings, not a crossed book
         if p1 > p0 + MONOTONE_TOL:
             return QualifyResult(
                 False,
                 f"ladder not monotone in Kalshi's own quotes: "
                 f"K={k0:.2f}->{p0:.4f}, K={k1:.2f}->{p1:.4f}",
-                br,
+                br, n_two_sided=two_sided,
             )
 
-    return QualifyResult(True, "qualifies", br)
+    return QualifyResult(True, "qualifies", br, n_two_sided=two_sided)
 
 
 # ---------------------------------------------------------------------------
@@ -412,6 +426,7 @@ def fetch_and_price(surfaces: dict, now: datetime | None = None,
                 "close_time": ladder.close_time.isoformat() if ladder.close_time else "",
                 "T_years": round(T, 6) if T == T else "",
                 "n_strikes": len(ladder.strikes),
+                "n_two_sided": qr.n_two_sided,
                 "qualifies": qr.ok,
                 "reason": qr.reason,
             })
