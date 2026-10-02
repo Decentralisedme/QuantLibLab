@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ric Curves Viewer</title>
+<script>
+// Applied synchronously, before CSS paints, so a stored "light" preference
+// doesn't flash dark first. Main theme-toggle logic lives in the deferred
+// script at the bottom; this is just the anti-flash half of it.
+(function () {
+  try {
+    var t = localStorage.getItem("curveViewerTheme");
+    if (t === "light" || t === "dark") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+  } catch (e) { /* localStorage unavailable — fall back to default theme */ }
+})();
+</script>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg-main: #0b0c0e;
+    --bg-panel: #17191d;
+    --bg-elevated: #202328;
+    --border: #2a2d32;
+    --ink: #e8e8e6;
+    --ink-muted: #9a9a94;
+    --accent: #5b9dd9;
+    --accent-ink: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg-main: #e9eaec;
+    --bg-panel: #ffffff;
+    --bg-elevated: #f1f2f4;
+    --border: #d8dadd;
+    --ink: #1d1f23;
+    --ink-muted: #6b6e73;
+    --accent: #2563a8;
+    --accent-ink: #ffffff;
+    --shadow: rgba(30, 32, 36, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg-main);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ---- top bar ---- */
+  .topbar {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .kebab-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--ink);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+  .kebab-btn:hover, .kebab-btn[aria-expanded="true"] {
+    background: var(--bg-elevated);
+    border-color: var(--border);
+  }
+  .menu-panel {
+    position: absolute;
+    top: 48px;
+    right: 12px;
+    min-width: 190px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .menu-panel.open { display: flex; }
+  .menu-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    padding: 6px 8px 4px;
+  }
+  .theme-switch {
+    display: flex;
+    gap: 6px;
+    padding: 0 6px 8px;
+  }
+  .theme-switch button {
+    flex: 1;
+    padding: 6px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-main);
+    color: var(--ink);
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .theme-switch button.active {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+  .menu-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+  .menu-action {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: none;
+    color: var(--ink);
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+  .menu-action:hover { background: var(--bg-elevated); }
+
+  /* ---- body: sidebar + content ---- */
+  .body {
+    display: flex;
+    flex: 1;
+  }
+  .sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .field label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  select {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink-muted) 50%),
+                      linear-gradient(135deg, var(--ink-muted) 50%, transparent 50%);
+    background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+  select:focus { outline: 1px solid var(--accent); }
+  #expiry-field { display: none; }
+
+  .content {
+    flex: 1;
+    background: var(--bg-main);
+    padding: 28px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .content-inner {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .card h2 {
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+  }
+  .asof {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    margin: 0 0 14px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.02rem;
+    white-space: nowrap;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+  }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    color: var(--ink-muted);
+    font-weight: 600;
+    background: var(--bg-elevated);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg-elevated); }
+  .source {
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    margin: 14px 0 0;
+    line-height: 1.4;
+  }
+  .empty {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    padding: 24px 4px;
+  }
+  footer {
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+    text-align: center;
+    padding: 4px 16px 24px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 760px) {
+    .body { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+    }
+    .sidebar .field { flex: 1 1 140px; }
+    .content { padding: 20px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <header class="topbar">
+    <div class="topbar-title">Ric Curves Viewer</div>
+    <div style="position: relative;">
+      <button id="kebab-btn" class="kebab-btn" aria-label="Menu" aria-haspopup="true" aria-expanded="false">&#8942;</button>
+      <div id="menu-panel" class="menu-panel" role="menu">
+        <div class="menu-label">Theme</div>
+        <div class="theme-switch">
+          <button id="theme-dark-btn" type="button">Dark</button>
+          <button id="theme-light-btn" type="button">Light</button>
+        </div>
+        <div class="menu-divider"></div>
+        <button id="refresh-btn" class="menu-action" type="button" role="menuitem">Refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <aside class="sidebar">
+      <div class="field">
+        <label for="curve-select">Curve</label>
+        <select id="curve-select"></select>
+      </div>
+      <div class="field">
+        <label for="date-select">Date</label>
+        <select id="date-select"></select>
+      </div>
+      <div class="field" id="expiry-field">
+        <label for="expiry-select">Expiry</label>
+        <select id="expiry-select"></select>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-inner">
+        <div class="card">
+          <h2 id="curve-title">—</h2>
+          <p class="asof" id="curve-asof"></p>
+          <div id="table-slot"></div>
+          <p class="source" id="curve-source"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div>Static mirror of the QuantLibLab dashboard — frozen from golden snapshots and the daily CSV store. No live network calls; "Refresh" re-fetches this page's data file, it does not re-run the harness.</div>
+    <div id="generated-at"></div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var THEME_KEY = "curveViewerTheme";
+  var data = null;
+
+  var els = {
+    curveSelect: document.getElementById("curve-select"),
+    dateSelect: document.getElementById("date-select"),
+    expiryField: document.getElementById("expiry-field"),
+    expirySelect: document.getElementById("expiry-select"),
+    title: document.getElementById("curve-title"),
+    asof: document.getElementById("curve-asof"),
+    tableSlot: document.getElementById("table-slot"),
+    source: document.getElementById("curve-source"),
+    generatedAt: document.getElementById("generated-at"),
+    kebabBtn: document.getElementById("kebab-btn"),
+    menuPanel: document.getElementById("menu-panel"),
+    themeDarkBtn: document.getElementById("theme-dark-btn"),
+    themeLightBtn: document.getElementById("theme-light-btn"),
+    refreshBtn: document.getElementById("refresh-btn"),
+  };
+
+  // ------------------------------------------------------------------
+  // Theme
+  // ------------------------------------------------------------------
+
+  function currentTheme() {
+    return document.documentElement.getAttribute("data-theme") || "dark";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    els.themeDarkBtn.classList.toggle("active", theme === "dark");
+    els.themeLightBtn.classList.toggle("active", theme === "light");
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* ignore */ }
+  }
+
+  els.themeDarkBtn.addEventListener("click", function () { applyTheme("dark"); });
+  els.themeLightBtn.addEventListener("click", function () { applyTheme("light"); });
+
+  // ------------------------------------------------------------------
+  // Kebab menu
+  // ------------------------------------------------------------------
+
+  function openMenu() {
+    els.menuPanel.classList.add("open");
+    els.kebabBtn.setAttribute("aria-expanded", "true");
+  }
+  function closeMenu() {
+    els.menuPanel.classList.remove("open");
+    els.kebabBtn.setAttribute("aria-expanded", "false");
+  }
+  els.kebabBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (els.menuPanel.classList.contains("open")) closeMenu(); else openMenu();
+  });
+  document.addEventListener("click", function (e) {
+    if (!els.menuPanel.contains(e.target) && e.target !== els.kebabBtn) closeMenu();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // ------------------------------------------------------------------
+  // Table rendering
+  // ------------------------------------------------------------------
+
+  function fmt(v) {
+    return typeof v === "number" ? String(v) : v;
+  }
+
+  function renderTable(entry) {
+    if (!entry) {
+      els.tableSlot.innerHTML = '<p class="empty">No data on disk for this curve / date yet.</p>';
+      els.asof.textContent = "";
+      els.source.textContent = "";
+      return;
+    }
+    els.asof.textContent = "Date: " + entry.asof;
+    els.source.textContent = entry.source || "";
+
+    var html = '<div class="table-wrap"><table><thead><tr>';
+    entry.columns.forEach(function (c) { html += "<th>" + c + "</th>"; });
+    html += "</tr></thead><tbody>";
+    entry.rows.forEach(function (row) {
+      html += "<tr>";
+      row.forEach(function (v) { html += "<td>" + fmt(v) + "</td>"; });
+      html += "</tr>";
+    });
+    html += "</tbody></table></div>";
+    els.tableSlot.innerHTML = html;
+  }
+
+  // ------------------------------------------------------------------
+  // Dropdown cascade: curve -> date -> (expiry, smile curves only)
+  // ------------------------------------------------------------------
+
+  function currentCurveData() {
+    return data.curves[els.curveSelect.value] || {};
+  }
+
+  function onExpiryChange() {
+    var dateEntry = currentCurveData()[els.dateSelect.value];
+    if (!dateEntry) { renderTable(null); return; }
+    renderTable(dateEntry.by_expiry[els.expirySelect.value]);
+  }
+
+  function onDateChange() {
+    var dateEntry = currentCurveData()[els.dateSelect.value];
+    if (dateEntry && dateEntry.expiries) {
+      els.expiryField.style.display = "block";
+      var keepExpiry = els.expirySelect.value;
+      els.expirySelect.innerHTML = "";
+      dateEntry.expiries.forEach(function (ex) {
+        var opt = document.createElement("option");
+        opt.value = ex;
+        opt.textContent = ex;
+        els.expirySelect.appendChild(opt);
+      });
+      if (dateEntry.expiries.indexOf(keepExpiry) !== -1) els.expirySelect.value = keepExpiry;
+      onExpiryChange();
+    } else {
+      els.expiryField.style.display = "none";
+      renderTable(dateEntry || null);
+    }
+  }
+
+  function onCurveChange() {
+    els.title.textContent = els.curveSelect.value;
+    var byDate = currentCurveData();
+    var dates = Object.keys(byDate).sort().reverse();
+    var keepDate = els.dateSelect.value;
+    els.dateSelect.innerHTML = "";
+    if (dates.length === 0) {
+      els.expiryField.style.display = "none";
+      renderTable(null);
+      return;
+    }
+    dates.forEach(function (d) {
+      var opt = document.createElement("option");
+      opt.value = d;
+      opt.textContent = d;
+      els.dateSelect.appendChild(opt);
+    });
+    if (dates.indexOf(keepDate) !== -1) els.dateSelect.value = keepDate;
+    onDateChange();
+  }
+
+  els.curveSelect.addEventListener("change", onCurveChange);
+  els.dateSelect.addEventListener("change", onDateChange);
+  els.expirySelect.addEventListener("change", onExpiryChange);
+
+  // ------------------------------------------------------------------
+  // Load / refresh
+  // ------------------------------------------------------------------
+
+  function render(json) {
+    data = json;
+    var keepCurve = els.curveSelect.value;
+    els.curveSelect.innerHTML = "";
+    data.curve_names.forEach(function (name) {
+      var opt = document.createElement("option");
+      opt.value = name;
+      opt.textContent = name;
+      els.curveSelect.appendChild(opt);
+    });
+    if (data.curve_names.indexOf(keepCurve) !== -1) els.curveSelect.value = keepCurve;
+    onCurveChange();
+    els.generatedAt.textContent = "Generated " + data.generated_at;
+  }
+
+  function load() {
+    return fetch("curves.json", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(render)
+      .catch(function (err) {
+        els.tableSlot.innerHTML =
+          '<p class="empty">Could not load curves.json: ' + err + "</p>";
+      });
+  }
+
+  els.refreshBtn.addEventListener("click", function () {
+    closeMenu();
+    load();
+  });
+
+  // ------------------------------------------------------------------
+  // Init
+  // ------------------------------------------------------------------
+
+  applyTheme(currentTheme());
+  load();
+})();
+</script>
+</body>
+</html>

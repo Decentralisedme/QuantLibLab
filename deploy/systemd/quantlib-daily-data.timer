@@ -1,0 +1,10 @@
+[Unit]
+Description=Fetch QuantLibLab daily rates/FX/crypto data, weekday mornings before the calibration harness (07:00 UTC) runs
+
+[Timer]
+OnCalendar=Mon..Fri 06:20:00
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

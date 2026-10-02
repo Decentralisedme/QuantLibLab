@@ -3,6 +3,7 @@ Description=QuantLibLab nightly calibration harness
 Wants=network-online.target
 After=network-online.target
 OnFailure=quantlib-harness-alert.service
+OnSuccess=quantlib-publish-site.service
 
 [Service]
 Type=oneshot

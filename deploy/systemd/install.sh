@@ -11,9 +11,25 @@ fi
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 UNIT_DIR="$REPO_DIR/deploy/systemd"
 
-install -m 644 "$UNIT_DIR/quantlib-harness.service" /etc/systemd/system/quantlib-harness.service
-install -m 644 "$UNIT_DIR/quantlib-harness.timer" /etc/systemd/system/quantlib-harness.timer
-install -m 644 "$UNIT_DIR/quantlib-harness-alert.service" /etc/systemd/system/quantlib-harness-alert.service
+UNITS=(
+    quantlib-harness.service
+    quantlib-harness.timer
+    quantlib-harness-alert.service
+    quantlib-golden-snapshot.service
+    quantlib-golden-snapshot.timer
+    quantlib-golden-snapshot-alert.service
+    quantlib-daily-data.service
+    quantlib-daily-data.timer
+    quantlib-daily-data-alert.service
+    quantlib-publish-site.service
+    quantlib-publish-site-alert.service
+)
+for unit in "${UNITS[@]}"; do
+    install -m 644 "$UNIT_DIR/$unit" "/etc/systemd/system/$unit"
+done
+
+mkdir -p "$REPO_DIR/data/logs"
+chown groku:groku "$REPO_DIR/data/logs"
 
 mkdir -p /etc/quantlib-harness
 if [[ ! -f /etc/quantlib-harness/telegram.env ]]; then
@@ -31,9 +47,13 @@ else
 fi
 
 systemctl daemon-reload
+systemctl enable --now quantlib-golden-snapshot.timer
+systemctl enable --now quantlib-daily-data.timer
 systemctl enable --now quantlib-harness.timer
+# quantlib-publish-site.service has no timer of its own — it's only ever
+# triggered via OnSuccess= from the three services above, so there's
+# nothing to enable for it beyond the daemon-reload.
 
 echo
 echo "installed. status:"
-systemctl status quantlib-harness.timer --no-pager
-systemctl list-timers quantlib-harness.timer --no-pager
+systemctl list-timers quantlib-golden-snapshot.timer quantlib-daily-data.timer quantlib-harness.timer --no-pager

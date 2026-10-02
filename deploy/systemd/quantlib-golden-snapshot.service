@@ -1,0 +1,16 @@
+[Unit]
+Description=QuantLibLab golden market-data snapshot capture
+Wants=network-online.target
+After=network-online.target
+OnFailure=quantlib-golden-snapshot-alert.service
+OnSuccess=quantlib-publish-site.service
+
+[Service]
+Type=oneshot
+User=groku
+Group=groku
+WorkingDirectory=/home/groku/QuantLibLab
+ExecStart=/home/groku/QuantLibLab/.venv/bin/python scripts/capture_golden_snapshot.py
+StandardOutput=append:/home/groku/QuantLibLab/data/logs/golden_snapshot.log
+StandardError=append:/home/groku/QuantLibLab/data/logs/golden_snapshot.log
+TimeoutStartSec=1800

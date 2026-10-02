@@ -119,30 +119,35 @@ def fetch_crypto(start: date, end: date) -> None:
         current += timedelta(days=1)
 
 
-def main() -> None:
+def main() -> int:
     start, end = _parse_args()
     print(f"\nQuantLibLab daily data fetch: {start} -> {end}\n")
+    had_error = False
 
     print("[ Rates ]")
     try:
         fetch_rates(start, end)
     except Exception as e:
         print(f"  ERROR fetching rates: {e}")
+        had_error = True
 
     print("\n[ FX ]")
     try:
         fetch_fx(start, end)
     except Exception as e:
         print(f"  ERROR fetching FX: {e}")
+        had_error = True
 
     print("\n[ Crypto ]")
     try:
         fetch_crypto(start, end)
     except Exception as e:
         print(f"  ERROR fetching crypto: {e}")
+        had_error = True
 
     print("\nDone.")
+    return 1 if had_error else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

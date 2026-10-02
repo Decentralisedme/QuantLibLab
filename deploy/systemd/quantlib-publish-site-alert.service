@@ -1,0 +1,12 @@
+[Unit]
+Description=Send Telegram alert for a failed quantlib-publish-site run
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=groku
+Group=groku
+Environment=SERVICE_LABEL=quantlib-publish-site.service
+Environment=LOG_FILE=/home/groku/QuantLibLab/data/logs/publish_site.log
+EnvironmentFile=-/etc/quantlib-harness/telegram.env
+ExecStart=/home/groku/QuantLibLab/scripts/telegram_alert.sh

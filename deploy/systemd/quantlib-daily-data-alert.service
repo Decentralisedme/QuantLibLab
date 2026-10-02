@@ -1,12 +1,12 @@
 [Unit]
-Description=Send Telegram alert for a failed quantlib-harness run
+Description=Send Telegram alert for a failed quantlib-daily-data run
 After=network-online.target
 
 [Service]
 Type=oneshot
 User=groku
 Group=groku
-Environment=SERVICE_LABEL=quantlib-harness.service
-Environment=LOG_FILE=/home/groku/QuantLibLab/data/harness/harness.log
+Environment=SERVICE_LABEL=quantlib-daily-data.service
+Environment=LOG_FILE=/home/groku/QuantLibLab/data/logs/daily_data.log
 EnvironmentFile=-/etc/quantlib-harness/telegram.env
 ExecStart=/home/groku/QuantLibLab/scripts/telegram_alert.sh

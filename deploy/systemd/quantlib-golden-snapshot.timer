@@ -1,0 +1,10 @@
+[Unit]
+Description=Capture QuantLibLab golden market-data snapshot daily, before the calibration harness (07:00 UTC) runs
+
+[Timer]
+OnCalendar=*-*-* 06:00:00
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=QuantLibLab daily rates/FX/crypto fetch into the CSV store
+Wants=network-online.target
+After=network-online.target
+OnFailure=quantlib-daily-data-alert.service
+OnSuccess=quantlib-publish-site.service
+
+[Service]
+Type=oneshot
+User=groku
+Group=groku
+WorkingDirectory=/home/groku/QuantLibLab
+ExecStart=/home/groku/QuantLibLab/.venv/bin/python scripts/fetch_daily_data.py
+StandardOutput=append:/home/groku/QuantLibLab/data/logs/daily_data.log
+StandardError=append:/home/groku/QuantLibLab/data/logs/daily_data.log
+TimeoutStartSec=1800
