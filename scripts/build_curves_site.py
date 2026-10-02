@@ -9,6 +9,19 @@ time via read_latest()/a sidebar dropdown, this script walks every
 golden snapshot (quantliblab.data.golden.list_snapshots) and every date
 in the CSV store (quantliblab.data.store.read) and freezes the lot.
 
+Also attaches, per curve:
+  * schedule / latest_captured_at — which systemd timer produces this
+    curve's data, and the real wall-clock time it was last captured (the
+    golden snapshot's own manifest.json for golden curves; the on-disk
+    CSV's mtime for CSV-store curves, since the store has no per-row
+    capture timestamp — see SCHEDULES / _store_mtime below). The page
+    computes "next refresh" client-side from the schedule, since that's
+    relative to viewing time, not build time.
+  * interp_kind — which of the three interpolation methods (vol / rate /
+    futures) the client-side interpolation tool should use on curves
+    with a calendar-date maturity axis; None for curves that don't have
+    one (tenor-ladder or O/N curves, smile-by-strike curves).
+
 Curves and surfaces only — this never reads data/harness/snapshots.csv
 (or anything with fair/market_yes/edge_* columns). Those are the harness's
 paper-trading numbers, not public market-data curves, and the output of
@@ -40,12 +53,22 @@ from quantliblab.data.golden import list_snapshots
 from quantliblab.data.store import read
 
 SITE_DIR = ROOT / "site"
+RAW_STORE_ROOT = ROOT / "quantliblab" / "data" / "raw"
 
 # dataset -> (label, ccy) for the "Overnight reference rates" curve
 ON_SERIES = {
     "sofr_on": ("SOFR", "USD"),
     "sonia_on": ("SONIA", "GBP"),
     "estr_on": ("ESTR", "EUR"),
+}
+
+# Which systemd timer produces each curve's data, for the "captured /
+# next refresh" display. Keep in sync with deploy/systemd/*.timer.
+SCHEDULES = {
+    "golden_snapshot": {"label": "golden snapshot capture",
+                        "hour_utc": 6, "minute_utc": 0, "weekdays_only": False},
+    "daily_data": {"label": "daily rates/FX fetch",
+                   "hour_utc": 6, "minute_utc": 20, "weekdays_only": True},
 }
 
 
@@ -65,21 +88,43 @@ def _table_entry(result, asof: str) -> dict | None:
     }
 
 
+def _manifest_captured_at(snap: Path) -> str | None:
+    try:
+        return json.loads((snap / "manifest.json").read_text()).get("captured_at")
+    except (OSError, ValueError):
+        return None
+
+
+def _store_mtime(asset_class: str, dataset: str) -> str | None:
+    """ISO timestamp the dataset's CSV was last written, or None if it
+    doesn't exist yet (fetch_daily_data.py has never run)."""
+    path = RAW_STORE_ROOT / asset_class / f"{dataset}.csv"
+    if not path.exists():
+        return None
+    return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).isoformat()
+
+
 # ---------------------------------------------------------------------------
 # Golden-snapshot-keyed curves (every snapshot that has the feed)
 # ---------------------------------------------------------------------------
 
-def build_golden_curve(fn, snaps: list[Path]) -> dict:
-    out = {}
+def build_golden_curve(fn, snaps: list[Path], interp_kind: str | None) -> dict:
+    dates = {}
+    latest_captured_at = None
     for snap in snaps:
         entry = _table_entry(fn(snap), snap.name)
         if entry is not None:
-            out[snap.name] = entry
-    return out
+            dates[snap.name] = entry
+            captured_at = _manifest_captured_at(snap)
+            if captured_at is not None:
+                latest_captured_at = captured_at   # snaps are oldest-first
+    return {"schedule": "golden_snapshot", "latest_captured_at": latest_captured_at,
+            "interp_kind": interp_kind, "dates": dates}
 
 
 def build_smile_curve(ccy: str, snaps: list[Path]) -> dict:
-    out = {}
+    dates = {}
+    latest_captured_at = None
     for snap in snaps:
         result, expiries = curve_smile(snap, ccy, None)
         if result is None or not expiries:
@@ -91,9 +136,14 @@ def build_smile_curve(ccy: str, snaps: list[Path]) -> dict:
             if entry is not None:
                 by_expiry[expiry] = entry
         if by_expiry:
-            out[snap.name] = {"asof": snap.name, "expiries": expiries,
-                              "by_expiry": by_expiry}
-    return out
+            dates[snap.name] = {"asof": snap.name, "expiries": expiries,
+                                "by_expiry": by_expiry}
+            captured_at = _manifest_captured_at(snap)
+            if captured_at is not None:
+                latest_captured_at = captured_at
+    # Strike ladders, not a maturity axis — no interpolation tool here.
+    return {"schedule": "golden_snapshot", "latest_captured_at": latest_captured_at,
+            "interp_kind": None, "dates": dates}
 
 
 # ---------------------------------------------------------------------------
@@ -101,20 +151,24 @@ def build_smile_curve(ccy: str, snaps: list[Path]) -> dict:
 # ---------------------------------------------------------------------------
 
 def build_sofr_averages_all() -> dict:
-    out = {}
+    dates = {}
     for row in read("rates", "sofr_averages"):
         df = pd.DataFrame({
             MATURITY: ["30D", "90D", "180D"],
             "USD SOFR (%)": [_pct(row[t]) for t in ("30D", "90D", "180D")],
         })
-        out[row["date"]] = {
+        dates[row["date"]] = {
             "asof": row["date"],
             "columns": df.columns.tolist(),
             "rows": df.values.tolist(),
             "source": "Source: NY Fed compounded SOFR averages, via FRED "
                        "(SOFR30/90/180DAYAVG). Backward-looking averages.",
         }
-    return out
+    # Tenor ladder (30D/90D/180D), not a calendar-date maturity axis —
+    # no interpolation tool here.
+    return {"schedule": "daily_data",
+            "latest_captured_at": _store_mtime("rates", "sofr_averages"),
+            "interp_kind": None, "dates": dates}
 
 
 def build_on_rates_all() -> dict:
@@ -123,7 +177,7 @@ def build_on_rates_all() -> dict:
         for row in read("rates", dataset):
             by_date[row["date"]][dataset] = row
 
-    out = {}
+    dates = {}
     for d, rows_by_dataset in sorted(by_date.items()):
         recs = []
         for dataset, (label, ccy) in ON_SERIES.items():
@@ -134,14 +188,19 @@ def build_on_rates_all() -> dict:
         if not recs:
             continue
         df = pd.DataFrame(recs)
-        out[d] = {
+        dates[d] = {
             "asof": d,
             "columns": df.columns.tolist(),
             "rows": df.values.tolist(),
             "source": "Source: FRED (series SOFR, IUDSOIA, "
                        "ECBESTRVOLWGTTRMDMNRT) — official overnight fixings.",
         }
-    return out
+    latest_captured_at = max(
+        (t for t in (_store_mtime("rates", ds) for ds in ON_SERIES) if t is not None),
+        default=None)
+    # Three currencies side by side, not a maturity axis — no interpolation tool.
+    return {"schedule": "daily_data", "latest_captured_at": latest_captured_at,
+            "interp_kind": None, "dates": dates}
 
 
 # ---------------------------------------------------------------------------
@@ -153,21 +212,27 @@ def main() -> int:
 
     curves = {
         "USD SOFR — futures strip (SR3)":
-            build_golden_curve(curve_sofr_futures, snaps),
+            build_golden_curve(curve_sofr_futures, snaps, interp_kind="rate"),
         "USD SOFR — compounded averages": build_sofr_averages_all(),
         "Overnight reference rates": build_on_rates_all(),
         "Deribit BTC futures":
-            build_golden_curve(lambda s: curve_deribit_futures(s, "BTC"), snaps),
+            build_golden_curve(lambda s: curve_deribit_futures(s, "BTC"), snaps,
+                                interp_kind="futures"),
         "Deribit ETH futures":
-            build_golden_curve(lambda s: curve_deribit_futures(s, "ETH"), snaps),
+            build_golden_curve(lambda s: curve_deribit_futures(s, "ETH"), snaps,
+                                interp_kind="futures"),
         "BTC ATM vol term structure":
-            build_golden_curve(lambda s: curve_atm_term_structure(s, "BTC"), snaps),
+            build_golden_curve(lambda s: curve_atm_term_structure(s, "BTC"), snaps,
+                                interp_kind="vol"),
         "ETH ATM vol term structure":
-            build_golden_curve(lambda s: curve_atm_term_structure(s, "ETH"), snaps),
+            build_golden_curve(lambda s: curve_atm_term_structure(s, "ETH"), snaps,
+                                interp_kind="vol"),
         "BTC vol surface (by delta)":
-            build_golden_curve(lambda s: surface_by_delta(s, "BTC"), snaps),
+            build_golden_curve(lambda s: surface_by_delta(s, "BTC"), snaps,
+                                interp_kind="vol"),
         "ETH vol surface (by delta)":
-            build_golden_curve(lambda s: surface_by_delta(s, "ETH"), snaps),
+            build_golden_curve(lambda s: surface_by_delta(s, "ETH"), snaps,
+                                interp_kind="vol"),
         "BTC smile (SVI fit, by strike)": build_smile_curve("BTC", snaps),
         "ETH smile (SVI fit, by strike)": build_smile_curve("ETH", snaps),
     }
@@ -175,6 +240,7 @@ def main() -> int:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "curve_names": list(curves.keys()),
+        "schedules": SCHEDULES,
         "curves": curves,
     }
 
@@ -182,11 +248,12 @@ def main() -> int:
     out_path = SITE_DIR / "curves.json"
     out_path.write_text(json.dumps(payload, indent=1))
 
-    n_dates = sum(len(v) for v in curves.values())
+    n_dates = sum(len(v["dates"]) for v in curves.values())
     print(f"{len(snaps)} golden snapshot(s) on disk: "
           f"{', '.join(s.name for s in snaps) or '(none)'}")
     for name, v in curves.items():
-        print(f"  {name}: {len(v)} date(s)")
+        print(f"  {name}: {len(v['dates'])} date(s), "
+              f"schedule={v['schedule']}, interp_kind={v['interp_kind']}")
     print(f"Wrote {out_path} ({n_dates} curve-dates total)")
     return 0
 

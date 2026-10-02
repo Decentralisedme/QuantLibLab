@@ -28,6 +28,7 @@
     --ink-muted: #9a9a94;
     --accent: #5b9dd9;
     --accent-ink: #ffffff;
+    --warn: #d98c3d;
     --shadow: rgba(0, 0, 0, 0.4);
   }
   :root[data-theme="light"] {
@@ -40,6 +41,7 @@
     --ink-muted: #6b6e73;
     --accent: #2563a8;
     --accent-ink: #ffffff;
+    --warn: #a35b14;
     --shadow: rgba(30, 32, 36, 0.15);
   }
 
@@ -250,11 +252,66 @@
     margin: 14px 0 0;
     line-height: 1.4;
   }
+  .freshness {
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    margin: 10px 0 0;
+    line-height: 1.5;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
   .empty {
     color: var(--ink-muted);
     font-size: 0.95rem;
     padding: 24px 4px;
   }
+
+  /* ---- interpolation tool ---- */
+  .interp-box {
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-elevated);
+    display: none;
+  }
+  .interp-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+  }
+  .interp-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .interp-row .field { flex: 1 1 160px; }
+  input[type="date"] {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 10px;
+    font-size: 0.92rem;
+    font-family: inherit;
+  }
+  input[type="date"]:focus { outline: 1px solid var(--accent); }
+  .interp-result {
+    margin-top: 12px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .interp-result b { font-weight: 600; }
+  .interp-method {
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    margin-top: 6px;
+  }
+  .interp-muted { color: var(--ink-muted); }
+  .interp-warn { color: var(--warn); }
   footer {
     color: var(--ink-muted);
     font-size: 0.72rem;
@@ -318,6 +375,23 @@
           <h2 id="curve-title">—</h2>
           <p class="asof" id="curve-asof"></p>
           <div id="table-slot"></div>
+
+          <div id="interp-box" class="interp-box">
+            <div class="interp-title">Interpolate</div>
+            <div class="interp-row">
+              <div class="field">
+                <label for="interp-target">Valuation date</label>
+                <input type="date" id="interp-target">
+              </div>
+              <div class="field">
+                <label for="interp-end">Maturity date</label>
+                <input type="date" id="interp-end">
+              </div>
+            </div>
+            <div class="interp-result" id="interp-result"></div>
+          </div>
+
+          <div class="freshness" id="freshness"></div>
           <p class="source" id="curve-source"></p>
         </div>
       </div>
@@ -346,6 +420,11 @@
     asof: document.getElementById("curve-asof"),
     tableSlot: document.getElementById("table-slot"),
     source: document.getElementById("curve-source"),
+    freshness: document.getElementById("freshness"),
+    interpBox: document.getElementById("interp-box"),
+    interpTarget: document.getElementById("interp-target"),
+    interpEnd: document.getElementById("interp-end"),
+    interpResult: document.getElementById("interp-result"),
     generatedAt: document.getElementById("generated-at"),
     kebabBtn: document.getElementById("kebab-btn"),
     menuPanel: document.getElementById("menu-panel"),
@@ -426,21 +505,232 @@
   }
 
   // ------------------------------------------------------------------
+  // Freshness: when this curve's data was captured, and when its
+  // schedule next runs. Curve-level (not per-date) — the underlying
+  // pipeline either ran on schedule or it didn't, regardless of which
+  // historical date you happen to be browsing.
+  // ------------------------------------------------------------------
+
+  function pad2(n) { return String(n).padStart(2, "0"); }
+
+  function fmtUTC(d) {
+    return d.getUTCFullYear() + "-" + pad2(d.getUTCMonth() + 1) + "-" + pad2(d.getUTCDate()) +
+      " " + pad2(d.getUTCHours()) + ":" + pad2(d.getUTCMinutes()) + " UTC";
+  }
+
+  function relTime(targetMs, nowMs) {
+    var diff = targetMs - nowMs;
+    var future = diff >= 0;
+    var mins = Math.round(Math.abs(diff) / 60000);
+    var out;
+    if (mins < 60) out = mins + "m";
+    else if (mins < 60 * 24) out = Math.floor(mins / 60) + "h " + (mins % 60) + "m";
+    else out = Math.floor(mins / 1440) + "d " + Math.floor((mins % 1440) / 60) + "h";
+    return future ? "in " + out : out + " ago";
+  }
+
+  function nextOccurrence(schedule, now) {
+    var d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
+                              schedule.hour_utc, schedule.minute_utc, 0, 0));
+    if (d <= now) d.setUTCDate(d.getUTCDate() + 1);
+    if (schedule.weekdays_only) {
+      while (d.getUTCDay() === 0 || d.getUTCDay() === 6) d.setUTCDate(d.getUTCDate() + 1);
+    }
+    return d;
+  }
+
+  function renderFreshness(curveMeta) {
+    var now = new Date();
+    var lines = [];
+    if (curveMeta.latest_captured_at) {
+      var captured = new Date(curveMeta.latest_captured_at);
+      lines.push("Captured " + fmtUTC(captured) + " (" + relTime(captured.getTime(), now.getTime()) + ")");
+    } else {
+      lines.push("Not captured yet");
+    }
+    var schedule = data.schedules[curveMeta.schedule];
+    if (schedule) {
+      var next = nextOccurrence(schedule, now);
+      lines.push("Next refresh " + fmtUTC(next) + " (" + relTime(next.getTime(), now.getTime()) +
+        ") — " + schedule.label);
+    }
+    els.freshness.innerHTML = lines.map(function (l) { return "<div>" + l + "</div>"; }).join("");
+  }
+
+  // ------------------------------------------------------------------
+  // Interpolation tool (curves with a calendar-date maturity axis only)
+  //
+  //   vol     : linear in total variance w = sigma^2 * T, then
+  //             sigma = sqrt(w / T) -- never interpolate sigma directly,
+  //             that breaks calendar-arbitrage consistency (H-004).
+  //   rate    : log-linear on discount factors: ln(DF) = -r*T interpolated
+  //             linearly in T, then r = -ln(DF)/T.
+  //   futures : linear in ln(F), since carry compounds.
+  //
+  // T is the year fraction from the chosen valuation date to the chosen
+  // maturity date (actual/365, matching T_years elsewhere in this repo).
+  // Refuses to extrapolate past the quoted range on either method.
+  // ------------------------------------------------------------------
+
+  function todayUTCString() {
+    var d = new Date();
+    return d.getUTCFullYear() + "-" + pad2(d.getUTCMonth() + 1) + "-" + pad2(d.getUTCDate());
+  }
+
+  function yearFrac(fromStr, toStr) {
+    var a = Date.parse(fromStr + "T00:00:00Z");
+    var b = Date.parse(toStr + "T00:00:00Z");
+    return (b - a) / (365.0 * 86400000);
+  }
+
+  function methodLabel(kind) {
+    if (kind === "vol") return "linear in total variance (w = σ²T)";
+    if (kind === "rate") return "log-linear on discount factors";
+    if (kind === "futures") return "linear in ln(F)";
+    return "";
+  }
+
+  function linterp(points, tQuery) {
+    for (var i = 0; i < points.length - 1; i++) {
+      var lo = points[i], hi = points[i + 1];
+      if (tQuery >= lo.T && tQuery <= hi.T) {
+        if (hi.T === lo.T) return lo.v;
+        return lo.v + (hi.v - lo.v) * (tQuery - lo.T) / (hi.T - lo.T);
+      }
+    }
+    return null;
+  }
+
+  function transform(kind, raw, T) {
+    if (kind === "vol") { var s = raw / 100; return s * s * T; }
+    if (kind === "rate") { return -(raw / 100) * T; }
+    return Math.log(raw);  // futures
+  }
+
+  function backTransform(kind, v, T) {
+    if (kind === "vol") return Math.sqrt(Math.max(v, 0) / T) * 100;
+    if (kind === "rate") return (-v / T) * 100;
+    return Math.exp(v);    // futures
+  }
+
+  function fmtValue(kind, v) {
+    return kind === "futures" ? v.toFixed(2) : v.toFixed(4);
+  }
+
+  // Interpolates one value column (by index) of a table entry. Returns
+  // {ok:true, value, T} or {ok:false, reason}.
+  function interpolateColumn(entry, valueColIdx, kind, targetDate, endDate) {
+    var tQuery = yearFrac(targetDate, endDate);
+    if (tQuery <= 0) {
+      return { ok: false, reason: "valuation date must be before the maturity date" };
+    }
+    var matMin = entry.rows[0][0], matMax = entry.rows[entry.rows.length - 1][0];
+    if (endDate < matMin || endDate > matMax) {
+      return { ok: false, reason: "outside the quoted range (" + matMin + " to " + matMax + ")" };
+    }
+    var points = entry.rows.map(function (row) {
+      var T = yearFrac(targetDate, row[0]);
+      return { T: T, v: transform(kind, row[valueColIdx], T) };
+    });
+    var vInterp = linterp(points, tQuery);
+    if (vInterp === null) {
+      return { ok: false, reason: "outside the quoted range (" + matMin + " to " + matMax + ")" };
+    }
+    return { ok: true, value: backTransform(kind, vInterp, tQuery), T: tQuery };
+  }
+
+  // Drives interpolateColumn() for either a single-column curve (futures,
+  // rate, plain ATM vol term structure) or the multi-column vol-surface-
+  // by-delta curve, where every sigma column is interpolated independently
+  // and RR25/BF25 are re-derived from the results (same formula the
+  // builder uses: rr25 = 25dC-25dP, bf25 = 0.5*(25dC+25dP)-ATM).
+  function computeInterpolation(curveMeta, entry, targetDate, endDate) {
+    var kind = curveMeta.interp_kind;
+    if (!kind || !entry || !entry.rows.length || !targetDate || !endDate) return null;
+
+    if (kind !== "vol" || entry.columns.indexOf("RR25") === -1) {
+      var idx = 1;
+      var r = interpolateColumn(entry, idx, kind, targetDate, endDate);
+      if (!r.ok) return { ok: false, reason: r.reason };
+      var lines = [[entry.columns[idx], fmtValue(kind, r.value)]];
+      return { ok: true, method: methodLabel(kind), lines: lines, T: r.T };
+    }
+
+    var sigmaCols = ["10dP", "25dP", "ATM", "25dC", "10dC"];
+    var sigmas = {}, firstErr = null, T = null;
+    sigmaCols.forEach(function (col) {
+      var r = interpolateColumn(entry, entry.columns.indexOf(col), "vol", targetDate, endDate);
+      if (!r.ok) { firstErr = firstErr || r.reason; return; }
+      sigmas[col] = r.value;
+      T = r.T;
+    });
+    if (firstErr) return { ok: false, reason: firstErr };
+    var rr25 = sigmas["25dC"] - sigmas["25dP"];
+    var bf25 = 0.5 * (sigmas["25dC"] + sigmas["25dP"]) - sigmas["ATM"];
+    var out = sigmaCols.map(function (c) { return [c, fmtValue("vol", sigmas[c])]; });
+    out.push(["RR25", fmtValue("vol", rr25)], ["BF25", fmtValue("vol", bf25)]);
+    return { ok: true, method: methodLabel(kind), lines: out, T: T };
+  }
+
+  function currentEntryForInterp() {
+    var dateEntry = currentCurveDates()[els.dateSelect.value];
+    return (dateEntry && !dateEntry.expiries) ? dateEntry : null;
+  }
+
+  function renderInterpolation(curveMeta, entry) {
+    if (!curveMeta.interp_kind || !entry) {
+      els.interpBox.style.display = "none";
+      return;
+    }
+    els.interpBox.style.display = "block";
+    els.interpEnd.min = entry.rows[0][0];
+    els.interpEnd.max = entry.rows[entry.rows.length - 1][0];
+
+    var target = els.interpTarget.value;
+    var end = els.interpEnd.value;
+    if (!end) {
+      els.interpResult.innerHTML = '<span class="interp-muted">Pick a maturity date.</span>';
+      return;
+    }
+    var r = computeInterpolation(curveMeta, entry, target, end);
+    if (!r || !r.ok) {
+      els.interpResult.innerHTML = '<span class="interp-warn">' + (r ? r.reason : "no data") + "</span>";
+      return;
+    }
+    var html = r.lines.map(function (pair) {
+      return "<div><b>" + pair[0] + ":</b> " + pair[1] + "</div>";
+    }).join("");
+    html += '<div class="interp-method">Method: ' + r.method + " — T=" + r.T.toFixed(4) + "y</div>";
+    els.interpResult.innerHTML = html;
+  }
+
+  els.interpTarget.addEventListener("change", function () {
+    renderInterpolation(currentCurveMeta(), currentEntryForInterp());
+  });
+  els.interpEnd.addEventListener("change", function () {
+    renderInterpolation(currentCurveMeta(), currentEntryForInterp());
+  });
+
+  // ------------------------------------------------------------------
   // Dropdown cascade: curve -> date -> (expiry, smile curves only)
   // ------------------------------------------------------------------
 
-  function currentCurveData() {
+  function currentCurveMeta() {
     return data.curves[els.curveSelect.value] || {};
+  }
+  function currentCurveDates() {
+    return currentCurveMeta().dates || {};
   }
 
   function onExpiryChange() {
-    var dateEntry = currentCurveData()[els.dateSelect.value];
+    var dateEntry = currentCurveDates()[els.dateSelect.value];
     if (!dateEntry) { renderTable(null); return; }
     renderTable(dateEntry.by_expiry[els.expirySelect.value]);
+    renderInterpolation(currentCurveMeta(), null);  // smile curves have no maturity axis
   }
 
   function onDateChange() {
-    var dateEntry = currentCurveData()[els.dateSelect.value];
+    var dateEntry = currentCurveDates()[els.dateSelect.value];
     if (dateEntry && dateEntry.expiries) {
       els.expiryField.style.display = "block";
       var keepExpiry = els.expirySelect.value;
@@ -456,18 +746,21 @@
     } else {
       els.expiryField.style.display = "none";
       renderTable(dateEntry || null);
+      renderInterpolation(currentCurveMeta(), dateEntry || null);
     }
   }
 
   function onCurveChange() {
     els.title.textContent = els.curveSelect.value;
-    var byDate = currentCurveData();
+    renderFreshness(currentCurveMeta());
+    var byDate = currentCurveDates();
     var dates = Object.keys(byDate).sort().reverse();
     var keepDate = els.dateSelect.value;
     els.dateSelect.innerHTML = "";
     if (dates.length === 0) {
       els.expiryField.style.display = "none";
       renderTable(null);
+      renderInterpolation(currentCurveMeta(), null);
       return;
     }
     dates.forEach(function (d) {
@@ -523,6 +816,7 @@
   // ------------------------------------------------------------------
 
   applyTheme(currentTheme());
+  els.interpTarget.value = todayUTCString();
   load();
 })();
 </script>

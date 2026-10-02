@@ -3,7 +3,6 @@ Description=QuantLibLab daily rates/FX/crypto fetch into the CSV store
 Wants=network-online.target
 After=network-online.target
 OnFailure=quantlib-daily-data-alert.service
-OnSuccess=quantlib-publish-site.service
 
 [Service]
 Type=oneshot

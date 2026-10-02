@@ -4,10 +4,11 @@
 # right now, and pushes it to origin/main if anything changed — Netlify's
 # GitHub integration picks up the push and redeploys automatically.
 #
-# Invoked via OnSuccess= on quantlib-golden-snapshot.service,
-# quantlib-daily-data.service and quantlib-harness.service: any of the
-# three can leave new data behind. Re-running this after one that
-# didn't is a cheap no-op (the git diff --cached --quiet check below).
+# Invoked via OnSuccess= on quantlib-harness.service — the last of the
+# three morning jobs (golden-snapshot 06:00, daily-data 06:20, harness
+# 07:00) — so it fires once per morning, after all three have had their
+# chance to land new data. The git diff --cached --quiet check below
+# still makes it a no-op if nothing actually changed.
 set -euo pipefail
 cd /home/groku/QuantLibLab
 

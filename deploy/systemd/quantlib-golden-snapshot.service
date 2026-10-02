@@ -3,7 +3,6 @@ Description=QuantLibLab golden market-data snapshot capture
 Wants=network-online.target
 After=network-online.target
 OnFailure=quantlib-golden-snapshot-alert.service
-OnSuccess=quantlib-publish-site.service
 
 [Service]
 Type=oneshot
