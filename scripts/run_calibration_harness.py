@@ -24,9 +24,10 @@ Each run:
 Notes:
   * uses only the LAST snapshot per market before resolution for scoring
     (earlier snapshots are for studying edge decay, not skill).
-  * cron example (daily 07:00 UTC, after Deribit's 08:00 expiry is >2d
-    away for dailies):  0 7 * * * cd ~/QuantLibLab && .venv/bin/python
-    scripts/run_calibration_harness.py >> data/harness/harness.log 2>&1
+  * scheduled daily at 07:00 UTC (after Deribit's 08:00 expiry is >2d
+    away for dailies) via a systemd timer, not cron — see
+    deploy/systemd/ (install.sh + unit files, Persistent=true so a
+    missed run fires on next boot).
 """
 from __future__ import annotations
 
@@ -64,7 +65,7 @@ SURF_FIELDS = ["asof", "currency", "index_price", "expiry", "T", "F",
                "a", "b", "rho", "m", "s", "rmse_volpts", "n_quotes",
                "used", "reason"]
 EXCLUSION_FIELDS = ["asof", "event_ticker", "asset", "cadence", "close_time",
-                     "T_years", "n_strikes", "qualifies", "reason"]
+                     "T_years", "n_strikes", "qualifies", "reason", "n_two_sided"]
 
 
 def _append_csv(path: Path, fields: list[str], rows: list[dict]) -> None:

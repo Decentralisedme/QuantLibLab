@@ -1771,3 +1771,564 @@ RuntimeError: Deribit request to get_index_price failed after 3 attempts: HTTPSC
 2026-09-20 07:00:43,109 INFO    harness EDGE -0.019  fair=0.036 mkt=0.055  Will Ethereum dip to $1,000 by December 31, 2026?
 2026-09-20 07:00:43,198 INFO    harness resolved 0 newly matured markets (1 still pending)
 2026-09-20 07:00:43,205 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-21 07:00:36,099 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.00833223255787037, 0.011071958585267631)] — digitals near these horizons are suspect
+2026-09-21 07:00:36,100 INFO    harness.deribit BTC: fitted 10/12 expiries, index=81607
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-09-21 T=0.0001 F=81613 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-09-22 T=0.0029 F=81637 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-09-23 T=0.0056 F=81655 quotes=27 rmse=0.36vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-09-24 T=0.0083 F=81677 quotes=27 rmse=0.30vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-09-25 T=0.0111 F=81688 quotes=24 rmse=0.73vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-10-02 T=0.0303 F=81775 quotes=20 rmse=0.16vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-10-09 T=0.0494 F=81849 quotes=21 rmse=0.15vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-10-30 T=0.1070 F=82113 quotes=52 rmse=0.31vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-11-27 T=0.1837 F=82440 quotes=45 rmse=0.17vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2026-12-25 T=0.2604 F=82774 quotes=59 rmse=1.50vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2027-03-26 T=0.5097 F=83772 quotes=51 rmse=0.28vp used=True 
+2026-09-21 07:00:36,100 INFO    harness   BTC 2027-06-25 T=0.7590 F=84801 quotes=50 rmse=0.08vp used=True 
+2026-09-21 07:00:37,147 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.005592462557648402, 0.008332188585045662), (0.008332188585045662, 0.011071914612442923)] — digitals near these horizons are suspect
+2026-09-21 07:00:37,147 INFO    harness.deribit ETH: fitted 10/12 expiries, index=2662
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-09-21 T=0.0001 F=2662 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-09-22 T=0.0029 F=2662 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-09-23 T=0.0056 F=2663 quotes=31 rmse=0.44vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-09-24 T=0.0083 F=2664 quotes=33 rmse=0.36vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-09-25 T=0.0111 F=2665 quotes=28 rmse=0.62vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-10-02 T=0.0302 F=2666 quotes=18 rmse=0.17vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-10-09 T=0.0494 F=2667 quotes=17 rmse=0.13vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-10-30 T=0.1070 F=2673 quotes=39 rmse=0.82vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-11-27 T=0.1837 F=2683 quotes=33 rmse=0.08vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2026-12-25 T=0.2604 F=2693 quotes=44 rmse=0.57vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2027-03-26 T=0.5097 F=2718 quotes=41 rmse=0.28vp used=True 
+2026-09-21 07:00:37,147 INFO    harness   ETH 2027-06-25 T=0.7590 F=2744 quotes=41 rmse=0.14vp used=True 
+2026-09-21 07:00:38,871 INFO    harness Gamma returned 2000 active markets
+2026-09-21 07:00:38,876 INFO    harness.polymarket parser skipped: {'no asset': 1868, 'skip-pattern (bucket/daily/ambiguous)': 74, 'no strike': 25, 'no direction keyword': 1}
+2026-09-21 07:00:38,876 INFO    harness parsed 32 crypto binaries
+2026-09-21 07:00:43,976 INFO    harness.kalshi KXBTCD: 23 open+unopened events
+2026-09-21 07:00:44,474 INFO    harness.kalshi BTC KXBTCD-26SEP2103 T=-0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:44,790 INFO    harness.kalshi BTC KXBTCD-26SEP2117 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:45,130 INFO    harness.kalshi BTC KXBTCD-26SEP2517 T=0.0126 cadence=weekly -> QUALIFIES (qualifies)
+2026-09-21 07:00:45,624 INFO    harness.kalshi BTC KXBTCD-26SEP2104 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:45,997 INFO    harness.kalshi BTC KXBTCD-26SEP2105 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:46,337 INFO    harness.kalshi BTC KXBTCD-26SEP2106 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:46,713 INFO    harness.kalshi BTC KXBTCD-26SEP2107 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:47,101 INFO    harness.kalshi BTC KXBTCD-26SEP2108 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:47,440 INFO    harness.kalshi BTC KXBTCD-26SEP2109 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:47,809 INFO    harness.kalshi BTC KXBTCD-26SEP2110 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:48,179 INFO    harness.kalshi BTC KXBTCD-26SEP2111 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:48,518 INFO    harness.kalshi BTC KXBTCD-26SEP2112 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:48,917 INFO    harness.kalshi BTC KXBTCD-26SEP2113 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:49,271 INFO    harness.kalshi BTC KXBTCD-26SEP2114 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:49,614 INFO    harness.kalshi BTC KXBTCD-26SEP2115 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:49,960 INFO    harness.kalshi BTC KXBTCD-26SEP2116 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:50,440 INFO    harness.kalshi BTC KXBTCD-26SEP2118 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:50,783 INFO    harness.kalshi BTC KXBTCD-26SEP2119 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:51,120 INFO    harness.kalshi BTC KXBTCD-26SEP2120 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:51,466 INFO    harness.kalshi BTC KXBTCD-26SEP2121 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:51,805 INFO    harness.kalshi BTC KXBTCD-26SEP2122 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:52,183 INFO    harness.kalshi BTC KXBTCD-26SEP2123 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:52,519 INFO    harness.kalshi BTC KXBTCD-26SEP2200 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:53,251 INFO    harness.kalshi KXETHD: 22 open+unopened events
+2026-09-21 07:00:53,740 INFO    harness.kalshi ETH KXETHD-26SEP2103 T=-0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:54,104 INFO    harness.kalshi ETH KXETHD-26SEP2117 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:54,470 INFO    harness.kalshi ETH KXETHD-26SEP2517 T=0.0126 cadence=weekly -> QUALIFIES (qualifies)
+2026-09-21 07:00:54,918 INFO    harness.kalshi ETH KXETHD-26SEP2105 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:55,326 INFO    harness.kalshi ETH KXETHD-26SEP2106 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:55,779 INFO    harness.kalshi ETH KXETHD-26SEP2107 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:56,183 INFO    harness.kalshi ETH KXETHD-26SEP2108 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:56,676 INFO    harness.kalshi ETH KXETHD-26SEP2109 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:57,176 INFO    harness.kalshi ETH KXETHD-26SEP2110 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:57,764 INFO    harness.kalshi ETH KXETHD-26SEP2111 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:58,271 INFO    harness.kalshi ETH KXETHD-26SEP2112 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:58,724 INFO    harness.kalshi ETH KXETHD-26SEP2113 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:59,175 INFO    harness.kalshi ETH KXETHD-26SEP2114 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:00:59,628 INFO    harness.kalshi ETH KXETHD-26SEP2115 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:00,094 INFO    harness.kalshi ETH KXETHD-26SEP2116 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:00,495 INFO    harness.kalshi ETH KXETHD-26SEP2118 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:00,940 INFO    harness.kalshi ETH KXETHD-26SEP2119 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:01,440 INFO    harness.kalshi ETH KXETHD-26SEP2120 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:01,850 INFO    harness.kalshi ETH KXETHD-26SEP2121 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:02,293 INFO    harness.kalshi ETH KXETHD-26SEP2122 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:02,737 INFO    harness.kalshi ETH KXETHD-26SEP2123 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:03,146 INFO    harness.kalshi ETH KXETHD-26SEP2200 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-21 07:01:03,146 INFO    harness kalshi: 2/45 polled events qualified, 100 strikes priced
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.047  fair=0.308 mkt=0.355  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.042  fair=0.148 mkt=0.190  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.028  fair=0.041 mkt=0.069  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.023  fair=0.015 mkt=0.038  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.023  fair=0.032 mkt=0.055  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.021  fair=0.010 mkt=0.031  Will Ethereum reach $6,500 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.021  fair=0.026 mkt=0.047  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.020  fair=0.075 mkt=0.095  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.020  fair=0.110 mkt=0.130  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-21 07:01:03,165 INFO    harness EDGE -0.019  fair=0.020 mkt=0.038  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-09-21 07:01:03,242 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-21 07:01:03,246 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-22 07:00:35,764 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.008332232241692035, 0.027510314433472856), (0.027510314433472856, 0.04668839662525368), (0.5069623692279934, 0.7562774377211442)] — digitals near these horizons are suspect
+2026-09-22 07:00:35,764 INFO    harness.deribit BTC: fitted 9/11 expiries, index=85363
+2026-09-22 07:00:35,764 INFO    harness   BTC 2026-09-22 T=0.0001 F=85348 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-22 07:00:35,764 INFO    harness   BTC 2026-09-23 T=0.0029 F=85367 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-09-24 T=0.0056 F=85385 quotes=32 rmse=0.59vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-09-25 T=0.0083 F=85411 quotes=26 rmse=0.88vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-10-02 T=0.0275 F=85476 quotes=24 rmse=0.59vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-10-09 T=0.0467 F=85550 quotes=26 rmse=0.42vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-10-30 T=0.1042 F=85813 quotes=56 rmse=0.60vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-11-27 T=0.1809 F=86149 quotes=48 rmse=0.20vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2026-12-25 T=0.2576 F=86544 quotes=59 rmse=0.54vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2027-03-26 T=0.5070 F=87549 quotes=52 rmse=0.18vp used=True 
+2026-09-22 07:00:35,765 INFO    harness   BTC 2027-06-25 T=0.7563 F=88615 quotes=54 rmse=0.08vp used=True 
+2026-09-22 07:00:36,846 INFO    harness.deribit ETH: fitted 9/11 expiries, index=2730
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-09-22 T=0.0001 F=2729 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-09-23 T=0.0029 F=2730 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-09-24 T=0.0056 F=2731 quotes=38 rmse=0.38vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-09-25 T=0.0083 F=2732 quotes=25 rmse=0.79vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-10-02 T=0.0275 F=2734 quotes=20 rmse=0.22vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-10-09 T=0.0467 F=2736 quotes=20 rmse=0.11vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-10-30 T=0.1042 F=2742 quotes=42 rmse=0.48vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-11-27 T=0.1809 F=2753 quotes=36 rmse=0.12vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2026-12-25 T=0.2576 F=2763 quotes=44 rmse=0.62vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2027-03-26 T=0.5070 F=2790 quotes=42 rmse=0.28vp used=True 
+2026-09-22 07:00:36,846 INFO    harness   ETH 2027-06-25 T=0.7563 F=2816 quotes=43 rmse=0.10vp used=True 
+2026-09-22 07:00:38,200 INFO    harness Gamma returned 2000 active markets
+2026-09-22 07:00:38,206 INFO    harness.polymarket parser skipped: {'no asset': 1868, 'skip-pattern (bucket/daily/ambiguous)': 74, 'no strike': 25, 'no direction keyword': 1}
+2026-09-22 07:00:38,206 INFO    harness parsed 32 crypto binaries
+2026-09-22 07:00:43,319 INFO    harness.kalshi KXBTCD: 23 open+unopened events
+2026-09-22 07:00:43,653 INFO    harness.kalshi BTC KXBTCD-26SEP2203 T=-0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:44,007 INFO    harness.kalshi BTC KXBTCD-26SEP2217 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:44,337 INFO    harness.kalshi BTC KXBTCD-26SEP2517 T=0.0098 cadence=weekly -> QUALIFIES (qualifies)
+2026-09-22 07:00:44,647 INFO    harness.kalshi BTC KXBTCD-26SEP2204 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:45,013 INFO    harness.kalshi BTC KXBTCD-26SEP2205 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:45,373 INFO    harness.kalshi BTC KXBTCD-26SEP2206 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:45,713 INFO    harness.kalshi BTC KXBTCD-26SEP2207 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:46,078 INFO    harness.kalshi BTC KXBTCD-26SEP2208 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:46,429 INFO    harness.kalshi BTC KXBTCD-26SEP2209 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:46,760 INFO    harness.kalshi BTC KXBTCD-26SEP2210 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:47,083 INFO    harness.kalshi BTC KXBTCD-26SEP2211 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:47,421 INFO    harness.kalshi BTC KXBTCD-26SEP2212 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:47,787 INFO    harness.kalshi BTC KXBTCD-26SEP2213 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:48,150 INFO    harness.kalshi BTC KXBTCD-26SEP2214 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:48,515 INFO    harness.kalshi BTC KXBTCD-26SEP2215 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:48,878 INFO    harness.kalshi BTC KXBTCD-26SEP2216 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:49,253 INFO    harness.kalshi BTC KXBTCD-26SEP2218 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:49,564 INFO    harness.kalshi BTC KXBTCD-26SEP2219 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:49,893 INFO    harness.kalshi BTC KXBTCD-26SEP2220 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:50,262 INFO    harness.kalshi BTC KXBTCD-26SEP2221 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:50,600 INFO    harness.kalshi BTC KXBTCD-26SEP2222 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:50,935 INFO    harness.kalshi BTC KXBTCD-26SEP2223 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:51,497 INFO    harness.kalshi BTC KXBTCD-26SEP2300 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:52,205 INFO    harness.kalshi KXETHD: 23 open+unopened events
+2026-09-22 07:00:52,658 INFO    harness.kalshi ETH KXETHD-26SEP2203 T=-0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:52,987 INFO    harness.kalshi ETH KXETHD-26SEP2217 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:53,314 INFO    harness.kalshi ETH KXETHD-26SEP2517 T=0.0098 cadence=weekly -> excluded (only 17 two-sided strikes (need 20))
+2026-09-22 07:00:53,796 INFO    harness.kalshi ETH KXETHD-26SEP2204 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:54,237 INFO    harness.kalshi ETH KXETHD-26SEP2205 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:54,661 INFO    harness.kalshi ETH KXETHD-26SEP2206 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:55,132 INFO    harness.kalshi ETH KXETHD-26SEP2207 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:55,570 INFO    harness.kalshi ETH KXETHD-26SEP2208 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:56,014 INFO    harness.kalshi ETH KXETHD-26SEP2209 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:56,492 INFO    harness.kalshi ETH KXETHD-26SEP2210 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:56,932 INFO    harness.kalshi ETH KXETHD-26SEP2211 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:57,412 INFO    harness.kalshi ETH KXETHD-26SEP2212 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:57,896 INFO    harness.kalshi ETH KXETHD-26SEP2213 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:58,299 INFO    harness.kalshi ETH KXETHD-26SEP2214 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:58,735 INFO    harness.kalshi ETH KXETHD-26SEP2215 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:59,224 INFO    harness.kalshi ETH KXETHD-26SEP2216 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:00:59,627 INFO    harness.kalshi ETH KXETHD-26SEP2218 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:00,075 INFO    harness.kalshi ETH KXETHD-26SEP2219 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:00,562 INFO    harness.kalshi ETH KXETHD-26SEP2220 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:01,050 INFO    harness.kalshi ETH KXETHD-26SEP2221 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:01,526 INFO    harness.kalshi ETH KXETHD-26SEP2222 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:02,006 INFO    harness.kalshi ETH KXETHD-26SEP2223 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:02,457 INFO    harness.kalshi ETH KXETHD-26SEP2300 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-22 07:01:02,457 INFO    harness kalshi: 1/46 polled events qualified, 50 strikes priced
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.060  fair=0.165 mkt=0.225  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.044  fair=0.101 mkt=0.145  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.037  fair=0.044 mkt=0.081  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.033  fair=0.053 mkt=0.086  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.031  fair=0.084 mkt=0.115  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.030  fair=0.015 mkt=0.045  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.030  fair=0.025 mkt=0.055  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.024  fair=0.346 mkt=0.370  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.022  fair=0.033 mkt=0.055  Will Ethereum dip to $1,000 by December 31, 2026?
+2026-09-22 07:01:02,476 INFO    harness EDGE -0.021  fair=0.004 mkt=0.025  Will Ethereum reach $7,500 by December 31, 2026?
+2026-09-22 07:01:02,531 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-22 07:01:02,535 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-23 07:01:05,163 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.005591579953957382, 0.008331305981354642), (0.0247696621457382, 0.043947744337519024), (0.5042217169402587, 0.7535367854334094)] — digitals near these horizons are suspect
+2026-09-23 07:01:05,163 INFO    harness.deribit BTC: fitted 9/11 expiries, index=86405
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-09-23 T=0.0001 F=86410 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-09-24 T=0.0029 F=86435 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-09-25 T=0.0056 F=86472 quotes=25 rmse=0.78vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-09-26 T=0.0083 F=86478 quotes=29 rmse=0.28vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-10-02 T=0.0248 F=86552 quotes=24 rmse=0.36vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-10-09 T=0.0439 F=86608 quotes=26 rmse=0.21vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-10-30 T=0.1015 F=86869 quotes=56 rmse=0.40vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-11-27 T=0.1782 F=87213 quotes=48 rmse=0.21vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2026-12-25 T=0.2549 F=87567 quotes=59 rmse=0.45vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2027-03-26 T=0.5042 F=88635 quotes=52 rmse=0.30vp used=True 
+2026-09-23 07:01:05,163 INFO    harness   BTC 2027-06-25 T=0.7535 F=89716 quotes=54 rmse=0.09vp used=True 
+2026-09-23 07:01:05,854 WARNING harness.deribit ETH calendar arbitrage between T pairs: [(0.00559154097101725, 0.008331266998414511)] — digitals near these horizons are suspect
+2026-09-23 07:01:05,854 INFO    harness.deribit ETH: fitted 9/11 expiries, index=2752
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-09-23 T=0.0001 F=2752 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-09-24 T=0.0029 F=2752 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-09-25 T=0.0056 F=2753 quotes=21 rmse=1.00vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-09-26 T=0.0083 F=2753 quotes=31 rmse=0.24vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-10-02 T=0.0248 F=2755 quotes=20 rmse=0.24vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-10-09 T=0.0439 F=2757 quotes=20 rmse=0.15vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-10-30 T=0.1015 F=2764 quotes=41 rmse=0.36vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-11-27 T=0.1782 F=2774 quotes=36 rmse=0.11vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2026-12-25 T=0.2549 F=2784 quotes=44 rmse=0.46vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2027-03-26 T=0.5042 F=2814 quotes=42 rmse=0.18vp used=True 
+2026-09-23 07:01:05,854 INFO    harness   ETH 2027-06-25 T=0.7535 F=2846 quotes=43 rmse=0.16vp used=True 
+2026-09-23 07:01:07,266 INFO    harness Gamma returned 2000 active markets
+2026-09-23 07:01:07,272 INFO    harness.polymarket parser skipped: {'no asset': 1868, 'skip-pattern (bucket/daily/ambiguous)': 74, 'no strike': 25, 'no direction keyword': 1}
+2026-09-23 07:01:07,272 INFO    harness parsed 32 crypto binaries
+2026-09-23 07:01:12,285 INFO    harness.kalshi KXBTCD: 23 open+unopened events
+2026-09-23 07:01:12,594 INFO    harness.kalshi BTC KXBTCD-26SEP2303 T=-0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:13,070 INFO    harness.kalshi BTC KXBTCD-26SEP2317 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:13,434 INFO    harness.kalshi BTC KXBTCD-26SEP2517 T=0.0071 cadence=weekly -> QUALIFIES (qualifies)
+2026-09-23 07:01:13,820 INFO    harness.kalshi BTC KXBTCD-26SEP2304 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:14,178 INFO    harness.kalshi BTC KXBTCD-26SEP2305 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:14,552 INFO    harness.kalshi BTC KXBTCD-26SEP2306 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:14,889 INFO    harness.kalshi BTC KXBTCD-26SEP2307 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:15,226 INFO    harness.kalshi BTC KXBTCD-26SEP2308 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:15,568 INFO    harness.kalshi BTC KXBTCD-26SEP2309 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:15,939 INFO    harness.kalshi BTC KXBTCD-26SEP2310 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:16,278 INFO    harness.kalshi BTC KXBTCD-26SEP2311 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:16,618 INFO    harness.kalshi BTC KXBTCD-26SEP2312 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:16,966 INFO    harness.kalshi BTC KXBTCD-26SEP2313 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:17,337 INFO    harness.kalshi BTC KXBTCD-26SEP2314 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:17,676 INFO    harness.kalshi BTC KXBTCD-26SEP2315 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:18,004 INFO    harness.kalshi BTC KXBTCD-26SEP2316 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:18,332 INFO    harness.kalshi BTC KXBTCD-26SEP2318 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:18,674 INFO    harness.kalshi BTC KXBTCD-26SEP2319 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:19,049 INFO    harness.kalshi BTC KXBTCD-26SEP2320 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:19,425 INFO    harness.kalshi BTC KXBTCD-26SEP2321 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:19,759 INFO    harness.kalshi BTC KXBTCD-26SEP2322 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:20,106 INFO    harness.kalshi BTC KXBTCD-26SEP2323 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:20,437 INFO    harness.kalshi BTC KXBTCD-26SEP2400 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:21,215 INFO    harness.kalshi KXETHD: 22 open+unopened events
+2026-09-23 07:01:21,649 INFO    harness.kalshi ETH KXETHD-26SEP2304 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:22,008 INFO    harness.kalshi ETH KXETHD-26SEP2317 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:22,381 INFO    harness.kalshi ETH KXETHD-26SEP2517 T=0.0071 cadence=weekly -> excluded (only 16 two-sided strikes (need 20))
+2026-09-23 07:01:22,864 INFO    harness.kalshi ETH KXETHD-26SEP2305 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:23,355 INFO    harness.kalshi ETH KXETHD-26SEP2306 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:23,800 INFO    harness.kalshi ETH KXETHD-26SEP2307 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:24,262 INFO    harness.kalshi ETH KXETHD-26SEP2308 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:24,772 INFO    harness.kalshi ETH KXETHD-26SEP2309 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:25,228 INFO    harness.kalshi ETH KXETHD-26SEP2310 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:25,728 INFO    harness.kalshi ETH KXETHD-26SEP2311 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:26,232 INFO    harness.kalshi ETH KXETHD-26SEP2312 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:26,677 INFO    harness.kalshi ETH KXETHD-26SEP2313 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:27,125 INFO    harness.kalshi ETH KXETHD-26SEP2314 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:27,606 INFO    harness.kalshi ETH KXETHD-26SEP2315 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:28,054 INFO    harness.kalshi ETH KXETHD-26SEP2316 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:28,458 INFO    harness.kalshi ETH KXETHD-26SEP2318 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:28,873 INFO    harness.kalshi ETH KXETHD-26SEP2319 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:29,274 INFO    harness.kalshi ETH KXETHD-26SEP2320 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:29,768 INFO    harness.kalshi ETH KXETHD-26SEP2321 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:30,260 INFO    harness.kalshi ETH KXETHD-26SEP2322 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:30,729 INFO    harness.kalshi ETH KXETHD-26SEP2323 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:31,223 INFO    harness.kalshi ETH KXETHD-26SEP2400 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-23 07:01:31,223 INFO    harness kalshi: 1/45 polled events qualified, 50 strikes priced
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.054  fair=0.361 mkt=0.415  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.051  fair=0.174 mkt=0.225  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE +0.046  fair=0.466 mkt=0.420  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.034  fair=0.046 mkt=0.081  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.030  fair=0.085 mkt=0.115  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.030  fair=0.116 mkt=0.145  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.028  fair=0.062 mkt=0.090  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE +0.028  fair=0.092 mkt=0.065  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.025  fair=0.026 mkt=0.051  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-23 07:01:31,244 INFO    harness EDGE -0.023  fair=0.016 mkt=0.039  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-23 07:01:31,302 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-23 07:01:31,307 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-24 07:01:08,359 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.0055914698790588534, 0.008331195906456113), (0.008331195906456113, 0.022029826043442415)] — digitals near these horizons are suspect
+2026-09-24 07:01:08,359 INFO    harness.deribit BTC: fitted 8/11 expiries, index=84054
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-09-24 T=0.0001 F=84057 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-09-25 T=0.0029 F=84109 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-09-26 T=0.0056 F=84119 quotes=28 rmse=0.66vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-09-27 T=0.0083 F=84136 quotes=31 rmse=0.41vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-10-02 T=0.0220 F=84191 quotes=24 rmse=0.29vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-10-09 T=0.0412 F=84250 quotes=26 rmse=0.27vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-10-30 T=0.0987 F=84508 quotes=56 rmse=0.55vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-11-27 T=0.1755 F=84874 quotes=48 rmse=0.20vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2026-12-25 T=0.2522 F=85179 quotes=59 rmse=0.95vp used=True 
+2026-09-24 07:01:08,359 INFO    harness   BTC 2027-03-26 T=0.5015 F=86261 quotes=52 rmse=0.25vp used=False butterfly arbitrage in fit
+2026-09-24 07:01:08,359 INFO    harness   BTC 2027-06-25 T=0.7508 F=87414 quotes=54 rmse=0.13vp used=True 
+2026-09-24 07:01:08,995 INFO    harness.deribit ETH: fitted 9/11 expiries, index=2685
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-09-24 T=0.0001 F=2685 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-09-25 T=0.0029 F=2686 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-09-26 T=0.0056 F=2686 quotes=33 rmse=0.30vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-09-27 T=0.0083 F=2686 quotes=33 rmse=0.17vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-10-02 T=0.0220 F=2687 quotes=20 rmse=0.24vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-10-09 T=0.0412 F=2689 quotes=20 rmse=0.27vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-10-30 T=0.0987 F=2695 quotes=41 rmse=0.25vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-11-27 T=0.1755 F=2705 quotes=36 rmse=0.11vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2026-12-25 T=0.2522 F=2715 quotes=44 rmse=0.58vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2027-03-26 T=0.5015 F=2745 quotes=42 rmse=0.29vp used=True 
+2026-09-24 07:01:08,995 INFO    harness   ETH 2027-06-25 T=0.7508 F=2777 quotes=43 rmse=0.16vp used=True 
+2026-09-24 07:01:10,470 INFO    harness Gamma returned 2000 active markets
+2026-09-24 07:01:10,475 INFO    harness.polymarket parser skipped: {'no asset': 1868, 'skip-pattern (bucket/daily/ambiguous)': 74, 'no strike': 25, 'no direction keyword': 1}
+2026-09-24 07:01:10,475 INFO    harness parsed 32 crypto binaries
+2026-09-24 07:01:15,392 INFO    harness.kalshi KXBTCD: 20 open+unopened events
+2026-09-24 07:01:15,749 INFO    harness.kalshi BTC KXBTCD-26SEP2417 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:16,117 INFO    harness.kalshi BTC KXBTCD-26SEP2517 T=0.0043 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:16,450 INFO    harness.kalshi BTC KXBTCD-26SEP2406 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:16,778 INFO    harness.kalshi BTC KXBTCD-26SEP2407 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:17,136 INFO    harness.kalshi BTC KXBTCD-26SEP2408 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:17,467 INFO    harness.kalshi BTC KXBTCD-26SEP2409 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:17,796 INFO    harness.kalshi BTC KXBTCD-26SEP2410 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:18,129 INFO    harness.kalshi BTC KXBTCD-26SEP2411 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:18,460 INFO    harness.kalshi BTC KXBTCD-26SEP2412 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:18,788 INFO    harness.kalshi BTC KXBTCD-26SEP2413 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:19,145 INFO    harness.kalshi BTC KXBTCD-26SEP2414 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:19,477 INFO    harness.kalshi BTC KXBTCD-26SEP2415 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:19,844 INFO    harness.kalshi BTC KXBTCD-26SEP2416 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:20,147 INFO    harness.kalshi BTC KXBTCD-26SEP2418 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:20,512 INFO    harness.kalshi BTC KXBTCD-26SEP2419 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:20,887 INFO    harness.kalshi BTC KXBTCD-26SEP2420 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:21,246 INFO    harness.kalshi BTC KXBTCD-26SEP2421 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:21,606 INFO    harness.kalshi BTC KXBTCD-26SEP2422 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:21,941 INFO    harness.kalshi BTC KXBTCD-26SEP2423 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:22,304 INFO    harness.kalshi BTC KXBTCD-26SEP2500 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:23,026 INFO    harness.kalshi KXETHD: 20 open+unopened events
+2026-09-24 07:01:23,375 INFO    harness.kalshi ETH KXETHD-26SEP2417 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:23,703 INFO    harness.kalshi ETH KXETHD-26SEP2517 T=0.0043 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:24,157 INFO    harness.kalshi ETH KXETHD-26SEP2406 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:24,588 INFO    harness.kalshi ETH KXETHD-26SEP2407 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:25,021 INFO    harness.kalshi ETH KXETHD-26SEP2408 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:25,496 INFO    harness.kalshi ETH KXETHD-26SEP2409 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:25,968 INFO    harness.kalshi ETH KXETHD-26SEP2410 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:26,406 INFO    harness.kalshi ETH KXETHD-26SEP2411 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:26,879 INFO    harness.kalshi ETH KXETHD-26SEP2412 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:27,379 INFO    harness.kalshi ETH KXETHD-26SEP2413 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:27,810 INFO    harness.kalshi ETH KXETHD-26SEP2414 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:28,246 INFO    harness.kalshi ETH KXETHD-26SEP2415 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:28,676 INFO    harness.kalshi ETH KXETHD-26SEP2416 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:29,112 INFO    harness.kalshi ETH KXETHD-26SEP2418 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:29,562 INFO    harness.kalshi ETH KXETHD-26SEP2419 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:30,035 INFO    harness.kalshi ETH KXETHD-26SEP2420 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:30,507 INFO    harness.kalshi ETH KXETHD-26SEP2421 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:30,978 INFO    harness.kalshi ETH KXETHD-26SEP2422 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:31,451 INFO    harness.kalshi ETH KXETHD-26SEP2423 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:31,928 INFO    harness.kalshi ETH KXETHD-26SEP2500 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-24 07:01:31,928 INFO    harness kalshi: 0/40 polled events qualified, 0 strikes priced
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.047  fair=0.313 mkt=0.360  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.039  fair=0.043 mkt=0.082  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.032  fair=0.073 mkt=0.105  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.032  fair=0.040 mkt=0.072  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.030  fair=0.085 mkt=0.115  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.029  fair=0.023 mkt=0.052  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.028  fair=0.147 mkt=0.175  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE +0.027  fair=0.102 mkt=0.075  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-24 07:01:31,949 INFO    harness EDGE -0.024  fair=0.025 mkt=0.049  Will Bitcoin reach $140,000 by December 31, 2026?
+2026-09-24 07:01:31,950 INFO    harness EDGE -0.022  fair=0.015 mkt=0.037  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-24 07:01:32,006 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-24 07:01:32,011 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-09-25 07:01:06,428 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.0384682512988965, 0.05764633349067732), (0.49874222390163625, 0.7480572923947869)] — digitals near these horizons are suspect
+2026-09-25 07:01:06,431 INFO    harness.deribit BTC: fitted 10/13 expiries, index=84044
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-09-25 T=0.0001 F=84066 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-09-26 T=0.0029 F=84066 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-09-27 T=0.0056 F=84080 quotes=25 rmse=0.96vp used=False butterfly arbitrage in fit
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-09-28 T=0.0083 F=84087 quotes=27 rmse=0.45vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-10-02 T=0.0193 F=84128 quotes=24 rmse=0.66vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-10-09 T=0.0385 F=84195 quotes=26 rmse=0.26vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-10-16 T=0.0576 F=84286 quotes=19 rmse=0.30vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-10-30 T=0.0960 F=84429 quotes=56 rmse=0.62vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-11-27 T=0.1727 F=84797 quotes=48 rmse=0.23vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2026-12-25 T=0.2494 F=85117 quotes=59 rmse=0.96vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2027-03-26 T=0.4987 F=86194 quotes=52 rmse=0.19vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2027-06-25 T=0.7481 F=87326 quotes=54 rmse=0.10vp used=True 
+2026-09-25 07:01:06,432 INFO    harness   BTC 2027-09-24 T=0.9974 F=88417 quotes=41 rmse=0.06vp used=True 
+2026-09-25 07:01:07,334 INFO    harness.deribit ETH: fitted 9/13 expiries, index=2675
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-09-25 T=0.0001 F=2676 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-09-26 T=0.0029 F=2676 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-09-27 T=0.0056 F=2676 quotes=31 rmse=0.35vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-09-28 T=0.0083 F=2676 quotes=29 rmse=1.31vp used=False butterfly arbitrage in fit
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-10-02 T=0.0193 F=2677 quotes=20 rmse=0.17vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-10-09 T=0.0385 F=2678 quotes=20 rmse=0.13vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-10-16 T=0.0576 F=2680 quotes=16 rmse=0.10vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-10-30 T=0.0960 F=2683 quotes=41 rmse=0.15vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-11-27 T=0.1727 F=2693 quotes=36 rmse=0.09vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2026-12-25 T=0.2494 F=2702 quotes=44 rmse=0.84vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2027-03-26 T=0.4987 F=2733 quotes=42 rmse=0.24vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2027-06-25 T=0.7481 F=2766 quotes=43 rmse=0.15vp used=True 
+2026-09-25 07:01:07,335 INFO    harness   ETH 2027-09-24 T=0.9974 F=2802 quotes=36 rmse=0.08vp used=False butterfly arbitrage in fit
+2026-09-25 07:01:08,797 INFO    harness Gamma returned 2000 active markets
+2026-09-25 07:01:08,802 INFO    harness.polymarket parser skipped: {'no asset': 1868, 'skip-pattern (bucket/daily/ambiguous)': 74, 'no strike': 25, 'no direction keyword': 1}
+2026-09-25 07:01:08,802 INFO    harness parsed 32 crypto binaries
+2026-09-25 07:01:13,830 INFO    harness.kalshi KXBTCD: 21 open+unopened events
+2026-09-25 07:01:14,306 INFO    harness.kalshi BTC KXBTCD-26SEP2504 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:14,673 INFO    harness.kalshi BTC KXBTCD-26SEP2517 T=0.0016 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:14,998 INFO    harness.kalshi BTC KXBTCD-26SEP2505 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:15,392 INFO    harness.kalshi BTC KXBTCD-26SEP2506 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:15,742 INFO    harness.kalshi BTC KXBTCD-26SEP2507 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:16,085 INFO    harness.kalshi BTC KXBTCD-26SEP2508 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:16,451 INFO    harness.kalshi BTC KXBTCD-26SEP2509 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:16,793 INFO    harness.kalshi BTC KXBTCD-26SEP2510 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:17,228 INFO    harness.kalshi BTC KXBTCD-26SEP2511 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:17,592 INFO    harness.kalshi BTC KXBTCD-26SEP2512 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:17,927 INFO    harness.kalshi BTC KXBTCD-26SEP2513 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:18,292 INFO    harness.kalshi BTC KXBTCD-26SEP2514 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:18,661 INFO    harness.kalshi BTC KXBTCD-26SEP2515 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:18,998 INFO    harness.kalshi BTC KXBTCD-26SEP2516 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:19,366 INFO    harness.kalshi BTC KXBTCD-26SEP2518 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:19,675 INFO    harness.kalshi BTC KXBTCD-26SEP2519 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:19,986 INFO    harness.kalshi BTC KXBTCD-26SEP2520 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:20,354 INFO    harness.kalshi BTC KXBTCD-26SEP2521 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:20,718 INFO    harness.kalshi BTC KXBTCD-26SEP2522 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:21,155 INFO    harness.kalshi BTC KXBTCD-26SEP2523 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:21,496 INFO    harness.kalshi BTC KXBTCD-26SEP2600 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:22,229 INFO    harness.kalshi KXETHD: 21 open+unopened events
+2026-09-25 07:01:22,716 INFO    harness.kalshi ETH KXETHD-26SEP2504 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:23,077 INFO    harness.kalshi ETH KXETHD-26SEP2517 T=0.0016 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:23,520 INFO    harness.kalshi ETH KXETHD-26SEP2505 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:23,962 INFO    harness.kalshi ETH KXETHD-26SEP2506 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:24,406 INFO    harness.kalshi ETH KXETHD-26SEP2507 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:24,851 INFO    harness.kalshi ETH KXETHD-26SEP2508 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:25,328 INFO    harness.kalshi ETH KXETHD-26SEP2509 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:25,775 INFO    harness.kalshi ETH KXETHD-26SEP2510 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:26,204 INFO    harness.kalshi ETH KXETHD-26SEP2511 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:26,637 INFO    harness.kalshi ETH KXETHD-26SEP2512 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:27,085 INFO    harness.kalshi ETH KXETHD-26SEP2513 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:27,570 INFO    harness.kalshi ETH KXETHD-26SEP2514 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:27,975 INFO    harness.kalshi ETH KXETHD-26SEP2515 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:28,455 INFO    harness.kalshi ETH KXETHD-26SEP2516 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:28,903 INFO    harness.kalshi ETH KXETHD-26SEP2518 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:29,383 INFO    harness.kalshi ETH KXETHD-26SEP2519 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:29,868 INFO    harness.kalshi ETH KXETHD-26SEP2520 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:30,350 INFO    harness.kalshi ETH KXETHD-26SEP2521 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:30,796 INFO    harness.kalshi ETH KXETHD-26SEP2522 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:31,306 INFO    harness.kalshi ETH KXETHD-26SEP2523 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:31,797 INFO    harness.kalshi ETH KXETHD-26SEP2600 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-09-25 07:01:31,797 INFO    harness kalshi: 0/42 polled events qualified, 0 strikes priced
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.068  fair=0.297 mkt=0.365  Will Ethereum reach $3,500 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.049  fair=0.136 mkt=0.185  Will Ethereum reach $4,000 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.040  fair=0.065 mkt=0.105  Will Ethereum reach $4,500 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.032  fair=0.083 mkt=0.115  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.029  fair=0.044 mkt=0.073  Will Bitcoin reach $130,000 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.028  fair=0.019 mkt=0.048  Will Ethereum reach $5,500 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.027  fair=0.035 mkt=0.062  Will Ethereum reach $5,000 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE +0.025  fair=0.101 mkt=0.075  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.024  fair=0.091 mkt=0.115  Will Bitcoin dip to $55,000 by December 31, 2026?
+2026-09-25 07:01:31,818 INFO    harness EDGE -0.023  fair=0.012 mkt=0.035  Will Ethereum reach $6,000 by December 31, 2026?
+2026-09-25 07:01:31,876 INFO    harness resolved 0 newly matured markets (1 still pending)
+2026-09-25 07:01:31,882 INFO    harness no resolved markets yet — Brier scoring skipped
+2026-10-02 16:48:04,782 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.03735147721156774, 0.056529559403348556), (0.056529559403348556, 0.07570764159512937)] — digitals near these horizons are suspect
+2026-10-02 16:48:04,782 INFO    harness.deribit BTC: fitted 9/13 expiries, index=85240
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-03 T=0.0017 F=85236 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-04 T=0.0045 F=85254 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-05 T=0.0072 F=85269 quotes=21 rmse=0.28vp used=False butterfly arbitrage in fit
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-06 T=0.0100 F=85286 quotes=23 rmse=0.39vp used=False butterfly arbitrage in fit
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-09 T=0.0182 F=85326 quotes=24 rmse=0.44vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-16 T=0.0374 F=85422 quotes=20 rmse=0.17vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-23 T=0.0565 F=85511 quotes=23 rmse=0.16vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-10-30 T=0.0757 F=85608 quotes=55 rmse=0.55vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-11-27 T=0.1524 F=85940 quotes=48 rmse=0.14vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2026-12-25 T=0.2291 F=86279 quotes=58 rmse=0.43vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2027-03-26 T=0.4784 F=87359 quotes=52 rmse=0.20vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2027-06-25 T=0.7278 F=88530 quotes=54 rmse=0.13vp used=True 
+2026-10-02 16:48:04,783 INFO    harness   BTC 2027-09-24 T=0.9771 F=89686 quotes=41 rmse=0.06vp used=True 
+2026-10-02 16:48:06,056 INFO    harness.deribit ETH: fitted 9/13 expiries, index=2692
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-03 T=0.0017 F=2692 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-04 T=0.0045 F=2693 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-05 T=0.0072 F=2693 quotes=22 rmse=1.40vp used=False butterfly arbitrage in fit
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-06 T=0.0100 F=2693 quotes=29 rmse=0.38vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-09 T=0.0182 F=2694 quotes=20 rmse=0.82vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-16 T=0.0374 F=2696 quotes=17 rmse=0.18vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-23 T=0.0565 F=2698 quotes=16 rmse=0.17vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-10-30 T=0.0757 F=2699 quotes=40 rmse=0.32vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-11-27 T=0.1524 F=2708 quotes=36 rmse=0.11vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2026-12-25 T=0.2291 F=2719 quotes=43 rmse=0.42vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2027-03-26 T=0.4784 F=2749 quotes=42 rmse=0.19vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2027-06-25 T=0.7278 F=2782 quotes=43 rmse=0.22vp used=True 
+2026-10-02 16:48:06,056 INFO    harness   ETH 2027-09-24 T=0.9771 F=2813 quotes=36 rmse=0.06vp used=False butterfly arbitrage in fit
+2026-10-02 16:48:08,740 INFO    harness Gamma returned 2000 active markets
+2026-10-02 16:48:08,746 INFO    harness.polymarket parser skipped: {'no asset': 1872, 'skip-pattern (bucket/daily/ambiguous)': 69, 'no strike': 26, 'no direction keyword': 1}
+2026-10-02 16:48:08,746 INFO    harness parsed 32 crypto binaries
+2026-10-02 16:48:13,315 INFO    harness.kalshi KXBTCD: 37 open+unopened events
+2026-10-02 16:48:13,788 INFO    harness.kalshi BTC KXBTCD-26OCT0213 T=0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:14,152 INFO    harness.kalshi BTC KXBTCD-26OCT0217 T=0.0005 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:14,457 INFO    harness.kalshi BTC KXBTCD-26OCT0214 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:14,763 INFO    harness.kalshi BTC KXBTCD-26OCT0215 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:15,197 INFO    harness.kalshi BTC KXBTCD-26OCT0216 T=0.0004 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:15,509 INFO    harness.kalshi BTC KXBTCD-26OCT0218 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:15,884 INFO    harness.kalshi BTC KXBTCD-26OCT0219 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:16,220 INFO    harness.kalshi BTC KXBTCD-26OCT0220 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:16,587 INFO    harness.kalshi BTC KXBTCD-26OCT0221 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:16,929 INFO    harness.kalshi BTC KXBTCD-26OCT0222 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:17,271 INFO    harness.kalshi BTC KXBTCD-26OCT0223 T=0.0012 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:17,634 INFO    harness.kalshi BTC KXBTCD-26OCT0300 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:17,932 INFO    harness.kalshi BTC KXBTCD-26OCT0301 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:18,300 INFO    harness.kalshi BTC KXBTCD-26OCT0302 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:18,643 INFO    harness.kalshi BTC KXBTCD-26OCT0303 T=0.0016 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:18,980 INFO    harness.kalshi BTC KXBTCD-26OCT0304 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:19,317 INFO    harness.kalshi BTC KXBTCD-26OCT0305 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:19,661 INFO    harness.kalshi BTC KXBTCD-26OCT0306 T=0.0020 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:19,976 INFO    harness.kalshi BTC KXBTCD-26OCT0307 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:20,350 INFO    harness.kalshi BTC KXBTCD-26OCT0308 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:20,713 INFO    harness.kalshi BTC KXBTCD-26OCT0309 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:21,053 INFO    harness.kalshi BTC KXBTCD-26OCT0310 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:21,395 INFO    harness.kalshi BTC KXBTCD-26OCT0311 T=0.0025 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:21,715 INFO    harness.kalshi BTC KXBTCD-26OCT0312 T=0.0026 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:22,058 INFO    harness.kalshi BTC KXBTCD-26OCT0313 T=0.0028 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:22,407 INFO    harness.kalshi BTC KXBTCD-26OCT0314 T=0.0029 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:22,776 INFO    harness.kalshi BTC KXBTCD-26OCT0315 T=0.0030 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:23,116 INFO    harness.kalshi BTC KXBTCD-26OCT0316 T=0.0031 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:23,456 INFO    harness.kalshi BTC KXBTCD-26OCT0317 T=0.0032 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:23,793 INFO    harness.kalshi BTC KXBTCD-26OCT0318 T=0.0033 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:24,105 INFO    harness.kalshi BTC KXBTCD-26OCT0319 T=0.0034 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:24,441 INFO    harness.kalshi BTC KXBTCD-26OCT0320 T=0.0036 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:24,780 INFO    harness.kalshi BTC KXBTCD-26OCT0321 T=0.0037 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:25,091 INFO    harness.kalshi BTC KXBTCD-26OCT0322 T=0.0038 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:25,464 INFO    harness.kalshi BTC KXBTCD-26OCT0323 T=0.0039 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:25,834 INFO    harness.kalshi BTC KXBTCD-26OCT0400 T=0.0040 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:26,194 INFO    harness.kalshi BTC KXBTCD-26OCT0917 T=0.0197 cadence=weekly -> excluded (only 0 two-sided strikes (need 20))
+2026-10-02 16:48:26,845 INFO    harness.kalshi KXETHD: 37 open+unopened events
+2026-10-02 16:48:27,233 INFO    harness.kalshi ETH KXETHD-26OCT0213 T=0.0000 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:27,594 INFO    harness.kalshi ETH KXETHD-26OCT0217 T=0.0005 cadence=weekly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:28,078 INFO    harness.kalshi ETH KXETHD-26OCT0214 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:28,517 INFO    harness.kalshi ETH KXETHD-26OCT0215 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:28,998 INFO    harness.kalshi ETH KXETHD-26OCT0216 T=0.0004 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:29,441 INFO    harness.kalshi ETH KXETHD-26OCT0218 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:29,925 INFO    harness.kalshi ETH KXETHD-26OCT0219 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:30,486 INFO    harness.kalshi ETH KXETHD-26OCT0220 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:30,937 INFO    harness.kalshi ETH KXETHD-26OCT0221 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:31,376 INFO    harness.kalshi ETH KXETHD-26OCT0222 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:31,778 INFO    harness.kalshi ETH KXETHD-26OCT0223 T=0.0012 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:32,261 INFO    harness.kalshi ETH KXETHD-26OCT0300 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:32,702 INFO    harness.kalshi ETH KXETHD-26OCT0301 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:33,115 INFO    harness.kalshi ETH KXETHD-26OCT0302 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:33,561 INFO    harness.kalshi ETH KXETHD-26OCT0303 T=0.0016 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:34,005 INFO    harness.kalshi ETH KXETHD-26OCT0304 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:34,410 INFO    harness.kalshi ETH KXETHD-26OCT0305 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:34,847 INFO    harness.kalshi ETH KXETHD-26OCT0306 T=0.0020 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:35,336 INFO    harness.kalshi ETH KXETHD-26OCT0307 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:35,738 INFO    harness.kalshi ETH KXETHD-26OCT0308 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:36,231 INFO    harness.kalshi ETH KXETHD-26OCT0309 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:36,716 INFO    harness.kalshi ETH KXETHD-26OCT0310 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:37,116 INFO    harness.kalshi ETH KXETHD-26OCT0311 T=0.0025 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:37,593 INFO    harness.kalshi ETH KXETHD-26OCT0312 T=0.0026 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:38,032 INFO    harness.kalshi ETH KXETHD-26OCT0313 T=0.0028 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:38,524 INFO    harness.kalshi ETH KXETHD-26OCT0314 T=0.0029 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:39,013 INFO    harness.kalshi ETH KXETHD-26OCT0315 T=0.0030 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:39,507 INFO    harness.kalshi ETH KXETHD-26OCT0316 T=0.0031 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:39,860 INFO    harness.kalshi ETH KXETHD-26OCT0317 T=0.0032 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:40,303 INFO    harness.kalshi ETH KXETHD-26OCT0318 T=0.0033 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:40,751 INFO    harness.kalshi ETH KXETHD-26OCT0319 T=0.0034 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:41,238 INFO    harness.kalshi ETH KXETHD-26OCT0320 T=0.0036 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:41,716 INFO    harness.kalshi ETH KXETHD-26OCT0321 T=0.0037 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:42,151 INFO    harness.kalshi ETH KXETHD-26OCT0322 T=0.0038 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:42,590 INFO    harness.kalshi ETH KXETHD-26OCT0323 T=0.0039 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:43,037 INFO    harness.kalshi ETH KXETHD-26OCT0400 T=0.0040 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-02 16:48:43,345 INFO    harness.kalshi ETH KXETHD-26OCT0917 T=0.0197 cadence=weekly -> excluded (only 0 two-sided strikes (need 20))
+2026-10-02 16:48:43,346 INFO    harness kalshi: 0/74 polled events qualified, 0 strikes priced
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.082  fair=0.278 mkt=0.360  Will Ethereum reach $3,500 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.056  fair=0.119 mkt=0.175  Will Ethereum reach $4,000 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.035  fair=0.080 mkt=0.115  Will Bitcoin reach $120,000 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.025  fair=0.170 mkt=0.195  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE +0.023  fair=0.084 mkt=0.061  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.022  fair=0.004 mkt=0.026  Will Ethereum reach $7,000 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.029 mkt=0.050  Will Ethereum reach $5,000 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.016 mkt=0.036  Will Ethereum reach $5,500 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.006 mkt=0.026  Will Ethereum reach $6,500 by December 31, 2026?
+2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.009 mkt=0.029  Will Ethereum reach $6,000 by December 31, 2026?
+2026-10-02 16:49:17,948 INFO    harness resolved 100 newly matured markets (1 still pending)
