@@ -491,3 +491,47 @@ asof,event_ticker,asset,cadence,close_time,T_years,n_strikes,qualifies,reason,n_
 2026-10-02T16:48:12.565740+00:00,KXETHD-26OCT0323,ETH,hourly,2026-10-04T03:00:00+00:00,0.003904,300,False,T not bracketed by two usable Deribit slices,0
 2026-10-02T16:48:12.565740+00:00,KXETHD-26OCT0400,ETH,hourly,2026-10-04T04:00:00+00:00,0.004018,300,False,T not bracketed by two usable Deribit slices,0
 2026-10-02T16:48:12.565740+00:00,KXETHD-26OCT0917,ETH,weekly,2026-10-09T21:00:00+00:00,0.019657,50,False,only 0 two-sided strikes (need 20),0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0304,BTC,hourly,2026-10-03T08:00:00+00:00,0.000113,188,False,T not bracketed by two usable Deribit slices,10
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0317,BTC,daily,2026-10-03T21:00:00+00:00,0.001597,80,False,T not bracketed by two usable Deribit slices,21
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0917,BTC,weekly,2026-10-09T21:00:00+00:00,0.018036,50,True,qualifies,37
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0305,BTC,hourly,2026-10-03T09:00:00+00:00,0.000227,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0306,BTC,hourly,2026-10-03T10:00:00+00:00,0.000342,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0307,BTC,hourly,2026-10-03T11:00:00+00:00,0.000456,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0308,BTC,hourly,2026-10-03T12:00:00+00:00,0.00057,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0309,BTC,hourly,2026-10-03T13:00:00+00:00,0.000684,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0310,BTC,hourly,2026-10-03T14:00:00+00:00,0.000798,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0311,BTC,hourly,2026-10-03T15:00:00+00:00,0.000912,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0312,BTC,hourly,2026-10-03T16:00:00+00:00,0.001027,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0313,BTC,hourly,2026-10-03T17:00:00+00:00,0.001141,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0314,BTC,hourly,2026-10-03T18:00:00+00:00,0.001255,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0315,BTC,hourly,2026-10-03T19:00:00+00:00,0.001369,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0316,BTC,hourly,2026-10-03T20:00:00+00:00,0.001483,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0318,BTC,hourly,2026-10-03T22:00:00+00:00,0.001712,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0319,BTC,hourly,2026-10-03T23:00:00+00:00,0.001826,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0320,BTC,hourly,2026-10-04T00:00:00+00:00,0.00194,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0321,BTC,hourly,2026-10-04T01:00:00+00:00,0.002054,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0322,BTC,hourly,2026-10-04T02:00:00+00:00,0.002168,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0323,BTC,hourly,2026-10-04T03:00:00+00:00,0.002282,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXBTCD-26OCT0400,BTC,hourly,2026-10-04T04:00:00+00:00,0.002396,188,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0304,ETH,hourly,2026-10-03T08:00:00+00:00,0.000113,300,False,T not bracketed by two usable Deribit slices,7
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0317,ETH,daily,2026-10-03T21:00:00+00:00,0.001597,40,False,T not bracketed by two usable Deribit slices,3
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0917,ETH,weekly,2026-10-09T21:00:00+00:00,0.018036,50,False,only 16 two-sided strikes (need 20),16
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0305,ETH,hourly,2026-10-03T09:00:00+00:00,0.000227,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0306,ETH,hourly,2026-10-03T10:00:00+00:00,0.000342,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0307,ETH,hourly,2026-10-03T11:00:00+00:00,0.000456,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0308,ETH,hourly,2026-10-03T12:00:00+00:00,0.00057,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0309,ETH,hourly,2026-10-03T13:00:00+00:00,0.000684,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0310,ETH,hourly,2026-10-03T14:00:00+00:00,0.000798,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0311,ETH,hourly,2026-10-03T15:00:00+00:00,0.000912,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0312,ETH,hourly,2026-10-03T16:00:00+00:00,0.001027,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0313,ETH,hourly,2026-10-03T17:00:00+00:00,0.001141,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0314,ETH,hourly,2026-10-03T18:00:00+00:00,0.001255,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0315,ETH,hourly,2026-10-03T19:00:00+00:00,0.001369,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0316,ETH,hourly,2026-10-03T20:00:00+00:00,0.001483,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0318,ETH,hourly,2026-10-03T22:00:00+00:00,0.001712,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0319,ETH,hourly,2026-10-03T23:00:00+00:00,0.001826,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0320,ETH,hourly,2026-10-04T00:00:00+00:00,0.00194,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0321,ETH,hourly,2026-10-04T01:00:00+00:00,0.002054,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0322,ETH,hourly,2026-10-04T02:00:00+00:00,0.002168,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0323,ETH,hourly,2026-10-04T03:00:00+00:00,0.002282,300,False,T not bracketed by two usable Deribit slices,0
+2026-10-03T07:00:26.024643+00:00,KXETHD-26OCT0400,ETH,hourly,2026-10-04T04:00:00+00:00,0.002396,300,False,T not bracketed by two usable Deribit slices,0

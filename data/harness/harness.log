@@ -2332,3 +2332,93 @@ RuntimeError: Deribit request to get_index_price failed after 3 attempts: HTTPSC
 2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.006 mkt=0.026  Will Ethereum reach $6,500 by December 31, 2026?
 2026-10-02 16:48:43,371 INFO    harness EDGE -0.020  fair=0.009 mkt=0.029  Will Ethereum reach $6,000 by December 31, 2026?
 2026-10-02 16:49:17,948 INFO    harness resolved 100 newly matured markets (1 still pending)
+2026-10-03 07:00:19,797 WARNING harness.deribit BTC calendar arbitrage between T pairs: [(0.7261409621831875, 0.9754560306763382)] — digitals near these horizons are suspect
+2026-10-03 07:00:19,797 INFO    harness.deribit BTC: fitted 8/13 expiries, index=84568
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-03 T=0.0001 F=84585 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-04 T=0.0029 F=84585 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-05 T=0.0056 F=84598 quotes=17 rmse=0.34vp used=False butterfly arbitrage in fit
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-06 T=0.0083 F=84607 quotes=23 rmse=0.53vp used=False butterfly arbitrage in fit
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-09 T=0.0166 F=84642 quotes=24 rmse=0.59vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-16 T=0.0357 F=84741 quotes=20 rmse=0.57vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-23 T=0.0549 F=84828 quotes=23 rmse=0.45vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-10-30 T=0.0741 F=84919 quotes=54 rmse=0.58vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-11-27 T=0.1508 F=85254 quotes=48 rmse=0.20vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2026-12-25 T=0.2275 F=85600 quotes=57 rmse=0.62vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2027-03-26 T=0.4768 F=86690 quotes=52 rmse=0.29vp used=False butterfly arbitrage in fit
+2026-10-03 07:00:19,797 INFO    harness   BTC 2027-06-25 T=0.7261 F=87864 quotes=54 rmse=0.24vp used=True 
+2026-10-03 07:00:19,797 INFO    harness   BTC 2027-09-24 T=0.9755 F=89012 quotes=41 rmse=0.13vp used=True 
+2026-10-03 07:00:20,641 INFO    harness.deribit ETH: fitted 10/13 expiries, index=2679
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-03 T=0.0001 F=2679 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-04 T=0.0029 F=2680 quotes=0 rmse=-1.00vp used=False expiry too near
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-05 T=0.0056 F=2680 quotes=29 rmse=0.40vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-06 T=0.0083 F=2680 quotes=31 rmse=0.51vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-09 T=0.0166 F=2681 quotes=20 rmse=0.14vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-16 T=0.0357 F=2682 quotes=17 rmse=0.13vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-23 T=0.0549 F=2684 quotes=16 rmse=0.18vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-10-30 T=0.0741 F=2686 quotes=40 rmse=0.63vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-11-27 T=0.1508 F=2695 quotes=36 rmse=0.07vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2026-12-25 T=0.2275 F=2705 quotes=43 rmse=0.59vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2027-03-26 T=0.4768 F=2735 quotes=42 rmse=0.11vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2027-06-25 T=0.7261 F=2768 quotes=43 rmse=0.18vp used=True 
+2026-10-03 07:00:20,642 INFO    harness   ETH 2027-09-24 T=0.9755 F=2798 quotes=36 rmse=0.09vp used=False butterfly arbitrage in fit
+2026-10-03 07:00:22,187 INFO    harness Gamma returned 2000 active markets
+2026-10-03 07:00:22,193 INFO    harness.polymarket parser skipped: {'no asset': 1871, 'skip-pattern (bucket/daily/ambiguous)': 70, 'no strike': 26, 'no direction keyword': 1}
+2026-10-03 07:00:22,193 INFO    harness parsed 32 crypto binaries
+2026-10-03 07:00:26,765 INFO    harness.kalshi KXBTCD: 22 open+unopened events
+2026-10-03 07:00:27,078 INFO    harness.kalshi BTC KXBTCD-26OCT0304 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:27,446 INFO    harness.kalshi BTC KXBTCD-26OCT0317 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:27,817 INFO    harness.kalshi BTC KXBTCD-26OCT0917 T=0.0180 cadence=weekly -> QUALIFIES (qualifies)
+2026-10-03 07:00:28,185 INFO    harness.kalshi BTC KXBTCD-26OCT0305 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:28,556 INFO    harness.kalshi BTC KXBTCD-26OCT0306 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:28,895 INFO    harness.kalshi BTC KXBTCD-26OCT0307 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:29,265 INFO    harness.kalshi BTC KXBTCD-26OCT0308 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:29,628 INFO    harness.kalshi BTC KXBTCD-26OCT0309 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:29,936 INFO    harness.kalshi BTC KXBTCD-26OCT0310 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:30,237 INFO    harness.kalshi BTC KXBTCD-26OCT0311 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:30,612 INFO    harness.kalshi BTC KXBTCD-26OCT0312 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:30,982 INFO    harness.kalshi BTC KXBTCD-26OCT0313 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:31,346 INFO    harness.kalshi BTC KXBTCD-26OCT0314 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:31,679 INFO    harness.kalshi BTC KXBTCD-26OCT0315 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:32,021 INFO    harness.kalshi BTC KXBTCD-26OCT0316 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:32,361 INFO    harness.kalshi BTC KXBTCD-26OCT0318 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:32,768 INFO    harness.kalshi BTC KXBTCD-26OCT0319 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:33,117 INFO    harness.kalshi BTC KXBTCD-26OCT0320 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:33,468 INFO    harness.kalshi BTC KXBTCD-26OCT0321 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:33,839 INFO    harness.kalshi BTC KXBTCD-26OCT0322 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:34,197 INFO    harness.kalshi BTC KXBTCD-26OCT0323 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:34,570 INFO    harness.kalshi BTC KXBTCD-26OCT0400 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:35,249 INFO    harness.kalshi KXETHD: 22 open+unopened events
+2026-10-03 07:00:35,692 INFO    harness.kalshi ETH KXETHD-26OCT0304 T=0.0001 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:36,051 INFO    harness.kalshi ETH KXETHD-26OCT0317 T=0.0016 cadence=daily -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:36,388 INFO    harness.kalshi ETH KXETHD-26OCT0917 T=0.0180 cadence=weekly -> excluded (only 16 two-sided strikes (need 20))
+2026-10-03 07:00:36,828 INFO    harness.kalshi ETH KXETHD-26OCT0305 T=0.0002 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:37,314 INFO    harness.kalshi ETH KXETHD-26OCT0306 T=0.0003 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:37,757 INFO    harness.kalshi ETH KXETHD-26OCT0307 T=0.0005 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:38,192 INFO    harness.kalshi ETH KXETHD-26OCT0308 T=0.0006 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:38,640 INFO    harness.kalshi ETH KXETHD-26OCT0309 T=0.0007 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:39,084 INFO    harness.kalshi ETH KXETHD-26OCT0310 T=0.0008 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:39,523 INFO    harness.kalshi ETH KXETHD-26OCT0311 T=0.0009 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:39,966 INFO    harness.kalshi ETH KXETHD-26OCT0312 T=0.0010 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:40,410 INFO    harness.kalshi ETH KXETHD-26OCT0313 T=0.0011 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:40,827 INFO    harness.kalshi ETH KXETHD-26OCT0314 T=0.0013 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:41,314 INFO    harness.kalshi ETH KXETHD-26OCT0315 T=0.0014 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:41,758 INFO    harness.kalshi ETH KXETHD-26OCT0316 T=0.0015 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:42,236 INFO    harness.kalshi ETH KXETHD-26OCT0318 T=0.0017 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:42,711 INFO    harness.kalshi ETH KXETHD-26OCT0319 T=0.0018 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:43,230 INFO    harness.kalshi ETH KXETHD-26OCT0320 T=0.0019 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:43,703 INFO    harness.kalshi ETH KXETHD-26OCT0321 T=0.0021 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:44,171 INFO    harness.kalshi ETH KXETHD-26OCT0322 T=0.0022 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:44,648 INFO    harness.kalshi ETH KXETHD-26OCT0323 T=0.0023 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:45,124 INFO    harness.kalshi ETH KXETHD-26OCT0400 T=0.0024 cadence=hourly -> excluded (T not bracketed by two usable Deribit slices)
+2026-10-03 07:00:45,124 INFO    harness kalshi: 1/44 polled events qualified, 50 strikes priced
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.064  fair=0.261 mkt=0.325  Will Ethereum reach $3,500 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.042  fair=0.113 mkt=0.155  Will Ethereum reach $4,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.034  fair=0.351 mkt=0.385  Will Bitcoin reach $100,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.029  fair=0.156 mkt=0.185  Will Bitcoin reach $110,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE +0.024  fair=0.085 mkt=0.060  Will Ethereum dip to $1,500 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.021  fair=0.015 mkt=0.036  Will Ethereum reach $5,500 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.021  fair=0.004 mkt=0.025  Will Ethereum reach $7,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.021  fair=0.011 mkt=0.032  Will Bitcoin reach $150,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.021  fair=0.009 mkt=0.029  Will Ethereum reach $6,000 by December 31, 2026?
+2026-10-03 07:00:45,146 INFO    harness EDGE -0.020  fair=0.006 mkt=0.026  Will Ethereum reach $6,500 by December 31, 2026?
+2026-10-03 07:00:45,206 INFO    harness resolved 0 newly matured markets (1 still pending)
