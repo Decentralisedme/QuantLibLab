@@ -9,6 +9,7 @@ Type=oneshot
 User=groku
 Group=groku
 WorkingDirectory=/home/groku/QuantLibLab
+EnvironmentFile=/etc/quantlib-harness/fred.env
 ExecStart=/home/groku/QuantLibLab/.venv/bin/python scripts/capture_golden_snapshot.py
 StandardOutput=append:/home/groku/QuantLibLab/data/logs/golden_snapshot.log
 StandardError=append:/home/groku/QuantLibLab/data/logs/golden_snapshot.log

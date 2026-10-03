@@ -46,6 +46,20 @@ else
     echo "/etc/quantlib-harness/telegram.env already exists, leaving it alone"
 fi
 
+if [[ ! -f /etc/quantlib-harness/fred.env ]]; then
+    cat > /etc/quantlib-harness/fred.env <<'EOF'
+# Fill in and save. Required: quantlib-daily-data and quantlib-golden-snapshot
+# load this file and fail to start without it. Free key at
+# https://fred.stlouisfed.org/docs/api/api_key.html
+FRED_API_KEY=
+EOF
+    chown groku:groku /etc/quantlib-harness/fred.env
+    chmod 600 /etc/quantlib-harness/fred.env
+    echo "created /etc/quantlib-harness/fred.env — edit it with your FRED API key"
+else
+    echo "/etc/quantlib-harness/fred.env already exists, leaving it alone"
+fi
+
 systemctl daemon-reload
 systemctl enable --now quantlib-golden-snapshot.timer
 systemctl enable --now quantlib-daily-data.timer
