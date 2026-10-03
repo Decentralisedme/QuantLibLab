@@ -1,0 +1,207 @@
+{
+ "source": "yfinance last_price (rawish \u2014 no request seam)",
+ "sr3": [
+  {
+   "ticker": "SR3Z26.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2026,
+   "delivery_month": 12,
+   "ref_start": "2026-09-16",
+   "ref_end": "2026-12-16",
+   "price": 95.7699966430664,
+   "implied_rate": 0.04230003356933594
+  },
+  {
+   "ticker": "SR3H27.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2027,
+   "delivery_month": 3,
+   "ref_start": "2026-12-16",
+   "ref_end": "2027-03-17",
+   "price": 95.48500061035156,
+   "implied_rate": 0.04514999389648437
+  },
+  {
+   "ticker": "SR3M27.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2027,
+   "delivery_month": 6,
+   "ref_start": "2027-03-17",
+   "ref_end": "2027-06-16",
+   "price": 95.29000091552734,
+   "implied_rate": 0.04709999084472656
+  },
+  {
+   "ticker": "SR3U27.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2027,
+   "delivery_month": 9,
+   "ref_start": "2027-06-16",
+   "ref_end": "2027-09-15",
+   "price": 95.20999908447266,
+   "implied_rate": 0.04790000915527344
+  },
+  {
+   "ticker": "SR3Z27.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2027,
+   "delivery_month": 12,
+   "ref_start": "2027-09-15",
+   "ref_end": "2027-12-15",
+   "price": 95.19499969482422,
+   "implied_rate": 0.048050003051757814
+  },
+  {
+   "ticker": "SR3H28.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2028,
+   "delivery_month": 3,
+   "ref_start": "2027-12-15",
+   "ref_end": "2028-03-15",
+   "price": 95.19000244140625,
+   "implied_rate": 0.0480999755859375
+  },
+  {
+   "ticker": "SR3M28.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2028,
+   "delivery_month": 6,
+   "ref_start": "2028-03-15",
+   "ref_end": "2028-06-21",
+   "price": 95.18499755859375,
+   "implied_rate": 0.0481500244140625
+  },
+  {
+   "ticker": "SR3U28.CME",
+   "contract_type": "SR3",
+   "delivery_year": 2028,
+   "delivery_month": 9,
+   "ref_start": "2028-06-21",
+   "ref_end": "2028-09-20",
+   "price": 95.18499755859375,
+   "implied_rate": 0.0481500244140625
+  }
+ ],
+ "sr1": [
+  {
+   "ticker": "SR1V26.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2026,
+   "delivery_month": 10,
+   "ref_start": "2026-10-01",
+   "ref_end": "2026-10-31",
+   "price": 96.11000061035156,
+   "implied_rate": 0.038899993896484374
+  },
+  {
+   "ticker": "SR1X26.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2026,
+   "delivery_month": 11,
+   "ref_start": "2026-11-01",
+   "ref_end": "2026-11-30",
+   "price": 96.05500030517578,
+   "implied_rate": 0.03944999694824219
+  },
+  {
+   "ticker": "SR1Z26.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2026,
+   "delivery_month": 12,
+   "ref_start": "2026-12-01",
+   "ref_end": "2026-12-31",
+   "price": 95.8949966430664,
+   "implied_rate": 0.04105003356933594
+  },
+  {
+   "ticker": "SR1F27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 1,
+   "ref_start": "2027-01-01",
+   "ref_end": "2027-01-31",
+   "price": 95.82499694824219,
+   "implied_rate": 0.04175003051757813
+  },
+  {
+   "ticker": "SR1G27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 2,
+   "ref_start": "2027-02-01",
+   "ref_end": "2027-02-28",
+   "price": 95.75,
+   "implied_rate": 0.0425
+  },
+  {
+   "ticker": "SR1H27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 3,
+   "ref_start": "2027-03-01",
+   "ref_end": "2027-03-31",
+   "price": 95.66500091552734,
+   "implied_rate": 0.043349990844726564
+  },
+  {
+   "ticker": "SR1J27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 4,
+   "ref_start": "2027-04-01",
+   "ref_end": "2027-04-30",
+   "price": 95.55999755859375,
+   "implied_rate": 0.0444000244140625
+  },
+  {
+   "ticker": "SR1K27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 5,
+   "ref_start": "2027-05-01",
+   "ref_end": "2027-05-31",
+   "price": 95.46499633789062,
+   "implied_rate": 0.04535003662109375
+  },
+  {
+   "ticker": "SR1M27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 6,
+   "ref_start": "2027-06-01",
+   "ref_end": "2027-06-30",
+   "price": 95.37999725341797,
+   "implied_rate": 0.04620002746582031
+  },
+  {
+   "ticker": "SR1N27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 7,
+   "ref_start": "2027-07-01",
+   "ref_end": "2027-07-31",
+   "price": 95.33499908447266,
+   "implied_rate": 0.04665000915527344
+  },
+  {
+   "ticker": "SR1Q27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 8,
+   "ref_start": "2027-08-01",
+   "ref_end": "2027-08-31",
+   "price": 95.29499816894531,
+   "implied_rate": 0.04705001831054687
+  },
+  {
+   "ticker": "SR1U27.CME",
+   "contract_type": "SR1",
+   "delivery_year": 2027,
+   "delivery_month": 9,
+   "ref_start": "2027-09-01",
+   "ref_end": "2027-09-30",
+   "price": 95.26499938964844,
+   "implied_rate": 0.04735000610351563
+  }
+ ]
+}

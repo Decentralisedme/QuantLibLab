@@ -1,0 +1,26 @@
+{
+  "label": "2026-10-03",
+  "captured_at": "2026-10-03T06:00:06.287579+00:00",
+  "feeds": {
+    "deribit_surfaces": {
+      "ok": true,
+      "detail": "BTC: 8/13 slices, index=84635; ETH: 10/13 slices, index=2677"
+    },
+    "fred_rates": {
+      "ok": false,
+      "error": "OSError: FRED_API_KEY is not set. Add it to your .env file."
+    },
+    "polymarket_gamma": {
+      "ok": true,
+      "detail": "2000 raw, 32 parsed, 32 priced"
+    },
+    "sofr_futures": {
+      "ok": true,
+      "detail": "8 SR3 + 12 SR1 contracts"
+    },
+    "fx_spots": {
+      "ok": true,
+      "detail": "7 pairs"
+    }
+  }
+}
