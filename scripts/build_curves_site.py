@@ -22,10 +22,13 @@ Also attaches, per curve:
     with a calendar-date maturity axis; None for curves that don't have
     one (tenor-ladder or O/N curves, smile-by-strike curves).
 
-Curves and surfaces only — this never reads data/harness/snapshots.csv
-(or anything with fair/market_yes/edge_* columns). Those are the harness's
-paper-trading numbers, not public market-data curves, and the output of
-this script is published to a public URL.
+Plus one non-curve section, "pit" — the H-004 PIT calibration view, built
+by dashboard/pit.py from data/harness/ (snapshots.csv PIT rows,
+resolutions.csv, kalshi_exclusions.csv). snapshots.csv carries the
+harness's paper-trading numbers (fair, market_yes, edge_*); the output of
+this script is published to a public URL, so pit.py emits only expiry,
+asset, T, u and the calendar-arb flag per expiry, plus aggregates of the
+exclusion log. Nothing else from the harness reaches the page.
 
 Run from project root:
     python scripts/build_curves_site.py
@@ -46,13 +49,20 @@ sys.path.insert(0, str(ROOT))
 import pandas as pd
 
 from dashboard.curves import (
-    MATURITY, _pct, curve_atm_term_structure, curve_deribit_futures,
-    curve_smile, curve_sofr_futures, surface_by_delta,
+    MATURITY,
+    _pct,
+    curve_atm_term_structure,
+    curve_deribit_futures,
+    curve_smile,
+    curve_sofr_futures,
+    surface_by_delta,
 )
+from dashboard.pit import build_pit_section
 from quantliblab.data.golden import list_snapshots
 from quantliblab.data.store import read
 
 SITE_DIR = ROOT / "site"
+HARNESS_DIR = ROOT / "data" / "harness"
 RAW_STORE_ROOT = ROOT / "quantliblab" / "data" / "raw"
 
 # dataset -> (label, ccy) for the "Overnight reference rates" curve
@@ -69,6 +79,8 @@ SCHEDULES = {
                         "hour_utc": 6, "minute_utc": 0, "weekdays_only": False},
     "daily_data": {"label": "daily rates/FX fetch",
                    "hour_utc": 6, "minute_utc": 20, "weekdays_only": True},
+    "harness": {"label": "calibration harness run",
+                "hour_utc": 7, "minute_utc": 0, "weekdays_only": False},
 }
 
 
@@ -242,6 +254,7 @@ def main() -> int:
         "curve_names": list(curves.keys()),
         "schedules": SCHEDULES,
         "curves": curves,
+        "pit": build_pit_section(HARNESS_DIR, datetime.now(timezone.utc).date()),
     }
 
     SITE_DIR.mkdir(parents=True, exist_ok=True)
@@ -254,6 +267,9 @@ def main() -> int:
     for name, v in curves.items():
         print(f"  {name}: {len(v['dates'])} date(s), "
               f"schedule={v['schedule']}, interp_kind={v['interp_kind']}")
+    pit = payload["pit"]
+    print(f"  H-004 PIT: {pit['n']} of {pit['target_n']} observations, "
+          f"{len(pit['observations']) - pit['n']} pending")
     print(f"Wrote {out_path} ({n_dates} curve-dates total)")
     return 0
 

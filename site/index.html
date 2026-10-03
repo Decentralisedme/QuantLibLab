@@ -30,6 +30,8 @@
     --accent-ink: #ffffff;
     --warn: #d98c3d;
     --shadow: rgba(0, 0, 0, 0.4);
+    --series-1: #3987e5;   /* BTC */
+    --series-2: #d95926;   /* ETH */
   }
   :root[data-theme="light"] {
     color-scheme: light;
@@ -43,6 +45,8 @@
     --accent-ink: #ffffff;
     --warn: #a35b14;
     --shadow: rgba(30, 32, 36, 0.15);
+    --series-1: #2a78d6;   /* BTC */
+    --series-2: #eb6834;   /* ETH */
   }
 
   * { box-sizing: border-box; }
@@ -312,6 +316,95 @@
   }
   .interp-muted { color: var(--ink-muted); }
   .interp-warn { color: var(--warn); }
+  /* ---- H-004 PIT section ---- */
+  .pit-hero {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .pit-n-big {
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .pit-n-of {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+  }
+  .pit-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    margin: 12px 0 10px;
+    overflow: hidden;
+  }
+  .pit-progress > div {
+    height: 100%;
+    background: var(--accent);
+  }
+  .pit-next { font-size: 0.95rem; line-height: 1.5; }
+  .pit-section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin: 26px 0 8px;
+  }
+  .pit-note {
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 8px 0 0;
+  }
+  .pit-chart { position: relative; }
+  .pit-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .pit-chart text { fill: var(--ink-muted); font-size: 12px; font-family: inherit; }
+  .pit-chart .axis { stroke: var(--border); stroke-width: 1; }
+  .pit-chart .grid { stroke: var(--border); stroke-width: 1; opacity: 0.6; }
+  .pit-chart .ref { stroke: var(--ink-muted); stroke-width: 2; stroke-dasharray: 6 4; fill: none; }
+  .pit-chart .crosshair { stroke: var(--ink-muted); stroke-width: 1; }
+  .pit-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .pit-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .pit-legend i {
+    display: inline-block;
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+  }
+  .pit-legend i.dash {
+    height: 0;
+    border-top: 2px dashed var(--ink-muted);
+  }
+  .viz-tip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 6px 18px var(--shadow);
+    padding: 6px 9px;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: nowrap;
+    display: none;
+    z-index: 5;
+  }
+  .viz-tip strong { font-weight: 600; }
+  .viz-tip .muted { color: var(--ink-muted); }
+  .flag-yes { color: var(--warn); font-weight: 600; }
+  details.pit-table-view { margin-top: 8px; font-size: 0.85rem; color: var(--ink-muted); }
+  details.pit-table-view summary { cursor: pointer; }
+  details.pit-table-view .table-wrap { margin-top: 8px; }
+
   footer {
     color: var(--ink-muted);
     font-size: 0.72rem;
@@ -332,6 +425,8 @@
     }
     .sidebar .field { flex: 1 1 140px; }
     .content { padding: 20px 12px; }
+    .pit-table { font-size: 0.88rem; }
+    .pit-table th, .pit-table td { padding: 8px 8px; }
   }
 </style>
 </head>
@@ -356,10 +451,10 @@
   <div class="body">
     <aside class="sidebar">
       <div class="field">
-        <label for="curve-select">Curve</label>
+        <label for="curve-select">View</label>
         <select id="curve-select"></select>
       </div>
-      <div class="field">
+      <div class="field" id="date-field">
         <label for="date-select">Date</label>
         <select id="date-select"></select>
       </div>
@@ -413,6 +508,7 @@
 
   var els = {
     curveSelect: document.getElementById("curve-select"),
+    dateField: document.getElementById("date-field"),
     dateSelect: document.getElementById("date-select"),
     expiryField: document.getElementById("expiry-field"),
     expirySelect: document.getElementById("expiry-select"),
@@ -712,6 +808,341 @@
   });
 
   // ------------------------------------------------------------------
+  // H-004 PIT calibration section (data.pit, built by dashboard/pit.py).
+  // Public fields only: per expiry {expiry, asset, T, u, calendar_arb},
+  // plus qualification aggregates from the harness exclusion log.
+  // ------------------------------------------------------------------
+
+  var PIT_KEY = "__pit__";
+  var PIT_LABEL = "H-004 PIT calibration";
+  var SVG_NS = "http://www.w3.org/2000/svg";
+  var ASSET_SERIES = { BTC: "var(--series-1)", ETH: "var(--series-2)" };
+
+  function isPit() { return els.curveSelect.value === PIT_KEY; }
+
+  function esc(v) {
+    return String(v).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function svgEl(tag, attrs, parent) {
+    var el = document.createElementNS(SVG_NS, tag);
+    Object.keys(attrs).forEach(function (k) { el.setAttribute(k, attrs[k]); });
+    if (parent) parent.appendChild(el);
+    return el;
+  }
+
+  function svgText(parent, x, y, text, anchor) {
+    var t = svgEl("text", { x: x, y: y, "text-anchor": anchor || "start" }, parent);
+    t.textContent = text;
+    return t;
+  }
+
+  // Bar with 4px rounded top, square at the baseline.
+  function barPath(x, y, w, h) {
+    var r = Math.min(4, w / 2, h);
+    return "M" + x + "," + (y + h) + "V" + (y + r) + "Q" + x + "," + y + " " + (x + r) + "," + y +
+      "H" + (x + w - r) + "Q" + (x + w) + "," + y + " " + (x + w) + "," + (y + r) + "V" + (y + h) + "Z";
+  }
+
+  // One tooltip per chart wrapper; lines are [strongText, mutedText] pairs.
+  function showTip(tip, wrap, evt, lines) {
+    tip.textContent = "";
+    lines.forEach(function (pair) {
+      var row = document.createElement("div");
+      var b = document.createElement("strong");
+      b.textContent = pair[0];
+      row.appendChild(b);
+      if (pair[1]) {
+        var m = document.createElement("span");
+        m.className = "muted";
+        m.textContent = " " + pair[1];
+        row.appendChild(m);
+      }
+      tip.appendChild(row);
+    });
+    tip.style.display = "block";
+    var box = wrap.getBoundingClientRect();
+    var x = evt.clientX - box.left + 12, y = evt.clientY - box.top + 12;
+    if (x + tip.offsetWidth > box.width) x = evt.clientX - box.left - tip.offsetWidth - 12;
+    tip.style.left = Math.max(0, x) + "px";
+    tip.style.top = y + "px";
+  }
+
+  // Draw at the container's pixel width (capped) so SVG text stays 12px.
+  function chartWidth(wrap) {
+    return Math.max(300, Math.min(640, wrap.clientWidth || 640));
+  }
+
+  function niceMax(v) {
+    if (v <= 5) return Math.max(1, Math.ceil(v));
+    var step = Math.pow(10, Math.floor(Math.log10(v)));
+    return Math.ceil(v / step) * step;
+  }
+
+  function yTicks(max) {
+    var step = max <= 6 ? 1 : max / 5;
+    var out = [];
+    for (var v = 0; v <= max + 1e-9; v += step) out.push(v);
+    return out;
+  }
+
+  function pitHistogram(wrap, us) {
+    var W = chartWidth(wrap), H = 240, L = 40, R = 14, T = 14, B = 40;
+    var bins = 10, counts = [];
+    for (var i = 0; i < bins; i++) counts.push(0);
+    us.forEach(function (u) { counts[Math.min(bins - 1, Math.floor(u * bins))] += 1; });
+    var expected = us.length / bins;
+    var ymax = niceMax(Math.max(Math.max.apply(null, counts), expected) * 1.15);
+    var pw = W - L - R, ph = H - T - B, bw = pw / bins;
+    var sy = function (v) { return T + ph - (v / ymax) * ph; };
+
+    var legend = document.createElement("div");
+    legend.className = "pit-legend";
+    legend.innerHTML = '<span><i style="background: var(--series-1)"></i>settled expiries per bin</span>' +
+      '<span><i class="dash"></i>uniform reference (' + expected.toFixed(2) + " per bin)</span>";
+    wrap.appendChild(legend);
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "PIT histogram of u with uniform reference" }, wrap);
+    yTicks(ymax).forEach(function (v) {
+      svgEl("line", { x1: L, x2: W - R, y1: sy(v), y2: sy(v), "class": v === 0 ? "axis" : "grid" }, svg);
+      svgText(svg, L - 8, sy(v) + 4, String(Math.round(v * 100) / 100), "end");
+    });
+    for (var k = 0; k <= 5; k++) {
+      svgText(svg, L + (k / 5) * pw, H - B + 18, (k / 5).toFixed(1), "middle");
+    }
+    svgText(svg, L + pw / 2, H - 4, "u = F(S*)", "middle");
+
+    var tip = document.createElement("div");
+    tip.className = "viz-tip";
+    wrap.appendChild(tip);
+    counts.forEach(function (c, i) {
+      var x = L + i * bw + 1, w = bw - 2;
+      if (c > 0) {
+        svgEl("path", { d: barPath(x, sy(c), w, sy(0) - sy(c)), fill: "var(--series-1)" }, svg);
+      }
+      var hit = svgEl("rect", { x: L + i * bw, y: T, width: bw, height: ph, fill: "transparent" }, svg);
+      var lo = (i / bins).toFixed(1), hi = ((i + 1) / bins).toFixed(1);
+      hit.addEventListener("pointermove", function (e) {
+        showTip(tip, wrap, e, [[String(c) + (c === 1 ? " expiry" : " expiries"), "u in [" + lo + ", " + hi + ")"],
+                               [expected.toFixed(2), "expected under uniform"]]);
+      });
+      hit.addEventListener("pointerleave", function () { tip.style.display = "none"; });
+    });
+
+    // Uniform(0,1) reference: n/bins expiries per bin. Drawn over the bars.
+    svgEl("line", { x1: L, x2: W - R, y1: sy(expected), y2: sy(expected), "class": "ref",
+      "pointer-events": "none" }, svg);
+  }
+
+  function dayOffset(startStr, dayStr) {
+    return Math.round((Date.parse(dayStr + "T00:00:00Z") - Date.parse(startStr + "T00:00:00Z")) / 86400000);
+  }
+
+  function pitTrend(wrap, q) {
+    var tr = q.n_two_sided, assets = Object.keys(tr.series);
+    var W = chartWidth(wrap), H = 230, L = 40, R = 44, T = 14, B = 34;
+    var nDays = q.window.days, pw = W - L - R, ph = H - T - B;
+    var all = [tr.threshold];
+    assets.forEach(function (a) { tr.series[a].forEach(function (v) { if (v !== null) all.push(v); }); });
+    var ymax = niceMax(Math.max.apply(null, all) * 1.1);
+    var sx = function (i) { return L + (i / (nDays - 1)) * pw; };
+    var sy = function (v) { return T + ph - (v / ymax) * ph; };
+
+    // value[asset][dayIndex] over the full window; null where no poll that day
+    var byIdx = {};
+    assets.forEach(function (a) {
+      byIdx[a] = [];
+      for (var i = 0; i < nDays; i++) byIdx[a].push(null);
+      tr.days.forEach(function (d, j) {
+        var i = dayOffset(q.window.start, d);
+        if (i >= 0 && i < nDays) byIdx[a][i] = tr.series[a][j];
+      });
+    });
+    var dayLabel = function (i) {
+      var d = new Date(Date.parse(q.window.start + "T00:00:00Z") + i * 86400000);
+      return d.getUTCFullYear() + "-" + pad2(d.getUTCMonth() + 1) + "-" + pad2(d.getUTCDate());
+    };
+
+    var legend = document.createElement("div");
+    legend.className = "pit-legend";
+    assets.forEach(function (a) {
+      var s = document.createElement("span");
+      var sw = document.createElement("i");
+      sw.style.background = ASSET_SERIES[a] || "var(--ink-muted)";
+      s.appendChild(sw);
+      s.appendChild(document.createTextNode(a));
+      legend.appendChild(s);
+    });
+    var ls = document.createElement("span");
+    var lsw = document.createElement("i");
+    lsw.className = "dash";
+    ls.appendChild(lsw);
+    ls.appendChild(document.createTextNode("qualifying threshold (" + tr.threshold + ")"));
+    legend.appendChild(ls);
+    wrap.appendChild(legend);
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Best ladder n_two_sided per day by asset" }, wrap);
+    yTicks(ymax).forEach(function (v) {
+      svgEl("line", { x1: L, x2: W - R, y1: sy(v), y2: sy(v), "class": v === 0 ? "axis" : "grid" }, svg);
+      svgText(svg, L - 8, sy(v) + 4, String(Math.round(v)), "end");
+    });
+    [0, Math.floor((nDays - 1) / 2), nDays - 1].forEach(function (i) {
+      svgText(svg, sx(i), H - B + 18, dayLabel(i).slice(5), i === 0 ? "start" : i === nDays - 1 ? "end" : "middle");
+    });
+    svgEl("line", { x1: L, x2: W - R, y1: sy(tr.threshold), y2: sy(tr.threshold), "class": "ref" }, svg);
+
+    assets.forEach(function (a) {
+      var color = ASSET_SERIES[a] || "var(--ink-muted)";
+      var d = "", pen = false, last = null;
+      byIdx[a].forEach(function (v, i) {
+        if (v === null) { pen = false; return; }
+        d += (pen ? "L" : "M") + sx(i) + "," + sy(v);
+        pen = true;
+        last = i;
+      });
+      if (d) svgEl("path", { d: d, fill: "none", stroke: color, "stroke-width": 2,
+        "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+      byIdx[a].forEach(function (v, i) {
+        if (v !== null) svgEl("circle", { cx: sx(i), cy: sy(v), r: 4, fill: color,
+          stroke: "var(--bg-panel)", "stroke-width": 2 }, svg);
+      });
+      if (last !== null) svgText(svg, sx(last) + 8, sy(byIdx[a][last]) + 4, a);
+    });
+
+    var cross = svgEl("line", { x1: 0, x2: 0, y1: T, y2: T + ph, "class": "crosshair",
+      visibility: "hidden" }, svg);
+    var tip = document.createElement("div");
+    tip.className = "viz-tip";
+    wrap.appendChild(tip);
+    var hit = svgEl("rect", { x: L, y: T, width: pw, height: ph, fill: "transparent" }, svg);
+    hit.addEventListener("pointermove", function (e) {
+      var box = svg.getBoundingClientRect();
+      var vx = (e.clientX - box.left) * (W / box.width);
+      var i = Math.max(0, Math.min(nDays - 1, Math.round((vx - L) / pw * (nDays - 1))));
+      cross.setAttribute("x1", sx(i));
+      cross.setAttribute("x2", sx(i));
+      cross.setAttribute("visibility", "visible");
+      var lines = [[dayLabel(i), ""]];
+      assets.forEach(function (a) {
+        var v = byIdx[a][i];
+        lines.push([v === null ? "—" : String(v), a + (v === null ? " (no poll)" : "")]);
+      });
+      lines.push([String(tr.threshold), "threshold"]);
+      showTip(tip, wrap, e, lines);
+    });
+    hit.addEventListener("pointerleave", function () {
+      tip.style.display = "none";
+      cross.setAttribute("visibility", "hidden");
+    });
+
+    // Table view of the same series
+    var rows = "";
+    for (var i = 0; i < nDays; i++) {
+      if (assets.every(function (a) { return byIdx[a][i] === null; })) continue;
+      rows += "<tr><td>" + esc(dayLabel(i)) + "</td>" + assets.map(function (a) {
+        return "<td>" + (byIdx[a][i] === null ? "—" : esc(byIdx[a][i])) + "</td>";
+      }).join("") + "</tr>";
+    }
+    var det = document.createElement("details");
+    det.className = "pit-table-view";
+    det.innerHTML = "<summary>Show as table</summary><div class=\"table-wrap\"><table><thead><tr><th>Day</th>" +
+      assets.map(function (a) { return "<th>" + esc(a) + "</th>"; }).join("") +
+      "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+    wrap.appendChild(det);
+  }
+
+  function pitNextSettlement(pit, now) {
+    var pending = pit.observations.filter(function (o) { return o.u === null; })
+      .sort(function (a, b) { return a.expiry < b.expiry ? -1 : 1; });
+    var future = pending.filter(function (o) { return Date.parse(o.expiry) > now.getTime(); });
+    var overdue = pending.filter(function (o) { return Date.parse(o.expiry) <= now.getTime(); });
+    var html;
+    if (future.length) {
+      var t = Date.parse(future[0].expiry);
+      var assets = future.filter(function (o) { return o.expiry === future[0].expiry; })
+        .map(function (o) { return o.asset; }).join(", ");
+      html = "Next expected settlement: <b>" + esc(fmtUTC(new Date(t))) + "</b> (" +
+        esc(relTime(t, now.getTime())) + ") — " + esc(assets);
+    } else {
+      html = "No PIT expiry pending — the next one is added when a ladder first qualifies.";
+    }
+    if (overdue.length) {
+      html += '<div class="pit-note">Expired, awaiting settlement fetch: ' +
+        overdue.map(function (o) { return esc(o.asset + " " + fmtUTC(new Date(o.expiry))); }).join("; ") +
+        "</div>";
+    }
+    return html;
+  }
+
+  function renderPit() {
+    var pit = data.pit;
+    els.title.textContent = PIT_LABEL;
+    els.dateField.style.display = "none";
+    els.expiryField.style.display = "none";
+    els.interpBox.style.display = "none";
+    renderFreshness(pit);
+    els.asof.textContent = "Probability integral transform of Kalshi settlements under the Deribit-implied CDF.";
+    els.source.textContent = pit.source;
+
+    var now = new Date();
+    var pct = Math.min(100, (pit.n / pit.target_n) * 100);
+    var html =
+      '<div class="pit-hero"><span class="pit-n-big">' + esc(pit.n) + "</span>" +
+      '<span class="pit-n-of">of ' + esc(pit.target_n) + " observations</span></div>" +
+      '<div class="pit-progress" role="progressbar" aria-valuemin="0" aria-valuemax="' + esc(pit.target_n) +
+      '" aria-valuenow="' + esc(pit.n) + '"><div style="width:' + pct.toFixed(1) + '%"></div></div>' +
+      '<div class="pit-next">' + pitNextSettlement(pit, now) + "</div>";
+
+    html += '<div class="pit-section-title">PIT histogram</div><div class="pit-chart" id="pit-hist"></div>';
+    if (pit.n < 10) {
+      html += '<p class="pit-note">With n = ' + esc(pit.n) + ", the histogram cannot distinguish a calibrated " +
+        "model from a miscalibrated one; read it as a log of where settlements landed.</p>";
+    }
+
+    html += '<div class="pit-section-title">Expiries</div><div class="table-wrap"><table class="pit-table"><thead><tr>' +
+      "<th>Expiry (UTC)</th><th>Asset</th><th>T (yrs)</th><th>u</th><th>Calendar arb</th>" +
+      "</tr></thead><tbody>";
+    pit.observations.slice().reverse().forEach(function (o) {
+      html += "<tr><td>" + esc(fmtUTC(new Date(o.expiry)).replace(" UTC", "")) + "</td>" +
+        "<td>" + esc(o.asset) + "</td><td>" + esc(o.T.toFixed(4)) + "</td>" +
+        "<td>" + (o.u === null ? '<span class="interp-muted">pending</span>' : esc(o.u.toFixed(4))) + "</td>" +
+        "<td>" + (o.calendar_arb ? '<span class="flag-yes">yes</span>' : "no") + "</td></tr>";
+    });
+    html += "</tbody></table></div>";
+
+    var q = pit.qualification;
+    html += '<div class="pit-section-title">Qualification, last ' + esc(q.window.days) + " days (" +
+      esc(q.window.start) + " to " + esc(q.window.end) + ')</div><div class="table-wrap"><table class="pit-table"><thead><tr>' +
+      "<th>Asset</th><th>Events polled</th><th>Qualified</th><th>Rate</th></tr></thead><tbody>";
+    Object.keys(q.by_asset).forEach(function (a) {
+      var r = q.by_asset[a];
+      html += "<tr><td>" + esc(a) + "</td><td>" + esc(r.polled) + "</td><td>" + esc(r.qualified) +
+        "</td><td>" + esc((r.rate * 100).toFixed(1)) + "%</td></tr>";
+    });
+    html += "</tbody></table></div>" +
+      '<p class="pit-note">Distinct events that qualified at least once, out of distinct events polled. ' +
+      "Most polled events are hourly ladders, which never sit between two usable Deribit expiries.</p>";
+
+    html += '<div class="pit-section-title">n_two_sided — best ladder per day</div>' +
+      '<div class="pit-chart" id="pit-trend"></div>' +
+      '<p class="pit-note">Highest count of two-sided strikes on any polled ladder that day. ' +
+      "A ladder needs " + esc(q.n_two_sided.threshold) + " to qualify. Gaps are days with no harness run.</p>";
+
+    els.tableSlot.innerHTML = html;
+    var us = pit.observations.filter(function (o) { return o.u !== null; })
+      .map(function (o) { return o.u; });
+    var histWrap = document.getElementById("pit-hist");
+    if (us.length) pitHistogram(histWrap, us);
+    else histWrap.innerHTML = '<p class="empty">No settled PIT expiries yet.</p>';
+    if (q.n_two_sided.days.length) pitTrend(document.getElementById("pit-trend"), q);
+    else document.getElementById("pit-trend").innerHTML = '<p class="empty">No polls in this window.</p>';
+  }
+
+  // ------------------------------------------------------------------
   // Dropdown cascade: curve -> date -> (expiry, smile curves only)
   // ------------------------------------------------------------------
 
@@ -751,6 +1182,8 @@
   }
 
   function onCurveChange() {
+    if (isPit()) { renderPit(); return; }
+    els.dateField.style.display = "block";
     els.title.textContent = els.curveSelect.value;
     renderFreshness(currentCurveMeta());
     var byDate = currentCurveDates();
@@ -774,6 +1207,11 @@
   }
 
   els.curveSelect.addEventListener("change", onCurveChange);
+  var resizeTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { if (data && isPit()) renderPit(); }, 150);
+  });
   els.dateSelect.addEventListener("change", onDateChange);
   els.expirySelect.addEventListener("change", onExpiryChange);
 
@@ -785,13 +1223,27 @@
     data = json;
     var keepCurve = els.curveSelect.value;
     els.curveSelect.innerHTML = "";
+    var curvesGroup = document.createElement("optgroup");
+    curvesGroup.label = "Curves";
     data.curve_names.forEach(function (name) {
       var opt = document.createElement("option");
       opt.value = name;
       opt.textContent = name;
-      els.curveSelect.appendChild(opt);
+      curvesGroup.appendChild(opt);
     });
-    if (data.curve_names.indexOf(keepCurve) !== -1) els.curveSelect.value = keepCurve;
+    els.curveSelect.appendChild(curvesGroup);
+    if (data.pit) {
+      var calGroup = document.createElement("optgroup");
+      calGroup.label = "Calibration";
+      var pitOpt = document.createElement("option");
+      pitOpt.value = PIT_KEY;
+      pitOpt.textContent = PIT_LABEL;
+      calGroup.appendChild(pitOpt);
+      els.curveSelect.appendChild(calGroup);
+    }
+    if (data.curve_names.indexOf(keepCurve) !== -1 || (keepCurve === PIT_KEY && data.pit)) {
+      els.curveSelect.value = keepCurve;
+    }
     onCurveChange();
     els.generatedAt.textContent = "Generated " + data.generated_at;
   }
