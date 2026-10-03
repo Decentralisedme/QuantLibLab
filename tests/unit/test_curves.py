@@ -16,9 +16,7 @@ import pytest
 
 from quantliblab.curves import OISCurve, CurveInstrument, InstrumentType
 from quantliblab.curves.base.rate_curve import RateCurve, CurvePillar
-from quantliblab.curves.bootstrapper import (
-    bootstrap, _bootstrap_deposit, _bootstrap_ois_swap,
-)
+from quantliblab.curves.bootstrapper import bootstrap
 from quantliblab.conventions.day_count import DayCountBasis
 from quantliblab.conventions.calendars import NewYorkCalendar, LondonCalendar, TARGETCalendar
 
@@ -52,23 +50,29 @@ UPWARD_INSTRUMENTS = [
 # Deposit bootstrap
 # ---------------------------------------------------------------------------
 
+def _single(tenor: str, kind: InstrumentType, rate: float) -> CurvePillar:
+    """Bootstrap one instrument on SONIA conventions (T+0, so spot = valuation)."""
+    (pillar,) = bootstrap(
+        VALUATION, [CurveInstrument(tenor, kind, rate)],
+        DayCountBasis.ACT_365, LondonCalendar(), settlement_days=0,
+    )
+    return pillar
+
+
 class TestDepositBootstrap:
     def test_known_df(self):
-        # P = 1 / (1 + 0.053 * 1/360)  for 1-day ON with ACT/360
-        tau = 1.0 / 360.0
-        df, zr = _bootstrap_deposit(0.0530, tau)
-        expected_df = 1.0 / (1.0 + 0.0530 * tau)
-        assert abs(df - expected_df) < 1e-12
+        # P = 1 / (1 + 0.053 * 1/365)  for 1-day ON with ACT/365
+        p = _single("ON", InstrumentType.DEPOSIT, 0.0530)
+        expected_df = 1.0 / (1.0 + 0.0530 * p.year_frac)
+        assert abs(p.discount_factor - expected_df) < 1e-12
 
     def test_zero_rate_roundtrip(self):
-        tau = 0.25  # 3M
-        df, zr = _bootstrap_deposit(0.0530, tau)
+        p = _single("3M", InstrumentType.DEPOSIT, 0.0530)
         # Reconstructing df from zero rate should match
-        assert abs(math.exp(-zr * tau) - df) < 1e-12
+        assert abs(math.exp(-p.zero_rate * p.year_frac) - p.discount_factor) < 1e-12
 
     def test_positive_rate_positive_zr(self):
-        _, zr = _bootstrap_deposit(0.0530, 0.5)
-        assert zr > 0
+        assert _single("6M", InstrumentType.DEPOSIT, 0.0530).zero_rate > 0
 
 
 # ---------------------------------------------------------------------------
@@ -77,23 +81,22 @@ class TestDepositBootstrap:
 
 class TestOISSwapBootstrap:
     def test_npv_is_zero(self):
-        """Calibrated zero rate should make swap NPV exactly zero."""
-        K, tau = 0.0530, 0.25
-        df, zr = _bootstrap_ois_swap(K, tau)
-        p = math.exp(-zr * tau)
-        npv = (1 - p) - K * tau * p
-        assert abs(npv) < 1e-10
+        """Calibrated zero rate should make single-period swap NPV exactly zero."""
+        K = 0.0530
+        p = _single("3M", InstrumentType.OIS_SWAP, K)
+        df = math.exp(-p.zero_rate * p.year_frac)
+        npv = (1 - df) - K * p.year_frac * df
+        assert abs(npv) < 1e-12
 
     def test_consistent_with_deposit(self):
         """For single-period, OIS swap and deposit should give same df."""
-        K, tau = 0.0530, 0.25
-        df_dep, _ = _bootstrap_deposit(K, tau)
-        df_swap, _ = _bootstrap_ois_swap(K, tau)
-        assert abs(df_dep - df_swap) < 1e-8
+        df_dep  = _single("3M", InstrumentType.DEPOSIT,  0.0530).discount_factor
+        df_swap = _single("3M", InstrumentType.OIS_SWAP, 0.0530).discount_factor
+        assert abs(df_dep - df_swap) < 1e-12
 
     def test_higher_rate_lower_df(self):
-        _, zr_low  = _bootstrap_ois_swap(0.03, 0.5)
-        _, zr_high = _bootstrap_ois_swap(0.06, 0.5)
+        zr_low  = _single("6M", InstrumentType.OIS_SWAP, 0.03).zero_rate
+        zr_high = _single("6M", InstrumentType.OIS_SWAP, 0.06).zero_rate
         assert zr_high > zr_low
 
 

@@ -7,27 +7,32 @@ calibrated CurvePillar objects that fully define the zero coupon curve.
 Bootstrap logic
 ---------------
 Pillars are solved sequentially from shortest to longest maturity.
-At each step, all previously solved pillars are held fixed.
+At each step, all previously solved pillars are held fixed and the
+new pillar's zero rate is solved so the instrument prices to par on
+the curve built so far plus the new pillar.
 
-Deposits (ON, TN, 1W, 1M):
-    Direct formula — no solver required.
-    P(T) = 1 / (1 + r * tau)          [simple compounding, market convention]
-    r_zero = log(1 + r * tau) / tau    [convert to continuous]
+Every instrument is priced the same way — as a fixed leg against a
+compounded overnight floating leg, both running from start date S to
+maturity T. Under single-curve OIS discounting the floating leg is
+worth P(S) - P(T), so the par condition is:
 
-OIS Swaps (1W–12M, single-period):
-    For swaps up to 1Y, there is only one coupon period so the
-    floating leg NPV = 1 - P(T) and the fixed leg NPV = K * tau * P(T).
-    Setting NPV = 0 gives the same direct formula:
-    P(T) = 1 / (1 + K * tau)
+    K * sum_i tau_i * P(t_i)  =  P(S) - P(T)
 
-    Newton-Raphson is used anyway so the code generalises cleanly
-    to multi-period swaps when we extend beyond 1Y.
-    In practice NR converges in 1–2 iterations for single-period.
+Deposits (ON, TN):
+    One period [S, T]:  P(T) = P(S) / (1 + r * tau)   [simple compounding]
 
-Calibration objective (NPV = 0):
-    f(r) = (1 - P(T; r)) - K * tau * P(T; r) = 0
-    where P(T; r) = exp(-r * T) and T is the year fraction to maturity.
-    f'(r) = T * P(T; r) * (1 + K * tau)
+OIS Swaps:
+    Annual fixed coupons, schedule generated backward from the
+    unadjusted maturity (short front stub for broken tenors), each date
+    adjusted Modified Following. Swaps of 1Y or less have one coupon.
+    Coupon dates between the last solved pillar and T are discounted
+    by flat-forward interpolation, so they depend on the unknown pillar —
+    hence a 1-D Brent solve on the pillar's zero rate rather than a
+    closed form.
+
+All year fractions for pillars are from the valuation date; accruals
+tau_i are over each coupon period, both in the curve's day count basis.
+Zero rates are continuously compounded.
 """
 from __future__ import annotations
 
@@ -36,12 +41,15 @@ from dataclasses import dataclass
 from datetime import date
 from enum import Enum
 
-from quantliblab.conventions.day_count import DayCountBasis, year_fraction
-from quantliblab.conventions.tenor import Tenor
+from dateutil.relativedelta import relativedelta
+
 from quantliblab.conventions.business_day import BusinessDayConvention, adjust
 from quantliblab.conventions.calendars import BaseCalendar
-from quantliblab.math.solvers.newton_raphson import solve as newton_raphson
+from quantliblab.conventions.day_count import DayCountBasis, year_fraction
+from quantliblab.conventions.tenor import Tenor
+from quantliblab.math.interpolation.flat_forward import FlatForwardInterpolator
 from quantliblab.math.solvers.brent import solve as brent
+
 from .base.rate_curve import CurvePillar
 
 
@@ -79,7 +87,7 @@ def bootstrap(
     Parameters
     ----------
     valuation_date  : curve reference / pricing date
-    instruments     : market quotes sorted by tenor (or we sort here)
+    instruments     : market quotes, in any order (sorted by maturity here)
     basis           : day count convention for year fractions
     calendar        : holiday calendar for business day adjustment
     settlement_days : spot lag (0 for SONIA, 2 for SOFR/ESTR)
@@ -92,7 +100,8 @@ def bootstrap(
     next_business_day = _add_business_days(valuation_date, 1, calendar)
     spot_date = _add_business_days(valuation_date, settlement_days, calendar)
 
-    pillars: list[CurvePillar] = []
+    # (instrument, accrual schedule [S, t_1, ..., T])
+    priced: list[tuple[CurveInstrument, list[date]]] = []
 
     for instr in instruments:
         # O/N and T/N are exceptions to spot-starting:
@@ -100,20 +109,27 @@ def bootstrap(
         #   T/N: start = next business day (T+1), end = T+2 (spot)
         #   All others: start = spot date, end = spot + tenor
         if instr.tenor == "ON":
-            start_date = valuation_date
-            maturity = next_business_day
+            schedule = [valuation_date, next_business_day]
         elif instr.tenor == "TN":
-            start_date = next_business_day
-            maturity = spot_date
+            schedule = [next_business_day, spot_date]
         else:
-            start_date = spot_date
-            tenor = Tenor.from_string(instr.tenor)
-            maturity = adjust(
-                tenor.add_to(spot_date),
-                BusinessDayConvention.MODIFIED_FOLLOWING,
-                calendar,
-            )
+            unadjusted_end = Tenor.from_string(instr.tenor).add_to(spot_date)
+            if instr.instrument_type == InstrumentType.OIS_SWAP:
+                schedule = _fixed_leg_schedule(spot_date, unadjusted_end, calendar)
+            else:
+                schedule = [spot_date, adjust(
+                    unadjusted_end, BusinessDayConvention.MODIFIED_FOLLOWING, calendar,
+                )]
+        priced.append((instr, schedule))
 
+    priced.sort(key=lambda x: x[1][-1])
+
+    ts:  list[float] = []
+    dfs: list[float] = []
+    pillars: list[CurvePillar] = []
+
+    for instr, schedule in priced:
+        start_date, maturity = schedule[0], schedule[-1]
         tau = year_fraction(valuation_date, maturity, basis)
 
         if tau <= 0:
@@ -121,12 +137,25 @@ def bootstrap(
                 f"Non-positive year fraction for tenor {instr.tenor}: "
                 f"maturity={maturity}, valuation={valuation_date}"
             )
+        if ts and tau <= ts[-1]:
+            raise ValueError(
+                f"Tenor {instr.tenor} matures on {maturity}, not after the previous "
+                f"pillar ({pillars[-1].tenor}, {pillars[-1].maturity_date})"
+            )
 
-        if instr.instrument_type == InstrumentType.DEPOSIT:
-            df, zr = _bootstrap_deposit(instr.market_rate, tau)
-        else:
-            df, zr = _bootstrap_ois_swap(instr.market_rate, tau)
+        times = [
+            year_fraction(valuation_date, d, basis) if d > valuation_date else 0.0
+            for d in schedule
+        ]
+        accruals = [
+            year_fraction(schedule[i - 1], schedule[i], basis)
+            for i in range(1, len(schedule))
+        ]
+        zr = _solve_pillar(instr.market_rate, times, accruals, ts, dfs)
+        df = math.exp(-zr * tau)
 
+        ts.append(tau)
+        dfs.append(df)
         pillars.append(CurvePillar(
             instrument      = instr.instrument_type.value,
             tenor           = instr.tenor,
@@ -137,54 +166,84 @@ def bootstrap(
             discount_factor = df,
         ))
 
-    return sorted(pillars, key=lambda p: p.maturity_date)
+    return pillars
 
 
 # ---------------------------------------------------------------------------
 # Instrument calibration
 # ---------------------------------------------------------------------------
 
-def _bootstrap_deposit(rate: float, tau: float) -> tuple[float, float]:
+def _solve_pillar(
+    rate:     float,
+    times:    list[float],
+    accruals: list[float],
+    ts:       list[float],
+    dfs:      list[float],
+) -> float:
     """
-    Bootstrap a deposit.
-    Simple compounding: P = 1 / (1 + r * tau)
-    Continuous zero:    r_zero = log(1 + r * tau) / tau
+    Solve the zero rate of the pillar at times[-1] so the instrument prices to par.
+
+    times    : [S, t_1, ..., T] as year fractions from valuation
+    accruals : tau_i for each coupon period (len(times) - 1)
+    ts, dfs  : pillars already solved (held fixed)
+
+    Residual (fixed leg vs floating leg, unit notional):
+        f(r) = P(S) - P(T) - K * sum_i tau_i * P(t_i)
+    where P is the flat-forward curve through the solved pillars plus
+    (T, exp(-r * T)). f is increasing in r.
     """
-    df = 1.0 / (1.0 + rate * tau)
-    zr = math.log(1.0 + rate * tau) / tau
-    return df, zr
-
-
-def _bootstrap_ois_swap(rate: float, tau: float) -> tuple[float, float]:
-    """
-    Bootstrap a single-period OIS swap using Newton-Raphson.
-
-    NPV(r) = (1 - exp(-r*tau)) - rate * tau * exp(-r*tau) = 0
-    => P = 1 / (1 + rate * tau)  [same as deposit for single-period]
-
-    NR is used for generality (multi-period extension).
-    """
-    K = rate
+    K, T = rate, times[-1]
+    xs = [0.0] + ts + [T]
 
     def npv(r: float) -> float:
-        p = math.exp(-r * tau)
-        return (1.0 - p) - K * tau * p
+        interp = FlatForwardInterpolator(xs, [1.0] + dfs + [math.exp(-r * T)])
 
-    def dnpv(r: float) -> float:
-        p = math.exp(-r * tau)
-        return tau * p * (1.0 + K * tau)
+        def p(t: float) -> float:
+            return 1.0 if t <= 0.0 else float(interp(t))
 
-    # Initial guess: simple rate approximation
-    r0 = math.log(1.0 + K * tau) / tau
+        fixed = K * sum(a * p(t) for a, t in zip(accruals, times[1:]))
+        return p(times[0]) - p(T) - fixed
 
-    try:
-        zr = newton_raphson(npv, dnpv, x0=r0, tol=1e-12)
-    except (ZeroDivisionError, RuntimeError):
-        # Fallback to Brent with generous bracket
-        zr = brent(npv, a=max(r0 - 0.05, -0.10), b=r0 + 0.05, tol=1e-12)
+    # Initial guess: single-period simple rate over the whole life
+    r0 = math.log(1.0 + K * T) / T if K * T > -1.0 else K
+    lo, hi = r0 - 0.01, r0 + 0.01
+    while npv(lo) > 0.0:
+        lo -= 0.05
+        if lo < -1.0:
+            raise RuntimeError(f"Could not bracket zero rate for quote {K} at T={T}")
+    while npv(hi) < 0.0:
+        hi += 0.05
+        if hi > 2.0:
+            raise RuntimeError(f"Could not bracket zero rate for quote {K} at T={T}")
 
-    df = math.exp(-zr * tau)
-    return df, zr
+    return brent(npv, a=lo, b=hi, tol=1e-15)
+
+
+def _fixed_leg_schedule(
+    start:          date,
+    unadjusted_end: date,
+    calendar:       BaseCalendar,
+) -> list[date]:
+    """
+    Annual fixed-leg accrual dates [S, t_1, ..., T] for an OIS swap.
+
+    Generated backward from the unadjusted end date in 12M steps, so a
+    broken tenor (e.g. 18M) gets a short front stub. Dates are adjusted
+    Modified Following; the start date is already a business day.
+    """
+    unadjusted = [unadjusted_end]
+    k = 1
+    while True:
+        d = unadjusted_end - relativedelta(years=k)
+        if d <= start:
+            break
+        unadjusted.append(d)
+        k += 1
+    rolled = [
+        adjust(d, BusinessDayConvention.MODIFIED_FOLLOWING, calendar)
+        for d in reversed(unadjusted)
+    ]
+    return [start] + rolled
 
 
 # ---------------------------------------------------------------------------
